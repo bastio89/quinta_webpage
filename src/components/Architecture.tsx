@@ -13,7 +13,7 @@ const FLOW = [
     name: "Daemon",
     pkg: "quinta-daemon",
     role: "Inference-Runtime",
-    text: "Node-Agent mit direktem GPU-Zugriff: steuert den Modell-Lifecycle (Pull, Start, Health-Check) über Ollama- oder vLLM-Backends und registriert sich automatisch beim Gateway.",
+    text: "Node-Agent mit direktem GPU-Zugriff: steuert den Modell-Lifecycle (Pull, Start, Health-Check) über austauschbare Inferenz-Backends und registriert sich automatisch beim Gateway.",
   },
 ];
 
@@ -86,7 +86,7 @@ export function Architecture() {
             <ArrowDown className="mx-auto h-5 w-5 shrink-0 text-mist-500 lg:hidden" />
             <div className="flex-1 rounded-xl border border-gold-300 bg-gold-50 px-5 py-5 text-center shadow-card">
               <p className="text-sm font-semibold text-ink-950">KI-Modell</p>
-              <p className="font-mono text-[11px] text-gold-700">Ollama / vLLM</p>
+              <p className="font-mono text-[11px] text-gold-700">Lokale Inferenz-Runtime</p>
             </div>
           </div>
 

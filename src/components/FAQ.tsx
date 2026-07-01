@@ -10,7 +10,7 @@ const QUESTIONS = [
   },
   {
     q: "Können wir GPT-4, Claude oder andere Cloud-Modelle über Quinta laufen lassen?",
-    a: "Noch nicht. Quinta betreibt Modelle auf Ihrer eigenen Hardware (über Ollama oder vLLM). Eine Anbindung externer Cloud-Anbieter als zusätzliche Option steht auf der Roadmap.",
+    a: "Noch nicht. Quinta betreibt Modelle auf Ihrer eigenen Hardware über austauschbare, lokale Inferenz-Engines. Eine Anbindung externer Cloud-Anbieter als zusätzliche Option steht auf der Roadmap.",
   },
   {
     q: "Was bedeutet „OpenAI-kompatibel“ genau?",
@@ -58,7 +58,7 @@ function FaqItem({ q, a }: { q: string; a: string }) {
 }
 
 const OBJECTIONS = [
-  { blocker: "„Das geht nicht, wegen der DSGVO.“", answer: "Läuft vollständig on-premise, DSGVO-konform von Grund auf." },
+  { blocker: "„Das geht nicht, wegen der DSGVO.“", answer: "Läuft vollständig on-premise, DSGVO- und DSG-konform von Grund auf." },
   { blocker: "„Zu teuer.“", answer: "Planbare Hardware- und Lizenzkosten statt wachsender Cloud-Rechnung pro Token." },
   { blocker: "„Unsere Daten landen alle in den USA.“", answer: "Ihre Daten verlassen Ihr Netzwerk nie." },
   { blocker: "„Die Tokens sprengen jedes Budget.“", answer: "Keine Tokenabrechnung — feste Kosten, volle Kontrolle." },

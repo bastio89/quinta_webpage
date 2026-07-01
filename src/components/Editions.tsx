@@ -13,7 +13,7 @@ const GROUPS: { label: string; rows: { feature: string; cells: [Cell, Cell] }[] 
     label: "Infrastruktur",
     rows: [
       { feature: "Quinta Gateway & Daemon", cells: [true, true] },
-      { feature: "Ollama- und vLLM-Backend", cells: [true, true] },
+      { feature: "Austauschbare Inferenz-Backends", cells: [true, true] },
       { feature: "OpenAI-kompatible API", cells: [true, true] },
       { feature: "Anzahl Rechenknoten", cells: ["Mehrere", "Unbegrenzt"] },
       { feature: "Multi-Standort-Deployment", cells: [false, true] },

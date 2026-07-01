@@ -65,9 +65,10 @@ export default function DatenschutzPage() {
               </p>
               <p className="mt-2">
                 Das externe Hosting erfolgt zum Zwecke der Vertragserfüllung gegenüber unseren
-                potenziellen und bestehenden Kunden (Art. 6 Abs. 1 lit. b DSGVO) und im Interesse
-                einer sicheren, schnellen und effizienten Bereitstellung unseres Online-Angebots
-                durch einen professionellen Anbieter (Art. 6 Abs. 1 lit. f DSGVO).
+                potenziellen und bestehenden Kunden (Art. 6 Abs. 1 lit. b DSGVO; Art. 31 DSG) und im
+                Interesse einer sicheren, schnellen und effizienten Bereitstellung unseres
+                Online-Angebots durch einen professionellen Anbieter (Art. 6 Abs. 1 lit. f DSGVO;
+                Art. 31 Abs. 1 DSG).
               </p>
             </div>
 
@@ -79,7 +80,9 @@ export default function DatenschutzPage() {
               <p className="mt-2">
                 Die Betreiber dieser Seiten nehmen den Schutz Ihrer persönlichen Daten sehr ernst.
                 Wir behandeln Ihre personenbezogenen Daten vertraulich und entsprechend den
-                gesetzlichen Datenschutzvorschriften sowie dieser Datenschutzerklärung.
+                gesetzlichen Datenschutzvorschriften — insbesondere der EU-Datenschutz-Grundverordnung
+                (DSGVO) sowie dem Schweizer Bundesgesetz über den Datenschutz (DSG) — sowie dieser
+                Datenschutzerklärung.
               </p>
               <p className="mt-2">
                 Wir weisen darauf hin, dass die Datenübertragung im Internet (z. B. bei der
@@ -120,8 +123,10 @@ export default function DatenschutzPage() {
                 Beschwerderecht bei der zuständigen Aufsichtsbehörde
               </h3>
               <p className="mt-2">
-                Im Falle von Verstössen gegen die DSGVO steht den Betroffenen ein Beschwerderecht
-                bei einer Aufsichtsbehörde zu, insbesondere in dem Mitgliedstaat ihres gewöhnlichen
+                Im Falle von Verstössen gegen die DSGVO oder das Schweizer Datenschutzgesetz (DSG)
+                steht den Betroffenen ein Beschwerderecht bei der zuständigen Aufsichtsbehörde zu —
+                in der Schweiz beim Eidgenössischen Datenschutz- und Öffentlichkeitsbeauftragten
+                (EDÖB), innerhalb der EU insbesondere in dem Mitgliedstaat ihres gewöhnlichen
                 Aufenthalts, ihres Arbeitsplatzes oder des Orts des mutmasslichen Verstosses.
               </p>
               <h3 className="mt-4 text-base font-semibold text-ink-900">Recht auf Datenübertragbarkeit</h3>
@@ -144,7 +149,7 @@ export default function DatenschutzPage() {
                 gespeicherten personenbezogenen Daten bestreiten, die Verarbeitung unrechtmässig
                 geschah/geschieht, wir Ihre Daten nicht mehr benötigen, Sie sie jedoch zur Ausübung
                 von Rechtsansprüchen benötigen, oder wenn Sie einen Widerspruch nach Art. 21 Abs. 1
-                DSGVO eingelegt haben.
+                DSGVO bzw. den entsprechenden Bestimmungen des Schweizer DSG eingelegt haben.
               </p>
             </div>
 
@@ -158,9 +163,9 @@ export default function DatenschutzPage() {
                 wir nicht ohne Ihre Einwilligung weiter.
               </p>
               <p className="mt-2">
-                Die Verarbeitung dieser Daten erfolgt auf Grundlage von Art. 6 Abs. 1 lit. b DSGVO,
-                sofern Ihre Anfrage mit der Erfüllung eines Vertrags zusammenhängt oder zur
-                Durchführung vorvertraglicher Massnahmen erforderlich ist.
+                Die Verarbeitung dieser Daten erfolgt auf Grundlage von Art. 6 Abs. 1 lit. b DSGVO
+                sowie Art. 31 DSG, sofern Ihre Anfrage mit der Erfüllung eines Vertrags
+                zusammenhängt oder zur Durchführung vorvertraglicher Massnahmen erforderlich ist.
               </p>
               <h3 className="mt-4 text-base font-semibold text-ink-900">Anfrage per E-Mail oder Telefon</h3>
               <p className="mt-2">

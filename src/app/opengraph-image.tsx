@@ -71,7 +71,7 @@ export default function OpengraphImage() {
         <div style={{ display: "flex", gap: 28, fontSize: 20, color: "#C6D2DA" }}>
           <div style={{ display: "flex" }}>Souverän</div>
           <div style={{ display: "flex" }}>·</div>
-          <div style={{ display: "flex" }}>DSGVO-konform</div>
+          <div style={{ display: "flex" }}>DSGVO- &amp; DSG-konform</div>
           <div style={{ display: "flex" }}>·</div>
           <div style={{ display: "flex" }}>Made in Austria</div>
         </div>

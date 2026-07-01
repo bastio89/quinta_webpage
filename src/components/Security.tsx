@@ -28,7 +28,7 @@ const PILLARS = [
   },
   {
     icon: FileLock2,
-    title: "DSGVO von Grund auf",
+    title: "DSGVO & DSG von Grund auf",
     text: "Keine Datenweitergabe an Dritte, kein Training fremder Modelle mit Ihren Daten.",
   },
   {
@@ -93,7 +93,7 @@ export function Security() {
             Enterprise-tauglich, weil es sein muss
           </h2>
           <p className="mt-4 text-balance text-lg leading-relaxed text-mist-700">
-            Bank- und Mandantengeheimnis, Betriebsgeheimnisse, DSGVO und EU AI Act — Quinta
+            Bank- und Mandantengeheimnis, Betriebsgeheimnisse, DSGVO, DSG und EU AI Act — Quinta
             ist für Daten und Anwendungsfälle gebaut, die eine lückenlos nachweisbare
             Governance verlangen.
           </p>

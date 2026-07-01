@@ -24,17 +24,16 @@ export const metadata: Metadata = {
     template: "%s · Quinta",
   },
   description:
-    "Quinta macht aus Ihrer eigenen Hardware eine private, OpenAI-kompatible KI-Zentrale. 100 % On-Premise, DSGVO-konform, mit offenem Kern. Ihre Daten bleiben zu Hause.",
+    "Quinta macht aus Ihrer eigenen Hardware eine private, OpenAI-kompatible KI-Zentrale. 100 % On-Premise, DSGVO- und DSG-konform, mit offenem Kern. Ihre Daten bleiben zu Hause.",
   keywords: [
     "souveräne KI",
     "on-premise LLM",
     "OpenAI-kompatibles Gateway",
     "private KI-Plattform",
     "DSGVO KI",
+    "DSG-konforme KI",
     "Quinta",
     "twenty5ai",
-    "vLLM",
-    "Ollama Gateway",
   ],
   authors: [{ name: "twenty5ai" }],
   openGraph: {

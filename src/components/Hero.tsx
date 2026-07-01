@@ -4,7 +4,7 @@ import { LogoMark } from "./LogoMark";
 const BADGES = [
   { icon: Server, label: "100 % On-Premise" },
   { icon: Lock, label: "OpenAI-kompatible API" },
-  { icon: ShieldCheck, label: "DSGVO-konform" },
+  { icon: ShieldCheck, label: "DSGVO- & DSG-konform" },
   { icon: Code2, label: "Apache-2.0-Kern" },
 ];
 
@@ -48,7 +48,7 @@ export function Hero() {
           >
             Quinta macht aus der Hardware in Ihrem Haus einen privaten KI-Dienst —
             wie OpenAI, nur dass <strong className="font-medium text-mist-100">kein einziges Byte
-            Ihr Unternehmen verlässt.</strong> OpenAI-kompatibel, DSGVO-konform, mit offenem Kern.
+            Ihr Unternehmen verlässt.</strong> OpenAI-kompatibel, DSGVO- und DSG-konform, mit offenem Kern.
           </p>
 
           <div
@@ -65,30 +65,8 @@ export function Hero() {
           </div>
 
           <div
-            className="mt-14 w-full max-w-xl"
-            style={{ animation: "fade-up 0.7s 0.24s cubic-bezier(0.16,1,0.3,1) both" }}
-          >
-            <div className="overflow-hidden rounded-xl border border-white/10 bg-black/40 text-left shadow-2xl shadow-black/40 backdrop-blur">
-              <div className="flex items-center gap-1.5 border-b border-white/10 px-4 py-2.5">
-                <span className="h-2.5 w-2.5 rounded-full bg-error/70" />
-                <span className="h-2.5 w-2.5 rounded-full bg-warn/70" />
-                <span className="h-2.5 w-2.5 rounded-full bg-ok/70" />
-                <span className="ml-3 font-mono text-xs text-mist-500">quinta-daemon · lokaler Rechner</span>
-              </div>
-              <div className="overflow-x-auto px-5 py-4 font-mono text-[13px] leading-relaxed sm:text-sm">
-                <p className="text-mist-500"># einmalig auf jedem Rechner mit GPU installieren</p>
-                <p className="text-mist-100">
-                  <span className="text-sovereign-300">$</span> curl -fsSL https://get.quinta.twenty5ai.com/install.sh | bash
-                </p>
-                <p className="mt-2 text-mist-500"># fertig — der Daemon meldet die Maschine automatisch an</p>
-                <p className="text-gold-300">✓ Node „workstation-01“ verbunden · Ollama erkannt · bereit</p>
-              </div>
-            </div>
-          </div>
-
-          <div
             className="mt-14 flex w-full flex-wrap items-center justify-center gap-x-8 gap-y-4 border-t border-white/10 pt-8"
-            style={{ animation: "fade-up 0.7s 0.3s cubic-bezier(0.16,1,0.3,1) both" }}
+            style={{ animation: "fade-up 0.7s 0.24s cubic-bezier(0.16,1,0.3,1) both" }}
           >
             {BADGES.map(({ icon: Icon, label }) => (
               <div key={label} className="flex items-center gap-2 text-sm text-mist-400">
