@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { Logo } from "./Logo";
-import { GithubIcon, LinkedinIcon } from "./icons";
+import { LinkedinIcon } from "./icons";
 
 const COLUMNS = [
   {
@@ -17,7 +17,6 @@ const COLUMNS = [
     links: [
       { label: "Über twenty5ai", href: "mailto:hello@twenty5ai.com" },
       { label: "Kontakt", href: "#kontakt" },
-      { label: "GitHub", href: "https://github.com/twenty5ai/quinta" },
     ],
   },
   {
@@ -41,13 +40,6 @@ export function Footer() {
               Die souveräne KI-Plattform von twenty5ai. Ihre Daten bleiben zu 100 % bei Ihnen.
             </p>
             <div className="mt-6 flex items-center gap-3">
-              <a
-                href="https://github.com/twenty5ai/quinta"
-                aria-label="GitHub"
-                className="rounded-lg border border-white/10 p-2 transition-colors hover:border-white/25 hover:text-mist-100"
-              >
-                <GithubIcon className="h-4 w-4" />
-              </a>
               <a
                 href="https://www.linkedin.com"
                 aria-label="LinkedIn"

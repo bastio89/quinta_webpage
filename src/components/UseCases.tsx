@@ -1,27 +1,32 @@
+import Image from "next/image";
 import { Scale, Landmark, Factory, Building } from "lucide-react";
 
 const USE_CASES = [
   {
     icon: Scale,
     title: "Kanzleien & Beratungen",
+    image: "/images/usecases/law.jpg",
     problem: "Mandantendaten dürfen keine Cloud-KI eines Drittanbieters durchlaufen.",
     solution: "Quinta bleibt vollständig im eigenen Netz — Mandantengeheimnis bleibt gewahrt.",
   },
   {
     icon: Landmark,
     title: "Banken & Versicherungen",
+    image: "/images/usecases/bank.jpg",
     problem: "Regulatorik verlangt nachvollziehbare, prüfbare KI-Nutzung.",
     solution: "Audit-Trail, RBAC und Instance-Admin schaffen die geforderte Governance.",
   },
   {
     icon: Factory,
     title: "Industrie & Mittelstand",
+    image: "/images/usecases/factory.jpg",
     problem: "Betriebsgeheimnisse und Konstruktionsdaten sollen nicht an US-Clouds fließen.",
     solution: "KI-Modelle laufen auf eigener Hardware, vom Einzelrechner bis zum GPU-Server.",
   },
   {
     icon: Building,
     title: "Behörden & öffentliche Hand",
+    image: "/images/usecases/government.jpg",
     problem: "Datenschutz und Souveränität stehen vor Feature-Wettrennen.",
     solution: "Selbst gehostet, offen einsehbarer Kern, volle Kontrolle über den Standort.",
   },
@@ -38,16 +43,26 @@ export function UseCases() {
           </h2>
         </div>
 
-        <div className="mx-auto mt-16 grid max-w-5xl gap-5 sm:grid-cols-2">
+        <div className="mx-auto mt-16 grid max-w-5xl gap-6 sm:grid-cols-2">
           {USE_CASES.map((uc) => (
-            <div key={uc.title} className="card-surface p-7">
-              <div className="flex items-center gap-3">
-                <div className="inline-flex rounded-lg bg-sovereign-50 p-2.5 text-sovereign-700">
-                  <uc.icon className="h-5 w-5" strokeWidth={1.75} />
+            <div key={uc.title} className="card-surface overflow-hidden p-0">
+              <div className="relative aspect-[16/9] w-full overflow-hidden bg-ink-900">
+                <Image
+                  src={uc.image}
+                  alt={uc.title}
+                  fill
+                  sizes="(min-width: 640px) 50vw, 100vw"
+                  className="object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-ink-950/70 via-ink-950/10 to-transparent" />
+                <div className="absolute bottom-4 left-4 inline-flex items-center gap-2.5 rounded-lg bg-mist-50/95 px-3 py-2 shadow-card backdrop-blur">
+                  <div className="inline-flex rounded-md bg-sovereign-50 p-1.5 text-sovereign-700">
+                    <uc.icon className="h-4 w-4" strokeWidth={1.75} />
+                  </div>
+                  <h3 className="text-sm font-semibold text-ink-950">{uc.title}</h3>
                 </div>
-                <h3 className="text-base font-semibold text-ink-950">{uc.title}</h3>
               </div>
-              <div className="mt-4 space-y-3 text-sm leading-relaxed">
+              <div className="space-y-3 p-7 text-sm leading-relaxed">
                 <p className="text-mist-700">
                   <span className="font-semibold text-error">Heute:</span> {uc.problem}
                 </p>

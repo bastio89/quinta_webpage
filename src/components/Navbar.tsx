@@ -1,9 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import { Menu, X, ArrowUpRight } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { Logo } from "./Logo";
-import { GithubIcon } from "./icons";
 import { cn } from "@/lib/cn";
 
 const NAV_LINKS = [
@@ -37,18 +36,8 @@ export function Navbar() {
         </nav>
 
         <div className="hidden items-center gap-3 lg:flex">
-          <a href="#kontakt" className="btn btn-ghost">
+          <a href="#kontakt" className="btn btn-primary">
             Demo anfragen
-          </a>
-          <a
-            href="https://github.com/twenty5ai/quinta"
-            className="btn btn-primary"
-            target="_blank"
-            rel="noreferrer"
-          >
-            <GithubIcon className="h-4 w-4" />
-            Auf GitHub ansehen
-            <ArrowUpRight className="h-4 w-4" strokeWidth={2.25} />
           </a>
         </div>
 
@@ -78,11 +67,8 @@ export function Navbar() {
             ))}
           </nav>
           <div className={cn("mt-5 flex flex-col gap-2.5")}>
-            <a href="#kontakt" className="btn btn-ghost w-full" onClick={() => setOpen(false)}>
+            <a href="#kontakt" className="btn btn-primary w-full" onClick={() => setOpen(false)}>
               Demo anfragen
-            </a>
-            <a href="https://github.com/twenty5ai/quinta" className="btn btn-primary w-full">
-              Auf GitHub ansehen
             </a>
           </div>
         </div>

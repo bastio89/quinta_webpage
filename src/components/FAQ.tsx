@@ -57,6 +57,13 @@ function FaqItem({ q, a }: { q: string; a: string }) {
   );
 }
 
+const OBJECTIONS = [
+  { blocker: "„Das geht nicht, wegen der DSGVO.“", answer: "Läuft vollständig on-premise, DSGVO-konform von Grund auf." },
+  { blocker: "„Zu teuer.“", answer: "Planbare Hardware- und Lizenzkosten statt wachsender Cloud-Rechnung pro Token." },
+  { blocker: "„Unsere Daten landen alle in den USA.“", answer: "Ihre Daten verlassen Ihr Netzwerk nie." },
+  { blocker: "„Die Tokens sprengen jedes Budget.“", answer: "Keine Tokenabrechnung — feste Kosten, volle Kontrolle." },
+];
+
 export function FAQ() {
   return (
     <section id="faq" className="bg-mist-50 py-24 sm:py-32">
@@ -69,6 +76,44 @@ export function FAQ() {
         </div>
 
         <div className="mx-auto mt-14 max-w-3xl">
+          <div className="card-surface p-7">
+            <p className="kicker text-sovereign-600">Worum es wirklich geht</p>
+            <p className="mt-3 text-sm leading-relaxed text-ink-800">
+              Cloud-KI heißt mieten: Sie zahlen laufend pro Anfrage, und Ihre Daten durchlaufen
+              fremde Server. On-Premise heißt besitzen: Die Hardware steht bei Ihnen, läuft unter
+              Ihrer Kontrolle, und{" "}
+              <strong className="font-semibold text-ink-950">niemand kann Ihnen den Zugang kappen</strong>{" "}
+              oder über Nacht die Preise ändern.
+            </p>
+          </div>
+
+          <div className="mt-6 grid gap-x-8 gap-y-4 border-t border-mist-300 pt-8 sm:grid-cols-2">
+            <div>
+              <p className="text-base font-semibold text-ink-950">Vier Sätze bremsen Ihr Team jeden Tag aus:</p>
+              <ul className="mt-4 space-y-3">
+                {OBJECTIONS.map((o) => (
+                  <li key={o.blocker} className="flex items-start gap-2 text-sm text-mist-500">
+                    <span className="mt-0.5 text-mist-400">×</span>
+                    <span className="italic line-through decoration-mist-400">{o.blocker}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div>
+              <p className="text-base font-semibold text-ink-950">Wir räumen alle vier weg.</p>
+              <ul className="mt-4 space-y-3">
+                {OBJECTIONS.map((o) => (
+                  <li key={o.answer} className="flex items-start gap-2 text-sm font-medium text-ink-800">
+                    <span className="mt-0.5 text-sovereign-600">→</span>
+                    <span>{o.answer}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div className="mx-auto mt-10 max-w-3xl">
           {QUESTIONS.map((item) => (
             <FaqItem key={item.q} q={item.q} a={item.a} />
           ))}
