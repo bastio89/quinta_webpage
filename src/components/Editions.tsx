@@ -4,50 +4,49 @@ import { cn } from "@/lib/cn";
 type Cell = true | false | string;
 
 const TIERS = [
-  { key: "community", name: "Open Core", price: "Kostenlos", period: "selbst gehostet, für immer", highlight: false },
   { key: "business", name: "Business", price: "Auf Anfrage", period: "Lizenz je Standort/Instanz", highlight: true },
   { key: "enterprise", name: "Enterprise", price: "Individuell", period: "Custom-Vertrag & SLA", highlight: false },
 ] as const;
 
-const GROUPS: { label: string; rows: { feature: string; cells: [Cell, Cell, Cell] }[] }[] = [
+const GROUPS: { label: string; rows: { feature: string; cells: [Cell, Cell] }[] }[] = [
   {
     label: "Infrastruktur",
     rows: [
-      { feature: "Quinta Gateway & Daemon", cells: [true, true, true] },
-      { feature: "Ollama- und vLLM-Backend", cells: [true, true, true] },
-      { feature: "OpenAI-kompatible API", cells: [true, true, true] },
-      { feature: "Anzahl Rechenknoten", cells: ["1", "Mehrere", "Unbegrenzt"] },
-      { feature: "Multi-Standort-Deployment", cells: [false, false, true] },
+      { feature: "Quinta Gateway & Daemon", cells: [true, true] },
+      { feature: "Ollama- und vLLM-Backend", cells: [true, true] },
+      { feature: "OpenAI-kompatible API", cells: [true, true] },
+      { feature: "Anzahl Rechenknoten", cells: ["Mehrere", "Unbegrenzt"] },
+      { feature: "Multi-Standort-Deployment", cells: [false, true] },
     ],
   },
   {
     label: "Zugriff & Nutzer",
     rows: [
-      { feature: "Organisationen", cells: ["1", "Unbegrenzt", "Unbegrenzt"] },
-      { feature: "API-Keys & Scopes", cells: [true, true, true] },
-      { feature: "Rollen (RBAC)", cells: [false, true, true] },
-      { feature: "Kommerzielle Nutzung", cells: [true, true, true] },
+      { feature: "Organisationen", cells: ["Unbegrenzt", "Unbegrenzt"] },
+      { feature: "API-Keys & Scopes", cells: [true, true] },
+      { feature: "Rollen (RBAC)", cells: [true, true] },
+      { feature: "Kommerzielle Nutzung", cells: [true, true] },
     ],
   },
   {
     label: "Verwaltung",
     rows: [
-      { feature: "Modell-Management", cells: ["Basis", true, true] },
-      { feature: "Usage-Analytics & Metrics", cells: [false, true, true] },
-      { feature: "Instance-Admin & Einladungen", cells: [false, true, true] },
-      { feature: "SSO / SAML", cells: [false, false, true] },
-      { feature: "2FA & Passkeys", cells: [false, false, true] },
-      { feature: "Audit-Trail", cells: [false, false, true] },
-      { feature: "Fine-Tuning-UI & MCP", cells: [false, false, true] },
+      { feature: "Modell-Management", cells: [true, true] },
+      { feature: "Usage-Analytics & Metrics", cells: [true, true] },
+      { feature: "Instance-Admin & Einladungen", cells: [true, true] },
+      { feature: "SSO / SAML", cells: [false, true] },
+      { feature: "2FA & Passkeys", cells: [false, true] },
+      { feature: "Audit-Trail", cells: [false, true] },
+      { feature: "Fine-Tuning-UI & MCP", cells: [false, true] },
     ],
   },
   {
     label: "Support",
     rows: [
-      { feature: "Support-Kanal", cells: ["Community", "E-Mail", "Slack / Teams"] },
-      { feature: "Reaktionszeit", cells: [false, "24 h", "Custom"] },
-      { feature: "Fester Ansprechpartner", cells: [false, false, true] },
-      { feature: "Jährlicher Vor-Ort-Check", cells: [false, false, true] },
+      { feature: "Support-Kanal", cells: ["E-Mail", "Slack / Teams"] },
+      { feature: "Reaktionszeit", cells: ["24 h", "Custom"] },
+      { feature: "Fester Ansprechpartner", cells: [false, true] },
+      { feature: "Jährlicher Vor-Ort-Check", cells: [false, true] },
     ],
   },
 ];
@@ -65,24 +64,24 @@ export function Editions() {
         <div className="mx-auto max-w-2xl text-center">
           <p className="kicker text-sovereign-600">Editionen &amp; Funktionen</p>
           <h2 className="mt-4 text-balance text-3xl font-semibold tracking-[-0.02em] text-ink-950 sm:text-4xl">
-            Vom offenen Kern bis zur Enterprise-Installation
+            Business und Enterprise — für den produktiven Einsatz
           </h2>
           <p className="mt-4 text-balance text-lg leading-relaxed text-mist-700">
-            Der Motor ist immer offen (Apache 2.0). Das Dashboard wächst mit Ihren
-            Anforderungen — von der Einzelinstallation bis zur konzernweiten Governance.
+            Beide Editionen laufen vollständig auf Ihrer eigenen Infrastruktur. Der
+            Unterschied liegt in Skalierung, Governance und Supportumfang.
           </p>
         </div>
 
-        <div className="mx-auto mt-16 max-w-5xl overflow-x-auto rounded-2xl border border-mist-300 bg-mist-50 shadow-card">
-          <table className="w-full min-w-[720px] border-collapse text-left">
+        <div className="mx-auto mt-16 max-w-3xl overflow-x-auto rounded-2xl border border-mist-300 bg-mist-50 shadow-card">
+          <table className="w-full min-w-[560px] border-collapse text-left">
             <thead>
               <tr>
-                <th className="w-1/4 border-b border-mist-300 px-6 pb-6 pt-6 align-bottom" />
+                <th className="w-1/3 border-b border-mist-300 px-6 pb-6 pt-6 align-bottom" />
                 {TIERS.map((tier) => (
                   <th
                     key={tier.key}
                     className={cn(
-                      "relative w-1/4 border-b border-mist-300 px-6 pb-6 align-bottom",
+                      "relative w-1/3 border-b border-mist-300 px-6 pb-6 align-bottom",
                       tier.highlight ? "bg-sovereign-50 pt-10" : "pt-6",
                     )}
                   >
@@ -103,7 +102,7 @@ export function Editions() {
                 <>
                   <tr key={group.label} className="bg-mist-100">
                     <td
-                      colSpan={4}
+                      colSpan={3}
                       className="px-6 py-2.5 font-mono text-[11px] font-semibold uppercase tracking-wide text-sovereign-700"
                     >
                       {group.label}

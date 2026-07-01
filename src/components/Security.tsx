@@ -1,4 +1,4 @@
-import { KeyRound, FingerprintPattern, ShieldCheck, Building2, MapPinned, FileLock2 } from "lucide-react";
+import { KeyRound, FingerprintPattern, ShieldCheck, Building2, MapPinned, FileLock2, Gavel } from "lucide-react";
 
 const LOGIN_METHODS = [
   { icon: KeyRound, title: "Passwort", text: "Der Standard-Login-Weg." },
@@ -23,6 +23,11 @@ const PILLARS = [
     title: "Rollen & Rechte",
     text: "Feingranulares RBAC serverseitig und clientseitig durchgesetzt — nicht nur in der Oberfläche versteckt.",
   },
+  {
+    icon: Gavel,
+    title: "EU AI Act-tauglich",
+    text: "Lückenloser Audit-Trail, nachvollziehbare Modell-Deployments und menschliche Kontrolle erfüllen die Dokumentations- und Transparenzpflichten für Hochrisiko-KI-Systeme — dort, wo viele Cloud-Anbieter mangels Einsicht in ihre eigene Infrastruktur an Grenzen stossen.",
+  },
 ];
 
 export function Security() {
@@ -35,12 +40,13 @@ export function Security() {
             Enterprise-tauglich, weil es sein muss
           </h2>
           <p className="mt-4 text-balance text-lg leading-relaxed text-mist-700">
-            Bank- und Mandantengeheimnis, Betriebsgeheimnisse, DSGVO — Quinta ist für Daten
-            gebaut, die das Haus nicht verlassen dürfen.
+            Bank- und Mandantengeheimnis, Betriebsgeheimnisse, DSGVO und EU AI Act — Quinta
+            ist für Daten und Anwendungsfälle gebaut, die eine lückenlos nachweisbare
+            Governance verlangen.
           </p>
         </div>
 
-        <div className="mx-auto mt-16 grid max-w-5xl gap-5 sm:grid-cols-3">
+        <div className="mx-auto mt-16 grid max-w-5xl gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {PILLARS.map((p) => (
             <div key={p.title} className="card-surface p-6">
               <div className="inline-flex rounded-lg bg-sovereign-50 p-2.5 text-sovereign-700">
@@ -52,7 +58,31 @@ export function Security() {
           ))}
         </div>
 
-        <div className="mx-auto mt-14 max-w-5xl rounded-2xl border border-ink-800 bg-ink-950 p-8 text-mist-50 sm:p-10">
+        <div className="mx-auto mt-8 max-w-5xl rounded-2xl border border-gold-300 bg-gold-50 p-6 sm:p-8">
+          <div className="flex items-start gap-4">
+            <div className="inline-flex shrink-0 rounded-lg bg-gold-100 p-2.5 text-gold-700">
+              <Gavel className="h-5 w-5" strokeWidth={1.75} />
+            </div>
+            <div>
+              <h3 className="text-base font-semibold text-ink-950">
+                Der EU AI Act ist keine Kür mehr, sondern Pflicht
+              </h3>
+              <p className="mt-2 text-sm leading-relaxed text-ink-800">
+                Seit August 2024 gilt die EU-KI-Verordnung; die Pflichten für Hochrisiko- und
+                GPAI-Systeme greifen stufenweise bis 2027 — inklusive Risikomanagement,
+                Protokollierung, menschlicher Aufsicht und technischer Dokumentation. Viele
+                Cloud-KI-Anbieter können diese Nachweise mangels Einsicht in die eigene
+                Infrastruktur nicht lückenlos erbringen und schieben die Verantwortung
+                vertraglich an ihre Kunden weiter. Weil Quinta vollständig auf Ihrer eigenen
+                Hardware läuft, haben Sie selbst jederzeit Zugriff auf Audit-Trail,
+                Modell-Herkunft und Zugriffskontrollen — die Grundlage für eine rechtssichere
+                Dokumentation statt vager Zusicherungen.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div className="mx-auto mt-8 max-w-5xl rounded-2xl border border-ink-800 bg-ink-950 p-8 text-mist-50 sm:p-10">
           <h3 className="text-center text-lg font-semibold sm:text-left">
             Vier Login-Methoden, beliebig kombinierbar
           </h3>
