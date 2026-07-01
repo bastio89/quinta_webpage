@@ -52,8 +52,14 @@ export function Navbar() {
         </button>
       </div>
 
-      {open && (
-        <div className="border-t border-white/10 bg-ink-950 px-6 pb-6 pt-4 lg:hidden">
+      <div
+        className={cn(
+          "grid overflow-hidden border-t border-white/10 bg-ink-950 transition-[grid-template-rows,opacity] duration-[250ms] ease-in-out lg:hidden",
+          open ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0",
+        )}
+        inert={!open}
+      >
+        <div className="min-h-0 overflow-hidden px-6 pb-6 pt-4">
           <nav className="flex flex-col gap-4">
             {NAV_LINKS.map((link) => (
               <a
@@ -72,7 +78,7 @@ export function Navbar() {
             </a>
           </div>
         </div>
-      )}
+      </div>
     </header>
   );
 }

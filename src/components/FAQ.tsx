@@ -45,14 +45,20 @@ function FaqItem({ q, a }: { q: string; a: string }) {
       >
         <span className="text-base font-medium text-ink-950">{q}</span>
         <ChevronDown
-          className={`h-5 w-5 shrink-0 text-mist-600 transition-transform duration-200 ${open ? "rotate-180" : ""}`}
+          className={`h-5 w-5 shrink-0 text-mist-600 transition-transform duration-200 ease-out ${open ? "rotate-180" : ""}`}
         />
       </button>
-      {open && (
-        <p id={id} className="mt-3 max-w-2xl text-sm leading-relaxed text-mist-700">
-          {a}
-        </p>
-      )}
+      <div
+        className={`grid overflow-hidden transition-[grid-template-rows,opacity] duration-[250ms] ease-in-out ${
+          open ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"
+        }`}
+      >
+        <div className="min-h-0">
+          <p id={id} className="mt-3 max-w-2xl text-sm leading-relaxed text-mist-700">
+            {a}
+          </p>
+        </div>
+      </div>
     </div>
   );
 }
