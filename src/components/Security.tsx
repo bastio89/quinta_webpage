@@ -1,4 +1,17 @@
-import { KeyRound, FingerprintPattern, ShieldCheck, Building2, MapPinned, FileLock2, Gavel } from "lucide-react";
+import {
+  KeyRound,
+  FingerprintPattern,
+  ShieldCheck,
+  Building2,
+  MapPinned,
+  FileLock2,
+  Gavel,
+  AlertTriangle,
+  Scale,
+  ClipboardCheck,
+  Check,
+} from "lucide-react";
+import { AiActCountdown } from "./AiActCountdown";
 
 const LOGIN_METHODS = [
   { icon: KeyRound, title: "Passwort", text: "Der Standard-Login-Weg." },
@@ -30,6 +43,46 @@ const PILLARS = [
   },
 ];
 
+const AI_ACT_CARDS = [
+  {
+    icon: AlertTriangle,
+    kicker: "Compliance",
+    title: "Compliance-Krise",
+    text: "Der 2. August 2026 ist das Datum, das jeder CIO kennen sollte. Die Hochrisiko-Pflichten des EU AI Act greifen dann vollständig. Jetzt ist die Zeit, den eigenen KI-Stack darauf vorzubereiten.",
+    points: [
+      "Hochrisiko-KI-Systeme müssen bis 2. August 2026 konform sein",
+      "Bußgelder bis zu 15 Mio. € oder 3 % des weltweiten Jahresumsatzes",
+      "Ihr aktueller Cloud-KI-Stack erfüllt die Anforderungen oft nicht",
+      "Quinta unterstützt Compliance durch Architektur, nicht nur durch Papier",
+    ],
+  },
+  {
+    icon: Scale,
+    kicker: "Rechtslage",
+    title: "Rechtliche Lage",
+    text: "Besonders schützenswerte DSGVO-Daten sollen den EU-Rechtsraum nicht verlassen. US-Cloud-Anbieter unterliegen einer anderen Rechtsordnung — Ihre Daten bleiben dort nicht zwingend nur Ihre.",
+    points: [
+      "Daten verlassen die EU-Rechtshoheit nie",
+      "Kein Zugriffsrisiko durch den US CLOUD Act",
+      "Volle Kontrolle über Auftragsverarbeiter",
+      "Rechtshoheit bleibt bei Ihrer Organisation",
+    ],
+  },
+  {
+    icon: ClipboardCheck,
+    kicker: "Audit",
+    title: "Auditbereit?",
+    text: "Nur nachweisbar konforme KI-Infrastruktur besteht eine Prüfung. Wir helfen Ihnen, diesen Stand vor der Frist zu erreichen — nicht erst danach.",
+    points: [
+      "Lückenloser Audit-Trail zu jeder Inferenz-Anfrage",
+      "Modell-Herkunft und Versionsprotokollierung",
+      "Rollenbasierte Zugriffskontrolle fest eingebaut",
+      "Auditbereit ab dem ersten Tag",
+    ],
+  },
+];
+
+
 export function Security() {
   return (
     <section id="sicherheit" className="bg-mist-50 py-24 sm:py-32">
@@ -58,28 +111,48 @@ export function Security() {
           ))}
         </div>
 
-        <div className="mx-auto mt-8 max-w-5xl rounded-2xl border border-gold-300 bg-gold-50 p-6 sm:p-8">
-          <div className="flex items-start gap-4">
-            <div className="inline-flex shrink-0 rounded-lg bg-gold-100 p-2.5 text-gold-700">
-              <Gavel className="h-5 w-5" strokeWidth={1.75} />
-            </div>
-            <div>
-              <h3 className="text-base font-semibold text-ink-950">
-                Der EU AI Act ist keine Kür mehr, sondern Pflicht
-              </h3>
-              <p className="mt-2 text-sm leading-relaxed text-ink-800">
-                Seit August 2024 gilt die EU-KI-Verordnung; die Pflichten für Hochrisiko- und
-                GPAI-Systeme greifen stufenweise bis 2027 — inklusive Risikomanagement,
-                Protokollierung, menschlicher Aufsicht und technischer Dokumentation. Viele
-                Cloud-KI-Anbieter können diese Nachweise mangels Einsicht in die eigene
-                Infrastruktur nicht lückenlos erbringen und schieben die Verantwortung
-                vertraglich an ihre Kunden weiter. Weil Quinta vollständig auf Ihrer eigenen
-                Hardware läuft, haben Sie selbst jederzeit Zugriff auf Audit-Trail,
-                Modell-Herkunft und Zugriffskontrollen — die Grundlage für eine rechtssichere
-                Dokumentation statt vager Zusicherungen.
-              </p>
+        <div className="mx-auto mt-16 max-w-5xl">
+          <div className="text-center">
+            <h3 className="text-balance text-2xl font-semibold tracking-[-0.02em] text-ink-950 sm:text-3xl">
+              DSGVO- &amp; EU AI Act-konforme KI-Infrastruktur
+            </h3>
+            <div className="mt-8">
+              <AiActCountdown />
             </div>
           </div>
+
+          <div className="mt-10 grid gap-5 sm:grid-cols-3">
+            {AI_ACT_CARDS.map((c, i) => (
+              <div
+                key={c.title}
+                className={
+                  "card-surface p-6" +
+                  (i === 1 ? " border-sovereign-300 ring-1 ring-sovereign-200" : "")
+                }
+              >
+                <div className="inline-flex rounded-lg bg-sovereign-50 p-2.5 text-sovereign-700">
+                  <c.icon className="h-5 w-5" strokeWidth={1.75} />
+                </div>
+                <p className="mt-4 kicker text-sovereign-600">{c.kicker}</p>
+                <h4 className="mt-1 text-base font-semibold text-ink-950">{c.title}</h4>
+                <p className="mt-2 text-sm leading-relaxed text-mist-700">{c.text}</p>
+                <ul className="mt-5 space-y-2.5">
+                  {c.points.map((point) => (
+                    <li key={point} className="flex items-start gap-2 text-sm text-mist-700">
+                      <Check className="mt-0.5 h-4 w-4 shrink-0 text-sovereign-600" strokeWidth={2} />
+                      <span>{point}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+
+          <p className="mt-6 text-center text-xs leading-relaxed text-mist-500">
+            Weil Quinta vollständig auf Ihrer eigenen Hardware läuft, haben Sie selbst jederzeit
+            Zugriff auf Audit-Trail, Modell-Herkunft und Zugriffskontrollen — die Grundlage für
+            eine rechtssichere Dokumentation statt vager Zusicherungen von Drittanbietern.
+          </p>
         </div>
 
         <div className="mx-auto mt-8 max-w-5xl rounded-2xl border border-ink-800 bg-ink-950 p-8 text-mist-50 sm:p-10">
