@@ -3,6 +3,7 @@
         "bun": true,
         "git remote": true,
         "git ls-remote": true,
-        "git init": true
+        "git init": true,
+        "pkill": true
     }
 }
