@@ -77,17 +77,17 @@ export function Editions() {
           <table className="w-full min-w-[720px] border-collapse text-left">
             <thead>
               <tr>
-                <th className="w-1/4 border-b border-mist-300 p-6 align-bottom" />
+                <th className="w-1/4 border-b border-mist-300 px-6 pb-6 pt-6 align-bottom" />
                 {TIERS.map((tier) => (
                   <th
                     key={tier.key}
                     className={cn(
-                      "relative w-1/4 border-b border-mist-300 p-6 align-bottom",
-                      tier.highlight && "bg-sovereign-50",
+                      "relative w-1/4 border-b border-mist-300 px-6 pb-6 align-bottom",
+                      tier.highlight ? "bg-sovereign-50 pt-10" : "pt-6",
                     )}
                   >
                     {tier.highlight && (
-                      <span className="absolute -top-3 left-1/2 inline-flex -translate-x-1/2 items-center gap-1 rounded-full bg-sovereign-600 px-3 py-1 font-mono text-[10px] font-semibold uppercase tracking-wide text-mist-50">
+                      <span className="absolute left-1/2 top-3 inline-flex -translate-x-1/2 items-center gap-1 rounded-full bg-sovereign-600 px-3 py-1 font-mono text-[10px] font-semibold uppercase tracking-wide text-mist-50">
                         <BadgeCheck className="h-3 w-3" /> Empfohlen
                       </span>
                     )}
