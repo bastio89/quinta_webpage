@@ -9,16 +9,16 @@ export default function AgbPage() {
   return (
     <>
       <Navbar />
-      <main className="bg-mist-50 pb-24 pt-40">
+      <main className="bg-stone-50 pb-24 pt-40">
         <div className="container-quinta max-w-2xl">
           <h1 className="text-3xl font-semibold tracking-[-0.02em] text-ink-950">
             Allgemeine Geschäftsbedingungen (AGB)
           </h1>
-          <p className="mt-2 text-sm text-mist-600">
+          <p className="mt-2 text-sm text-ink-500">
             twenty5ai, Sebastian Oczachowski, Risistrasse 19, 5737 Menziken, Schweiz
           </p>
 
-          <div className="mt-10 space-y-8 text-sm leading-relaxed text-mist-700">
+          <div className="mt-10 space-y-8 text-sm leading-relaxed text-ink-700">
             <div>
               <h2 className="text-base font-semibold text-ink-950">1. Geltungsbereich</h2>
               <p className="mt-2">
@@ -170,7 +170,7 @@ export default function AgbPage() {
                 Beide Parteien verpflichten sich zur Einhaltung der anwendbaren
                 Datenschutzbestimmungen (insbesondere DSG und, soweit anwendbar, DSGVO). Nähere
                 Angaben zur Datenverarbeitung im Rahmen dieser Website finden sich in der{" "}
-                <Link href="/datenschutz" className="text-sovereign-700 underline underline-offset-2">
+                <Link href="/datenschutz" className="text-azul-700 underline underline-offset-2">
                   Datenschutzerklärung
                 </Link>
                 .
@@ -257,9 +257,9 @@ export default function AgbPage() {
               </p>
             </div>
 
-            <p className="text-xs text-mist-500">
+            <p className="text-xs text-ink-500">
               Stand: März 2026 ·{" "}
-              <Link href="/" className="text-sovereign-700 underline underline-offset-2">
+              <Link href="/" className="text-azul-700 underline underline-offset-2">
                 Zurück zur Startseite
               </Link>
             </p>

@@ -35,7 +35,7 @@ function FaqItem({ q, a }: { q: string; a: string }) {
   const id = useId();
 
   return (
-    <div className="border-b border-mist-300 py-5">
+    <div className="border-b border-stone-300 py-5">
       <button
         type="button"
         onClick={() => setOpen((v) => !v)}
@@ -45,7 +45,7 @@ function FaqItem({ q, a }: { q: string; a: string }) {
       >
         <span className="text-base font-medium text-ink-950">{q}</span>
         <ChevronDown
-          className={`h-5 w-5 shrink-0 text-mist-600 transition-transform duration-200 ease-out ${open ? "rotate-180" : ""}`}
+          className={`h-5 w-5 shrink-0 text-ink-500 transition-transform duration-200 ease-out ${open ? "rotate-180" : ""}`}
         />
       </button>
       <div
@@ -54,7 +54,7 @@ function FaqItem({ q, a }: { q: string; a: string }) {
         }`}
       >
         <div className="min-h-0">
-          <p id={id} className="mt-3 max-w-2xl text-sm leading-relaxed text-mist-700">
+          <p id={id} className="mt-3 max-w-2xl text-sm leading-relaxed text-ink-700">
             {a}
           </p>
         </div>
@@ -72,10 +72,10 @@ const OBJECTIONS = [
 
 export function FAQ() {
   return (
-    <section id="faq" className="bg-mist-50 py-24 sm:py-32">
+    <section id="faq" className="bg-stone-50 py-24 sm:py-32">
       <div className="container-quinta">
         <div className="mx-auto max-w-2xl text-center">
-          <p className="kicker text-sovereign-600">FAQ</p>
+          <p className="kicker text-azul-600">FAQ</p>
           <h2 className="mt-4 text-balance text-3xl font-semibold tracking-[-0.02em] text-ink-950 sm:text-4xl">
             Häufige Fragen
           </h2>
@@ -83,7 +83,7 @@ export function FAQ() {
 
         <div className="mx-auto mt-14 max-w-3xl">
           <div className="card-surface p-7">
-            <p className="kicker text-sovereign-600">Worum es wirklich geht</p>
+            <p className="kicker text-azul-600">Worum es wirklich geht</p>
             <p className="mt-3 text-sm leading-relaxed text-ink-800">
               Cloud-KI heißt mieten: Sie zahlen laufend pro Anfrage, und Ihre Daten durchlaufen
               fremde Server. On-Premise heißt besitzen: Die Hardware steht bei Ihnen, läuft unter
@@ -93,14 +93,14 @@ export function FAQ() {
             </p>
           </div>
 
-          <div className="mt-6 grid gap-x-8 gap-y-4 border-t border-mist-300 pt-8 sm:grid-cols-2">
+          <div className="mt-6 grid gap-x-8 gap-y-4 border-t border-stone-300 pt-8 sm:grid-cols-2">
             <div>
               <p className="text-base font-semibold text-ink-950">Vier Sätze bremsen Ihr Team jeden Tag aus:</p>
               <ul className="mt-4 space-y-3">
                 {OBJECTIONS.map((o) => (
-                  <li key={o.blocker} className="flex items-start gap-2 text-sm text-mist-500">
-                    <span className="mt-0.5 text-mist-400">×</span>
-                    <span className="italic line-through decoration-mist-400">{o.blocker}</span>
+                  <li key={o.blocker} className="flex items-start gap-2 text-sm text-ink-500">
+                    <span className="mt-0.5 text-ink-300">×</span>
+                    <span className="italic line-through decoration-ink-300">{o.blocker}</span>
                   </li>
                 ))}
               </ul>
@@ -110,7 +110,7 @@ export function FAQ() {
               <ul className="mt-4 space-y-3">
                 {OBJECTIONS.map((o) => (
                   <li key={o.answer} className="flex items-start gap-2 text-sm font-medium text-ink-800">
-                    <span className="mt-0.5 text-sovereign-600">→</span>
+                    <span className="mt-0.5 text-azul-600">→</span>
                     <span>{o.answer}</span>
                   </li>
                 ))}

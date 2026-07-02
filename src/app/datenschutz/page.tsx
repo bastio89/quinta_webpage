@@ -9,12 +9,12 @@ export default function DatenschutzPage() {
   return (
     <>
       <Navbar />
-      <main className="bg-mist-50 pb-24 pt-40">
+      <main className="bg-stone-50 pb-24 pt-40">
         <div className="container-quinta max-w-2xl">
           <h1 className="text-3xl font-semibold tracking-[-0.02em] text-ink-950">Datenschutzerklärung</h1>
-          <p className="mt-2 text-sm text-mist-600">Informationen zur Verarbeitung Ihrer Daten</p>
+          <p className="mt-2 text-sm text-ink-500">Informationen zur Verarbeitung Ihrer Daten</p>
 
-          <div className="mt-10 space-y-10 text-sm leading-relaxed text-mist-700">
+          <div className="mt-10 space-y-10 text-sm leading-relaxed text-ink-700">
             <div>
               <h2 className="text-lg font-semibold text-ink-950">1. Datenschutz auf einen Blick</h2>
               <h3 className="mt-4 text-base font-semibold text-ink-900">Allgemeine Hinweise</h3>
@@ -102,7 +102,7 @@ export default function DatenschutzPage() {
                 5737 Menziken, Schweiz
                 <br />
                 E-Mail:{" "}
-                <a href="mailto:hello@twenty5ai.com" className="text-sovereign-700 underline underline-offset-2">
+                <a href="mailto:hello@twenty5ai.com" className="text-azul-700 underline underline-offset-2">
                   hello@twenty5ai.com
                 </a>
               </p>
@@ -189,7 +189,7 @@ export default function DatenschutzPage() {
                 Daten gemäss der{" "}
                 <a
                   href="https://www.linkedin.com/legal/privacy-policy"
-                  className="text-sovereign-700 underline underline-offset-2"
+                  className="text-azul-700 underline underline-offset-2"
                   target="_blank"
                   rel="noreferrer"
                 >
@@ -215,9 +215,9 @@ export default function DatenschutzPage() {
               </p>
             </div>
 
-            <p className="text-xs text-mist-500">
+            <p className="text-xs text-ink-500">
               Stand: März 2026 ·{" "}
-              <Link href="/" className="text-sovereign-700 underline underline-offset-2">
+              <Link href="/" className="text-azul-700 underline underline-offset-2">
                 Zurück zur Startseite
               </Link>
             </p>

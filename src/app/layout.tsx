@@ -1,16 +1,25 @@
 import type { Metadata } from "next";
-import { Inter, JetBrains_Mono } from "next/font/google";
+import { Archivo, Newsreader, IBM_Plex_Mono } from "next/font/google";
 import "./globals.css";
 
-const inter = Inter({
+const archivo = Archivo({
   subsets: ["latin"],
-  variable: "--font-inter",
+  variable: "--font-archivo",
   display: "swap",
+  weight: ["400", "500", "600", "700"],
 });
 
-const jetbrainsMono = JetBrains_Mono({
+const newsreader = Newsreader({
   subsets: ["latin"],
-  variable: "--font-jetbrains-mono",
+  variable: "--font-newsreader",
+  display: "swap",
+  style: ["italic"],
+  weight: ["400", "500"],
+});
+
+const plexMono = IBM_Plex_Mono({
+  subsets: ["latin"],
+  variable: "--font-plex-mono",
   display: "swap",
   weight: ["400", "500", "600"],
 });
@@ -59,8 +68,8 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="de" className={`${inter.variable} ${jetbrainsMono.variable}`}>
-      <body className="min-h-dvh bg-mist-50 font-sans text-ink-900 antialiased">{children}</body>
+    <html lang="de" className={`${archivo.variable} ${newsreader.variable} ${plexMono.variable}`}>
+      <body className="min-h-dvh bg-stone-50 font-sans text-ink-700 antialiased">{children}</body>
     </html>
   );
 }

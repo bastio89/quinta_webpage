@@ -9,14 +9,14 @@ export default function ImpressumPage() {
   return (
     <>
       <Navbar />
-      <main className="bg-mist-50 pb-24 pt-40">
+      <main className="bg-stone-50 pb-24 pt-40">
         <div className="container-quinta max-w-2xl">
           <h1 className="text-3xl font-semibold tracking-[-0.02em] text-ink-950">Impressum</h1>
-          <p className="mt-2 text-sm text-mist-600">
+          <p className="mt-2 text-sm text-ink-500">
             Angaben gemäss schweizerischem Obligationenrecht (OR) und § 5 TMG
           </p>
 
-          <div className="mt-10 space-y-8 text-sm leading-relaxed text-mist-700">
+          <div className="mt-10 space-y-8 text-sm leading-relaxed text-ink-700">
             <div>
               <h2 className="text-base font-semibold text-ink-950">Anbieter</h2>
               <p className="mt-2">
@@ -36,19 +36,19 @@ export default function ImpressumPage() {
               <h2 className="text-base font-semibold text-ink-950">Kontakt</h2>
               <p className="mt-2">
                 Telefon:{" "}
-                <a href="tel:+41762035747" className="text-sovereign-700 underline underline-offset-2">
+                <a href="tel:+41762035747" className="text-azul-700 underline underline-offset-2">
                   +41 76 203 57 47
                 </a>
                 <br />
                 E-Mail:{" "}
-                <a href="mailto:hello@twenty5ai.com" className="text-sovereign-700 underline underline-offset-2">
+                <a href="mailto:hello@twenty5ai.com" className="text-azul-700 underline underline-offset-2">
                   hello@twenty5ai.com
                 </a>
                 <br />
                 Website:{" "}
                 <a
                   href="https://www.twenty5ai.com"
-                  className="text-sovereign-700 underline underline-offset-2"
+                  className="text-azul-700 underline underline-offset-2"
                   target="_blank"
                   rel="noreferrer"
                 >
@@ -94,7 +94,7 @@ export default function ImpressumPage() {
                 bereit:{" "}
                 <a
                   href="https://ec.europa.eu/consumers/odr"
-                  className="text-sovereign-700 underline underline-offset-2"
+                  className="text-azul-700 underline underline-offset-2"
                   target="_blank"
                   rel="noreferrer"
                 >
@@ -161,9 +161,9 @@ export default function ImpressumPage() {
               </p>
             </div>
 
-            <p className="text-xs text-mist-500">
+            <p className="text-xs text-ink-500">
               Stand: März 2026 ·{" "}
-              <Link href="/" className="text-sovereign-700 underline underline-offset-2">
+              <Link href="/" className="text-azul-700 underline underline-offset-2">
                 Zurück zur Startseite
               </Link>
             </p>

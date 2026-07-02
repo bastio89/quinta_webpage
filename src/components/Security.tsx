@@ -85,14 +85,14 @@ const AI_ACT_CARDS = [
 
 export function Security() {
   return (
-    <section id="sicherheit" className="bg-mist-50 py-24 sm:py-32">
+    <section id="sicherheit" className="bg-stone-50 py-24 sm:py-32">
       <div className="container-quinta">
         <div className="mx-auto max-w-2xl text-center">
-          <p className="kicker text-sovereign-600">Sicherheit &amp; Compliance</p>
+          <p className="kicker text-azul-600">Sicherheit &amp; Compliance</p>
           <h2 className="mt-4 text-balance text-3xl font-semibold tracking-[-0.02em] text-ink-950 sm:text-4xl">
             Enterprise-tauglich, weil es sein muss
           </h2>
-          <p className="mt-4 text-balance text-lg leading-relaxed text-mist-700">
+          <p className="mt-4 text-balance text-lg leading-relaxed text-ink-700">
             Bank- und Mandantengeheimnis, Betriebsgeheimnisse, DSGVO, DSG und EU AI Act — Quinta
             ist für Daten und Anwendungsfälle gebaut, die eine lückenlos nachweisbare
             Governance verlangen.
@@ -102,11 +102,11 @@ export function Security() {
         <div className="mx-auto mt-16 grid max-w-5xl gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {PILLARS.map((p) => (
             <div key={p.title} className="card-surface p-6">
-              <div className="inline-flex rounded-lg bg-sovereign-50 p-2.5 text-sovereign-700">
+              <div className="inline-flex rounded-lg bg-azul-50 p-2.5 text-azul-700">
                 <p.icon className="h-5 w-5" strokeWidth={1.75} />
               </div>
               <h3 className="mt-4 text-base font-semibold text-ink-950">{p.title}</h3>
-              <p className="mt-1.5 text-sm leading-relaxed text-mist-700">{p.text}</p>
+              <p className="mt-1.5 text-sm leading-relaxed text-ink-700">{p.text}</p>
             </div>
           ))}
         </div>
@@ -127,19 +127,19 @@ export function Security() {
                 key={c.title}
                 className={
                   "card-surface p-6" +
-                  (i === 1 ? " border-sovereign-300 ring-1 ring-sovereign-200" : "")
+                  (i === 1 ? " border-azul-300 ring-1 ring-azul-200" : "")
                 }
               >
-                <div className="inline-flex rounded-lg bg-sovereign-50 p-2.5 text-sovereign-700">
+                <div className="inline-flex rounded-lg bg-azul-50 p-2.5 text-azul-700">
                   <c.icon className="h-5 w-5" strokeWidth={1.75} />
                 </div>
-                <p className="mt-4 kicker text-sovereign-600">{c.kicker}</p>
+                <p className="mt-4 kicker text-azul-600">{c.kicker}</p>
                 <h4 className="mt-1 text-base font-semibold text-ink-950">{c.title}</h4>
-                <p className="mt-2 text-sm leading-relaxed text-mist-700">{c.text}</p>
+                <p className="mt-2 text-sm leading-relaxed text-ink-700">{c.text}</p>
                 <ul className="mt-5 space-y-2.5">
                   {c.points.map((point) => (
-                    <li key={point} className="flex items-start gap-2 text-sm text-mist-700">
-                      <Check className="mt-0.5 h-4 w-4 shrink-0 text-sovereign-600" strokeWidth={2} />
+                    <li key={point} className="flex items-start gap-2 text-sm text-ink-700">
+                      <Check className="mt-0.5 h-4 w-4 shrink-0 text-azul-600" strokeWidth={2} />
                       <span>{point}</span>
                     </li>
                   ))}
@@ -148,23 +148,23 @@ export function Security() {
             ))}
           </div>
 
-          <p className="mt-6 text-center text-xs leading-relaxed text-mist-500">
+          <p className="mt-6 text-center text-xs leading-relaxed text-ink-500">
             Weil Quinta vollständig auf Ihrer eigenen Hardware läuft, haben Sie selbst jederzeit
             Zugriff auf Audit-Trail, Modell-Herkunft und Zugriffskontrollen — die Grundlage für
             eine rechtssichere Dokumentation statt vager Zusicherungen von Drittanbietern.
           </p>
         </div>
 
-        <div className="mx-auto mt-8 max-w-5xl rounded-2xl border border-ink-800 bg-ink-950 p-8 text-mist-50 sm:p-10">
+        <div className="mx-auto mt-8 max-w-5xl rounded-2xl border border-ink-800 bg-ink-950 p-8 text-stone-50 sm:p-10">
           <h3 className="text-center text-lg font-semibold sm:text-left">
             Vier Login-Methoden, beliebig kombinierbar
           </h3>
           <div className="mt-7 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {LOGIN_METHODS.map((m) => (
               <div key={m.title}>
-                <m.icon className="h-5 w-5 text-gold-400" strokeWidth={1.75} />
+                <m.icon className="h-5 w-5 text-copper-400" strokeWidth={1.75} />
                 <p className="mt-3 text-sm font-semibold">{m.title}</p>
-                <p className="mt-1 text-xs leading-relaxed text-mist-400">{m.text}</p>
+                <p className="mt-1 text-xs leading-relaxed text-ink-300">{m.text}</p>
               </div>
             ))}
           </div>

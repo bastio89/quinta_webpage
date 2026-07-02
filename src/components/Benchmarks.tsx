@@ -6,14 +6,14 @@ const STATS = [
 
 export function Benchmarks() {
   return (
-    <section id="benchmarks" className="bg-ink-950 py-24 text-mist-50 sm:py-32">
+    <section id="benchmarks" className="bg-ink-950 py-24 text-stone-50 sm:py-32">
       <div className="container-quinta">
         <div className="mx-auto max-w-2xl text-center">
-          <p className="kicker text-sovereign-300">Benchmarks</p>
+          <p className="kicker text-azul-300">Benchmarks</p>
           <h2 className="mt-4 text-balance text-3xl font-semibold tracking-[-0.02em] sm:text-4xl">
             Souveränität kostet keine Leistung
           </h2>
-          <p className="mt-4 text-balance text-lg leading-relaxed text-mist-400">
+          <p className="mt-4 text-balance text-lg leading-relaxed text-ink-300">
             Gemessen mit dem Quinta-Gateway vor vLLM, verglichen gegen vLLM pur — auf
             derselben Geräteklasse wie ein Asus GX10 / DGX-Spark.
           </p>
@@ -25,17 +25,17 @@ export function Benchmarks() {
               key={stat.label}
               className="rounded-2xl border border-white/10 bg-white/[0.03] p-8 text-center"
             >
-              <p className="font-mono text-5xl font-semibold text-gold-400">{stat.value}</p>
-              <p className="mt-3 text-sm font-semibold text-mist-100">{stat.label}</p>
-              <p className="mt-2 text-xs leading-relaxed text-mist-500">{stat.detail}</p>
+              <p className="font-mono text-5xl font-semibold text-copper-400">{stat.value}</p>
+              <p className="mt-3 text-sm font-semibold text-stone-100">{stat.label}</p>
+              <p className="mt-2 text-xs leading-relaxed text-stone-500">{stat.detail}</p>
             </div>
           ))}
         </div>
 
-        <p className="mx-auto mt-10 max-w-2xl text-center text-sm leading-relaxed text-mist-500">
+        <p className="mx-auto mt-10 max-w-2xl text-center text-sm leading-relaxed text-stone-500">
           Unter Volllast sogar zuverlässiger als vLLM pur: Das Gateway fängt Fehler ab,
           bevor Ihre Nutzer sie sehen.{" "}
-          <span className="text-mist-400">
+          <span className="text-ink-300">
             Benchmark der zugrunde liegenden Open-Source-Engine (Apache 2.0) — Werte aus der
             Plattform-Dokumentation, nicht Quinta-spezifisch gemessen.
           </span>

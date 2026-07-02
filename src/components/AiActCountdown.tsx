@@ -40,12 +40,12 @@ export function AiActCountdown() {
             <span className="tabular-nums">
               {p.value === undefined ? "--" : String(p.value).padStart(2, "0")}
             </span>
-            <span className="text-xs font-medium uppercase tracking-wide text-mist-500">{p.label}</span>
-            {i < parts.length - 1 && <span className="text-mist-300">:</span>}
+            <span className="text-xs font-medium uppercase tracking-wide text-ink-400">{p.label}</span>
+            {i < parts.length - 1 && <span className="text-ink-300">:</span>}
           </span>
         ))}
       </div>
-      <p className="mt-2 text-sm text-mist-600">Bis zum 2. August 2026 — Hochrisiko-Pflichten des EU AI Act</p>
+      <p className="mt-2 text-sm text-ink-500">Bis zum 2. August 2026 — Hochrisiko-Pflichten des EU AI Act</p>
     </div>
   );
 }

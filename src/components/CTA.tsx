@@ -3,12 +3,12 @@ import { LogoMark } from "./LogoMark";
 
 export function CTA() {
   return (
-    <section id="kontakt" className="relative overflow-hidden bg-ink-950 py-24 text-mist-50 sm:py-28">
+    <section id="kontakt" className="relative overflow-hidden bg-ink-950 py-24 text-stone-50 sm:py-28">
       <div
         aria-hidden
         className="pointer-events-none absolute -right-24 -top-24 opacity-[0.08]"
       >
-        <LogoMark accent={false} className="h-96 w-96 text-sovereign-400" />
+        <LogoMark accent={false} className="h-96 w-96 text-azul-400" />
       </div>
 
       <div className="container-quinta relative">
@@ -16,7 +16,7 @@ export function CTA() {
           <h2 className="text-balance text-3xl font-semibold tracking-[-0.02em] sm:text-4xl">
             Ihre Daten. Ihre Hardware. Ihre KI.
           </h2>
-          <p className="mt-4 text-balance text-lg leading-relaxed text-mist-400">
+          <p className="mt-4 text-balance text-lg leading-relaxed text-ink-300">
             Vereinbaren Sie eine unverbindliche Live-Demo — wir richten Quinta gemeinsam
             mit Ihnen auf Ihrer eigenen Infrastruktur ein.
           </p>

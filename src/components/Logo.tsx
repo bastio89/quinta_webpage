@@ -16,14 +16,14 @@ export function Logo({
       <LogoMark
         className={cn(
           "h-7 w-7 shrink-0",
-          tone === "dark" ? "text-sovereign-700" : "text-mist-50",
+          tone === "dark" ? "text-azul-700" : "text-stone-50",
           markClassName,
         )}
       />
       <span
         className={cn(
           "font-sans text-[1.28rem] font-semibold tracking-[-0.02em]",
-          tone === "dark" ? "text-ink-950" : "text-mist-50",
+          tone === "dark" ? "text-ink-950" : "text-stone-50",
         )}
       >
         quinta

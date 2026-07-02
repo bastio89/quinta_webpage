@@ -1,7 +1,7 @@
 import { type SVGProps } from "react";
 
 type LogoMarkProps = SVGProps<SVGSVGElement> & {
-  /** Zeigt den Gold-Akzent (Schlussstein) an. Auf sehr kleinen Größen (Favicon) besser aus. */
+  /** Zeigt den Kupfer-Akzent (Schlussstein) an. Auf sehr kleinen Größen (Favicon) besser aus. */
   accent?: boolean;
 };
 
@@ -13,7 +13,7 @@ type LogoMarkProps = SVGProps<SVGSVGElement> & {
  * "Alles kommt an, nichts verlässt das Haus."
  *
  * Nutzt `currentColor` für den Körper, damit die Marke sich per `text-*`
- * Utility einfärben lässt (z. B. weiß auf dunklem Grund, Sovereign Green auf hell).
+ * Utility einfärben lässt (z. B. weiß auf dunklem Grund, Azul auf hell).
  */
 export function LogoMark({ accent = true, className, ...props }: LogoMarkProps) {
   return (
@@ -46,7 +46,7 @@ export function LogoMark({ accent = true, className, ...props }: LogoMarkProps) 
         transform="rotate(45 27.7 32.25)"
       />
 
-      {accent && <circle cx="20.5" cy="13.6" r="1.7" className="fill-gold-500" />}
+      {accent && <circle cx="20.5" cy="13.6" r="1.7" className="fill-copper-500" />}
     </svg>
   );
 }

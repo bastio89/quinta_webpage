@@ -12,24 +12,24 @@ export function Hero() {
   return (
     <section
       id="top"
-      className="relative overflow-hidden bg-ink-950 pb-24 pt-40 text-mist-50 sm:pb-28 sm:pt-48"
+      className="relative overflow-hidden bg-ink-950 pb-24 pt-40 text-stone-50 sm:pb-28 sm:pt-48"
     >
       {/* Enclave-Motiv im Hintergrund */}
       <div
         aria-hidden
         className="pointer-events-none absolute inset-0 flex items-center justify-center opacity-[0.10]"
       >
-        <LogoMark accent={false} className="h-[62rem] w-[62rem] text-sovereign-400 blur-[2px]" />
+        <LogoMark accent={false} className="h-[62rem] w-[62rem] text-azul-400 blur-[2px]" />
       </div>
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-x-0 top-0 h-full bg-[radial-gradient(60%_50%_at_50%_0%,rgba(31,92,77,0.35),transparent_70%)]"
+        className="pointer-events-none absolute inset-x-0 top-0 h-full bg-[radial-gradient(60%_50%_at_50%_0%,rgba(37,71,196,0.35),transparent_70%)]"
       />
 
       <div className="container-quinta relative">
         <div className="mx-auto flex max-w-4xl flex-col items-center text-center">
-          <div className="animate-fade-up kicker rounded-full border border-white/12 bg-white/5 px-4 py-1.5 text-sovereign-200">
-            <span className="h-1.5 w-1.5 animate-arch-pulse rounded-full bg-gold-400" />
+          <div className="animate-fade-up kicker rounded-full border border-white/12 bg-white/5 px-4 py-1.5 text-azul-200">
+            <span className="h-1.5 w-1.5 animate-arch-pulse rounded-full bg-signal" />
             Souveräne KI-Plattform von twenty5ai
           </div>
 
@@ -39,15 +39,15 @@ export function Hero() {
           >
             Ihre eigene, private
             <br />
-            <span className="text-sovereign-300">KI-Zentrale.</span>
+            <span className="text-azul-300">KI-Zentrale.</span>
           </h1>
 
           <p
-            className="mt-6 max-w-2xl text-balance text-lg leading-relaxed text-mist-300 sm:text-xl"
+            className="mt-6 max-w-2xl text-balance text-lg leading-relaxed text-ink-300 sm:text-xl"
             style={{ animation: "fade-up 0.7s 0.12s cubic-bezier(0.16,1,0.3,1) both" }}
           >
             Quinta macht aus der Hardware in Ihrem Haus einen privaten KI-Dienst —
-            wie OpenAI, nur dass <strong className="font-medium text-mist-100">kein einziges Byte
+            wie OpenAI, nur dass <strong className="font-medium text-stone-100">kein einziges Byte
             Ihr Unternehmen verlässt.</strong> OpenAI-kompatibel, DSGVO- und DSG-konform, mit offenem Kern.
           </p>
 
@@ -69,8 +69,8 @@ export function Hero() {
             style={{ animation: "fade-up 0.7s 0.24s cubic-bezier(0.16,1,0.3,1) both" }}
           >
             {BADGES.map(({ icon: Icon, label }) => (
-              <div key={label} className="flex items-center gap-2 text-sm text-mist-400">
-                <Icon className="h-4 w-4 text-sovereign-300" strokeWidth={2} />
+              <div key={label} className="flex items-center gap-2 text-sm text-ink-300">
+                <Icon className="h-4 w-4 text-azul-300" strokeWidth={2} />
                 {label}
               </div>
             ))}

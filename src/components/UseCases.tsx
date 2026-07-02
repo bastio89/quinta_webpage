@@ -34,10 +34,10 @@ const USE_CASES = [
 
 export function UseCases() {
   return (
-    <section className="border-y border-mist-300 bg-mist-100 py-24 sm:py-32">
+    <section className="border-y border-stone-300 bg-stone-100 py-24 sm:py-32">
       <div className="container-quinta">
         <div className="mx-auto max-w-2xl text-center">
-          <p className="kicker text-sovereign-600">Für wen Quinta gebaut ist</p>
+          <p className="kicker text-azul-600">Für wen Quinta gebaut ist</p>
           <h2 className="mt-4 text-balance text-3xl font-semibold tracking-[-0.02em] text-ink-950 sm:text-4xl">
             Überall dort, wo Daten das Haus nicht verlassen dürfen
           </h2>
@@ -55,19 +55,19 @@ export function UseCases() {
                   className="object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-ink-950/70 via-ink-950/10 to-transparent" />
-                <div className="absolute bottom-4 left-4 inline-flex items-center gap-2.5 rounded-lg bg-mist-50/95 px-3 py-2 shadow-card backdrop-blur">
-                  <div className="inline-flex rounded-md bg-sovereign-50 p-1.5 text-sovereign-700">
+                <div className="absolute bottom-4 left-4 inline-flex items-center gap-2.5 rounded-lg bg-stone-50/95 px-3 py-2 shadow-card backdrop-blur">
+                  <div className="inline-flex rounded-md bg-azul-50 p-1.5 text-azul-700">
                     <uc.icon className="h-4 w-4" strokeWidth={1.75} />
                   </div>
                   <h3 className="text-sm font-semibold text-ink-950">{uc.title}</h3>
                 </div>
               </div>
               <div className="space-y-3 p-7 text-sm leading-relaxed">
-                <p className="text-mist-700">
+                <p className="text-ink-700">
                   <span className="font-semibold text-error">Heute:</span> {uc.problem}
                 </p>
-                <p className="text-mist-700">
-                  <span className="font-semibold text-sovereign-700">Mit Quinta:</span> {uc.solution}
+                <p className="text-ink-700">
+                  <span className="font-semibold text-azul-700">Mit Quinta:</span> {uc.solution}
                 </p>
               </div>
             </div>

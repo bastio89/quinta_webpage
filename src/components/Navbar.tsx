@@ -28,7 +28,7 @@ export function Navbar() {
             <a
               key={link.href}
               href={link.href}
-              className="text-sm font-medium text-mist-300 transition-colors hover:text-mist-50"
+              className="text-sm font-medium text-ink-300 transition-colors hover:text-stone-50"
             >
               {link.label}
             </a>
@@ -44,7 +44,7 @@ export function Navbar() {
         <button
           type="button"
           onClick={() => setOpen((v) => !v)}
-          className="inline-flex items-center justify-center rounded-lg border border-white/15 p-2 text-mist-100 lg:hidden"
+          className="inline-flex items-center justify-center rounded-lg border border-white/15 p-2 text-stone-100 lg:hidden"
           aria-label="Menü umschalten"
           aria-expanded={open}
         >
@@ -66,7 +66,7 @@ export function Navbar() {
                 key={link.href}
                 href={link.href}
                 onClick={() => setOpen(false)}
-                className="text-sm font-medium text-mist-200"
+                className="text-sm font-medium text-stone-200"
               >
                 {link.label}
               </a>
