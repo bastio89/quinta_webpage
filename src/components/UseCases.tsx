@@ -36,14 +36,14 @@ export function UseCases() {
   return (
     <section className="border-y border-stone-300 bg-stone-100 py-24 sm:py-32">
       <div className="container-quinta">
-        <div className="mx-auto max-w-2xl text-center">
-          <p className="kicker text-azul-600">Für wen Quinta gebaut ist</p>
-          <h2 className="mt-4 text-balance text-3xl font-semibold tracking-[-0.02em] text-ink-950 sm:text-4xl">
+        <div className="mb-12 max-w-[640px]">
+          <div className="kicker mb-3.5">Für wen Quinta gebaut ist</div>
+          <h2 className="text-display-md font-semibold text-ink-900 sm:text-display-lg">
             Überall dort, wo Daten das Haus nicht verlassen dürfen
           </h2>
         </div>
 
-        <div className="mx-auto mt-16 grid max-w-5xl gap-6 sm:grid-cols-2">
+        <div className="grid gap-6 sm:grid-cols-2">
           {USE_CASES.map((uc) => (
             <div key={uc.title} className="card-surface overflow-hidden p-0">
               <div className="relative aspect-[16/9] w-full overflow-hidden bg-ink-900">
@@ -64,7 +64,7 @@ export function UseCases() {
               </div>
               <div className="space-y-3 p-7 text-sm leading-relaxed">
                 <p className="text-ink-700">
-                  <span className="font-semibold text-error">Heute:</span> {uc.problem}
+                  <span className="font-semibold text-red-600">Heute:</span> {uc.problem}
                 </p>
                 <p className="text-ink-700">
                   <span className="font-semibold text-azul-700">Mit Quinta:</span> {uc.solution}

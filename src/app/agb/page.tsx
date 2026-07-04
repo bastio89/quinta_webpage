@@ -9,9 +9,9 @@ export default function AgbPage() {
   return (
     <>
       <Navbar />
-      <main className="bg-stone-50 pb-24 pt-40">
+      <main className="bg-stone-50 pb-24 pt-20">
         <div className="container-quinta max-w-2xl">
-          <h1 className="text-3xl font-semibold tracking-[-0.02em] text-ink-950">
+          <h1 className="text-display-sm font-semibold text-ink-900 sm:text-display-md">
             Allgemeine Geschäftsbedingungen (AGB)
           </h1>
           <p className="mt-2 text-sm text-ink-500">

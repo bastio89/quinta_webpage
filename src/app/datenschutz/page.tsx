@@ -9,9 +9,9 @@ export default function DatenschutzPage() {
   return (
     <>
       <Navbar />
-      <main className="bg-stone-50 pb-24 pt-40">
+      <main className="bg-stone-50 pb-24 pt-20">
         <div className="container-quinta max-w-2xl">
-          <h1 className="text-3xl font-semibold tracking-[-0.02em] text-ink-950">Datenschutzerklärung</h1>
+          <h1 className="text-display-sm font-semibold text-ink-900 sm:text-display-md">Datenschutzerklärung</h1>
           <p className="mt-2 text-sm text-ink-500">Informationen zur Verarbeitung Ihrer Daten</p>
 
           <div className="mt-10 space-y-10 text-sm leading-relaxed text-ink-700">

@@ -87,12 +87,12 @@ export function Security() {
   return (
     <section id="sicherheit" className="bg-stone-50 py-24 sm:py-32">
       <div className="container-quinta">
-        <div className="mx-auto max-w-2xl text-center">
-          <p className="kicker text-azul-600">Sicherheit &amp; Compliance</p>
-          <h2 className="mt-4 text-balance text-3xl font-semibold tracking-[-0.02em] text-ink-950 sm:text-4xl">
+        <div className="mb-12 max-w-[640px]">
+          <div className="kicker mb-3.5">Sicherheit &amp; Compliance</div>
+          <h2 className="text-display-md font-semibold text-ink-900 sm:text-display-lg">
             Enterprise-tauglich, weil es sein muss
           </h2>
-          <p className="mt-4 text-balance text-lg leading-relaxed text-ink-700">
+          <p className="mt-5 text-lg leading-relaxed text-ink-700">
             Bank- und Mandantengeheimnis, Betriebsgeheimnisse, DSGVO, DSG und EU AI Act — Quinta
             ist für Daten und Anwendungsfälle gebaut, die eine lückenlos nachweisbare
             Governance verlangen.
@@ -113,7 +113,7 @@ export function Security() {
 
         <div className="mx-auto mt-16 max-w-5xl">
           <div className="text-center">
-            <h3 className="text-balance text-2xl font-semibold tracking-[-0.02em] text-ink-950 sm:text-3xl">
+            <h3 className="text-display-sm font-semibold text-ink-900">
               DSGVO- &amp; EU AI Act-konforme KI-Infrastruktur
             </h3>
             <div className="mt-8">

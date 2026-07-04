@@ -61,18 +61,18 @@ export function Editions() {
   return (
     <section id="funktionen" className="bg-stone-50 py-24 sm:py-32">
       <div className="container-quinta">
-        <div className="mx-auto max-w-2xl text-center">
-          <p className="kicker text-azul-600">Editionen &amp; Funktionen</p>
-          <h2 className="mt-4 text-balance text-3xl font-semibold tracking-[-0.02em] text-ink-950 sm:text-4xl">
+        <div className="mb-12 max-w-[640px]">
+          <div className="kicker mb-3.5">Editionen &amp; Funktionen</div>
+          <h2 className="text-display-md font-semibold text-ink-900 sm:text-display-lg">
             Business und Enterprise — für den produktiven Einsatz
           </h2>
-          <p className="mt-4 text-balance text-lg leading-relaxed text-ink-700">
+          <p className="mt-5 text-lg leading-relaxed text-ink-700">
             Beide Editionen laufen vollständig auf Ihrer eigenen Infrastruktur. Der
             Unterschied liegt in Skalierung, Governance und Supportumfang.
           </p>
         </div>
 
-        <div className="mx-auto mt-16 max-w-3xl overflow-x-auto rounded-2xl border border-stone-300 bg-stone-50 shadow-card">
+        <div className="mx-auto max-w-3xl overflow-x-auto rounded-2xl border border-stone-300 bg-stone-50 shadow-card">
           <table className="w-full min-w-[560px] border-collapse text-left">
             <thead>
               <tr>
