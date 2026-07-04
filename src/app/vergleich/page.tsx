@@ -1,32 +1,65 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowRight, Layers, Boxes, Gauge } from "lucide-react";
+import { ArrowRight, UserCheck, Building2, FileCheck, Network } from "lucide-react";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { ComparisonTable } from "@/components/ComparisonTable";
+import { FaqAccordion } from "@/components/FaqAccordion";
 
 export const metadata: Metadata = {
-  title: "Quinta vs. Ollama, vLLM und LocalAI",
+  title: "Quinta im Vergleich zu Ollama, vLLM und LocalAI",
   description:
-    "Ollama, vLLM und LocalAI führen Modelle aus. Quinta betreibt die Plattform darum herum — mit Gateway, Multi-Node-Skalierung, RBAC, Audit-Trail und Dashboard. Der ehrliche Vergleich.",
+    "Ollama, vLLM und LocalAI führen ein Modell aus. Quinta ist die Betriebsschicht darum herum — Zugriffskontrolle, Multi-GPU-Orchestrierung, Governance und lückenloser Audit-Trail. Der ehrliche Vergleich.",
   alternates: { canonical: "/vergleich" },
 };
 
-const WHY = [
+const OPS_QUESTIONS = [
   {
-    icon: Layers,
-    title: "Modell-Runner vs. Betriebsschicht",
-    text: "Ollama, vLLM und LocalAI lösen eine Aufgabe hervorragend: ein Modell auf einer Maschine ausführen. Quinta löst die andere — den Betrieb: Zugriff, Skalierung, Governance und Nachvollziehbarkeit für die ganze Organisation.",
+    icon: UserCheck,
+    q: "Wer hat wann zugegriffen?",
+    a: "Identität, rollenbasierte Zugriffskontrolle (RBAC) und Enterprise-Login über Passwort, 2-Faktor (TOTP), Passkeys und SSO/SAML (Entra ID, Okta u. a.).",
   },
   {
-    icon: Boxes,
-    title: "Quinta baut auf ihnen auf",
-    text: "Quinta ersetzt vLLM oder Ollama nicht — es betreibt sie. Beide sind als Inferenz-Motoren eingebaut. Sie behalten die Leistung dieser Engines und bekommen die Enterprise-Schicht obendrauf.",
+    icon: Building2,
+    q: "Unter welcher Richtlinie?",
+    a: "Mandantentrennung für mehrere Organisationen — verschiedene Teams und Kunden sauber voneinander getrennt, mit Rechten je Einheit.",
   },
   {
-    icon: Gauge,
-    title: "Der Unterschied zeigt sich unter Last",
-    text: "Ein blanker Inferenz-Server nimmt jede Anfrage an, bis er kippt. Das Quinta-Gateway dosiert Anfragen (bounded admission) und fängt Fehler ab, bevor Nutzer sie sehen — unter Extremlast messbar 18× höhere Erfolgsquote.",
+    icon: FileCheck,
+    q: "Mit welchem Prüfpfad?",
+    a: "Verbrauchs-Tracking je Einheit plus eine lückenlose, revisionssichere Audit-Ebene — die Nachweise, die Ihre Compliance-Teams für GDPR, EU AI Act und NIS2 brauchen.",
+  },
+  {
+    icon: Network,
+    q: "Über wie viel Infrastruktur?",
+    a: "Multi-Modell- und Multi-GPU-Orchestrierung mit Lastverteilung. Jeder weitere Rechner mit dem Daemon registriert sich selbst — Skalierung ohne manuelle Bastelei.",
+  },
+];
+
+const FAQ = [
+  {
+    q: "Ist Quinta ein Ersatz für Ollama oder vLLM?",
+    a: "Nein. Quinta nutzt Inferenz-Motoren wie Ollama und vLLM im Hintergrund und legt die Betriebsschicht darum herum — Zugriffskontrolle, Orchestrierung, Governance und Audit —, die ein Unternehmen in Produktion braucht.",
+  },
+  {
+    q: "Was ist der Unterschied zwischen einem Inferenz-Motor und einer Betriebsschicht?",
+    a: "Ein Inferenz-Motor führt ein Modell effizient aus. Eine Betriebsschicht macht dieses Modell in einer Organisation nutzbar — durch Identität, Zugriffskontrolle, Observability, Mandantenfähigkeit, Governance und Orchestrierung. Quinta ist eine Betriebsschicht.",
+  },
+  {
+    q: "Läuft Quinta On-Premise?",
+    a: "Ja. Quinta ist so gebaut, dass es vollständig auf Ihrer eigenen Infrastruktur läuft — kein Byte verlässt das Haus. Das macht es ideal für regulierte Branchen mit strengen Anforderungen an Datenresidenz und Datensouveränität.",
+  },
+  {
+    q: "Ist Quinta quelloffen?",
+    a: "Der Inferenz-Motor basiert auf bewährter, quelloffener Technologie (Apache 2.0). Die Verwaltungsebene — Gateway, Daemon, Dashboard und Registry — ist eine Eigenentwicklung von twenty5ai.",
+  },
+  {
+    q: "Für wen ist Quinta gedacht?",
+    a: "Regulierte europäische Unternehmen in Finanzen, Gesundheitswesen, Recht, öffentlicher Hand, Industrie und ähnlichen Sektoren — überall dort, wo der Betrieb von KI auf kontrollierter, überprüfbarer On-Premise-Infrastruktur eine zwingende Anforderung ist, keine bloße Präferenz.",
+  },
+  {
+    q: "Warum kann ich nicht einfach einen Inferenz-Motor in Produktion nutzen?",
+    a: "Sie können ein Modell damit betreiben — aber es fehlen Zugriffskontrolle, Mandantentrennung, Nutzungsverfolgung, Governance und ein Prüfpfad. Für ein reguliertes Unternehmen sind das genau die Funktionen, nach denen eine Aufsichtsbehörde fragt.",
   },
 ];
 
@@ -35,64 +68,160 @@ export default function VergleichPage() {
     <>
       <Navbar />
       <main>
-        {/* Intro */}
-        <section className="container-quinta pt-16 pb-20 sm:pt-20">
+        {/* Header */}
+        <section className="container-quinta pt-16 pb-14 sm:pt-20">
           <div className="max-w-3xl">
             <div className="kicker mb-3.5">Vergleich</div>
             <h1 className="text-display-md font-semibold text-ink-900 sm:text-display-lg">
-              Quinta vs. Ollama, vLLM und LocalAI
+              Quinta im Vergleich zu Ollama, vLLM und LocalAI
             </h1>
-            <p className="mt-6 max-w-2xl text-lg leading-relaxed text-ink-700">
-              Diese drei Werkzeuge werden oft in einem Atemzug mit Quinta genannt — dabei lösen sie
-              eine andere Aufgabe. Sie <strong className="font-medium text-ink-900">führen ein
-              Modell aus</strong>. Quinta <strong className="font-medium text-ink-900">betreibt
-              die Plattform</strong> darum herum. Der ehrliche Vergleich, Zeile für Zeile.
+            <p className="mt-4 font-mono text-xs uppercase tracking-[0.08em] text-ink-400">
+              twenty5ai · Sovereign-AI · Juli 2026
             </p>
           </div>
         </section>
 
-        {/* Reframe */}
+        {/* Kurze Antwort */}
         <section className="container-quinta pb-16">
-          <div className="rounded-lg border border-stone-200 bg-stone-100 p-8 sm:p-10">
-            <p className="max-w-3xl text-xl leading-relaxed text-ink-800 sm:text-2xl">
-              Die Frage ist selten „welcher Inferenz-Server?" — sondern „wer verwaltet Zugriff,
-              Skalierung, Compliance und Audit, wenn aus einem Modell ein Dienst für das ganze
-              Unternehmen wird?"
+          <div className="max-w-3xl rounded-lg border border-stone-200 bg-stone-100 p-8 sm:p-10">
+            <p className="text-xs font-semibold uppercase tracking-[0.08em] text-azul-600">
+              Kurze Antwort
+            </p>
+            <p className="mt-4 text-lg leading-relaxed text-ink-800">
+              Werkzeuge wie Ollama, vLLM und LocalAI sind hervorragende Inferenz-Motoren. Sie führen
+              ein Modell aus. <strong className="font-semibold text-ink-950">Quinta ist die
+              Betriebsschicht</strong> um das Modell herum — das, was ein reguliertes Unternehmen
+              braucht, um KI in Produktion zu betreiben: Zugriffskontrolle, Multi-Modell- und
+              Multi-GPU-Orchestrierung, Governance und ein lückenloser Prüfpfad. Quinta nutzt solche
+              Inferenz-Motoren im Hintergrund. Sie beantworten die Frage „Läuft das Modell?". Quinta
+              beantwortet die Frage: <em className="not-italic font-medium text-ink-950">Wer darf es
+              nutzen — unter welcher Richtlinie, mit welchem Prüfpfad und auf wie vielen GPUs?</em>
             </p>
           </div>
         </section>
 
-        {/* Tabelle */}
-        <section className="container-quinta pb-8">
-          <ComparisonTable />
-          <p className="mx-auto mt-5 max-w-5xl text-xs leading-relaxed text-ink-500">
-            <span className="font-medium text-ink-700">✓ integriert · — nicht integraler Bestandteil.</span>{" "}
-            Der Vergleich betrifft die eingebauten Plattform-Funktionen, nicht die Inferenz-Qualität
-            der Engines — die ist bei vLLM und Ollama exzellent, weshalb Quinta sie einbindet.
-            Angaben zu Ollama, vLLM und LocalAI beschreiben den Standardumfang der jeweiligen
-            Projekte und ersetzen keine eigene Prüfung.
-          </p>
+        {/* Ein Modell auszuführen ist der einfache Teil */}
+        <section className="container-quinta pb-16">
+          <div className="max-w-2xl">
+            <h2 className="text-display-sm font-semibold text-ink-900">
+              Ein Modell auszuführen ist der einfache Teil.
+            </h2>
+            <div className="mt-5 flex flex-col gap-4 text-md leading-relaxed text-ink-700">
+              <p>
+                Wer schon einmal ein Modell mit Ollama geladen oder vLLM gestartet hat, weiß, wie
+                weit offene Werkzeuge inzwischen sind. In wenigen Minuten steht ein
+                OpenAI-kompatibler Endpunkt, der ein leistungsfähiges offenes Modell auf Ihrer
+                eigenen Hardware bereitstellt. Für den Prototyp eines Entwicklers ist das oft schon
+                alles.
+              </p>
+              <p>
+                Produktion in einer regulierten Organisation ist ein anderes Problem. Das Modell ist
+                der einfache Teil. Der schwierige Teil ist das Drumherum: Wer darf es aufrufen? Wie
+                wird der Zugriff über Teams hinweg kontrolliert? Wie wird jede Anfrage revisionssicher
+                für die Compliance protokolliert? Wie wird die Last auf die GPUs verteilt — und das
+                ganze System unter EU-Regulierung verwaltet? Inferenz-Motoren wurden nicht gebaut, um
+                diese Fragen zu beantworten. Das war nie ihre Aufgabe.
+              </p>
+              <p>
+                Das ist der Unterschied, den die meisten Vergleiche übersehen. Es ist keine Frage,
+                welches Werkzeug besser ist — sondern welche Ebene des Stacks Sie betrachten.
+              </p>
+            </div>
+          </div>
         </section>
 
-        {/* Warum der Unterschied zählt */}
-        <section className="container-quinta py-24 sm:py-28">
-          <div className="mb-12 max-w-[640px]">
-            <div className="kicker mb-3.5">Warum das zählt</div>
-            <h2 className="text-display-sm font-semibold text-ink-900 sm:text-display-md">
-              Drei Unterschiede, die im Betrieb entscheiden.
+        {/* Inferenz-Motor vs. Betriebsschicht */}
+        <section className="container-quinta pb-16">
+          <div className="max-w-2xl">
+            <h2 className="text-display-sm font-semibold text-ink-900">
+              Inferenz-Motor vs. Betriebsschicht: Was ist der Unterschied?
             </h2>
+            <div className="mt-5 flex flex-col gap-4 text-md leading-relaxed text-ink-700">
+              <p>
+                Ein Inferenz-Motor nimmt ein Modell und stellt es effizient bereit. Ollama, vLLM und
+                LocalAI sind Inferenz-Motoren: Sie optimieren den Durchsatz, verwalten den
+                GPU-Speicher und stellen eine API bereit. Das machen sie gut.
+              </p>
+              <p>
+                Eine Betriebsschicht sitzt darüber und macht KI in einer Organisation nutzbar. Sie
+                kümmert sich um Zugriffskontrolle, Identität, Observability, Mandantenfähigkeit,
+                Governance und die Orchestrierung über mehrere Modelle und Maschinen hinweg. Quinta
+                ist eine solche Betriebsschicht — sie läuft auf den Inferenz-Motoren, statt sie zu
+                ersetzen.
+              </p>
+            </div>
           </div>
-          <div className="grid gap-5 md:grid-cols-3">
-            {WHY.map(({ icon: Icon, title, text }) => (
-              <div key={title} className="card-surface p-7">
+          <div className="mt-8 max-w-2xl border-l-2 border-copper-400 pl-6">
+            <p className="text-xl font-medium leading-relaxed text-ink-800">
+              Ein Inferenz-Motor ist wie eine Datenbank-Engine. Eine Betriebsschicht ist alles, was
+              aus einer Datenbank ein System macht, auf dem eine Bank laufen kann — die
+              Zugriffskontrollen, die Audit-Logs, die Benutzerverwaltung, die Compliance-Berichte.
+            </p>
+            <p className="mt-3 text-sm leading-relaxed text-ink-500">
+              Eine nackte Datenbank-Engine würde im regulierten Umfeld niemand in Betrieb nehmen. Für
+              KI gilt dasselbe.
+            </p>
+          </div>
+        </section>
+
+        {/* Funktionsvergleich */}
+        <section className="container-quinta pb-8">
+          <div className="mx-auto mb-10 max-w-5xl">
+            <div className="kicker mb-3.5">Funktionsvergleich</div>
+            <h2 className="max-w-2xl text-display-sm font-semibold text-ink-900">
+              Quinta vs. Ollama, vLLM und LocalAI
+            </h2>
+            <p className="mt-4 max-w-2xl text-md leading-relaxed text-ink-700">
+              Es geht nicht darum, dass die Inferenz-Motoren unzureichend wären — sie sind exzellent
+              in dem, was sie tun. Der Punkt ist: Der Betrieb von KI in regulierter Produktion
+              verlangt Funktionen oberhalb der Inferenz-Ebene.
+            </p>
+          </div>
+          <ComparisonTable />
+          <div className="mx-auto mt-6 max-w-5xl">
+            <p className="max-w-3xl text-md leading-relaxed text-ink-700">
+              Sowohl Ollama als auch vLLM sind sehr starke Werkzeuge; vLLM liefert insbesondere
+              exzellenten Multi-GPU-Durchsatz. Was keines von ihnen standardmäßig mitbringt, sind die
+              Zugriffskontrolle, die Governance und der mandantenfähige Betrieb, die ein reguliertes
+              Unternehmen zwingend braucht, bevor KI überhaupt in die Nähe von Produktionsdaten
+              kommt.
+            </p>
+            <p className="mt-5 text-xs leading-relaxed text-ink-500">
+              ✓ integriert · — nicht integraler Bestandteil. Der Vergleich betrifft die eingebauten
+              Plattform-Funktionen, nicht die Inferenz-Qualität der Engines. Angaben zu Ollama, vLLM
+              und LocalAI beschreiben den Standardumfang der jeweiligen Projekte und ersetzen keine
+              eigene Prüfung.
+            </p>
+          </div>
+        </section>
+
+        {/* Die Fragen, die eine Betriebsschicht beantwortet */}
+        <section className="container-quinta py-24 sm:py-28">
+          <div className="mb-12 max-w-2xl">
+            <div className="kicker mb-3.5">Die vier Betriebsfragen</div>
+            <h2 className="text-display-sm font-semibold text-ink-900 sm:text-display-md">
+              Was eine Betriebsschicht beantwortet — oft gegenüber einer Aufsichtsbehörde.
+            </h2>
+            <p className="mt-4 text-md leading-relaxed text-ink-700">
+              Ein Inferenz-Motor beantwortet eine Frage: Läuft das Modell? Eine Betriebsschicht
+              beantwortet die Fragen, die ein reguliertes Unternehmen tatsächlich beantworten muss.
+            </p>
+          </div>
+          <div className="grid gap-5 sm:grid-cols-2">
+            {OPS_QUESTIONS.map(({ icon: Icon, q, a }) => (
+              <div key={q} className="card-surface p-7">
                 <Icon className="h-[22px] w-[22px] text-azul-600" strokeWidth={1.75} />
                 <h3 className="mt-4 mb-2 text-xl font-semibold tracking-[-0.025em] text-ink-900">
-                  {title}
+                  {q}
                 </h3>
-                <p className="text-sm leading-relaxed text-ink-500">{text}</p>
+                <p className="text-sm leading-relaxed text-ink-500">{a}</p>
               </div>
             ))}
           </div>
+          <p className="mt-8 max-w-2xl text-md leading-relaxed text-ink-700">
+            Das sind keine Funktionen, die man später anflanscht. Sie sind der Unterschied zwischen
+            einer Demo und einem System, das Sie in einem Audit verteidigen können.
+          </p>
         </section>
 
         {/* Benchmark-Moment (dunkel) */}
@@ -133,30 +262,60 @@ export default function VergleichPage() {
                 </span>
               </div>
             </div>
-            <p className="mt-14 max-w-3xl font-serif text-xl italic text-copper-400">
-              Die anderen führen ein Modell aus. Quinta sorgt dafür, dass es unter Last ein Dienst
-              bleibt.
-            </p>
           </div>
         </section>
 
+        {/* Warum das für regulierte Branchen zählt */}
+        <section className="container-quinta py-24 sm:py-28">
+          <div className="max-w-2xl">
+            <div className="kicker mb-3.5">Regulierte Branchen</div>
+            <h2 className="text-display-sm font-semibold text-ink-900 sm:text-display-md">
+              Warum die Betriebsschicht hier nicht optional ist.
+            </h2>
+            <div className="mt-5 flex flex-col gap-4 text-md leading-relaxed text-ink-700">
+              <p>
+                Für Finanzdienstleister, Gesundheitswesen, Rechtsbereich, öffentliche Hand und
+                Industrie ist die Betriebsschicht Pflicht. Das sind die Sektoren, die sich bei
+                öffentlichen KI-Diensten zurückgehalten haben — eben weil sie die Kontrolle über ihre
+                Daten nicht abgeben konnten.
+              </p>
+              <p>
+                Für sie liegt der Wert nicht im Zugriff auf ein Modell. Auf ein Modell kann jedes
+                Unternehmen zugreifen. Der Wert liegt darin, KI auf der eigenen Infrastruktur, unter
+                der eigenen Rechtsprechung und mit den Zugriffskontrollen und Prüfpfaden zu betreiben,
+                die ihre Regulierungsbehörden erwarten. Genau dafür ist Quinta gebaut.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* FAQ */}
+        <section className="mx-auto max-w-[860px] px-8 pb-24">
+          <div className="mb-10">
+            <div className="kicker mb-3.5">Häufige Fragen</div>
+            <h2 className="text-display-sm font-semibold text-ink-900">Zum Vergleich, kurz erklärt.</h2>
+          </div>
+          <FaqAccordion items={FAQ} />
+        </section>
+
         {/* CTA */}
-        <section className="container-quinta py-24 text-center sm:py-28">
-          <h2 className="mx-auto max-w-[720px] text-display-sm font-semibold text-ink-900 sm:text-display-md">
-            Sehen Sie den Unterschied auf Ihrer eigenen Hardware.
-          </h2>
-          <p className="mx-auto mt-5 max-w-xl leading-relaxed text-ink-700">
-            In der Demo laufen Ihre Modelle über dieselben Engines — mit der Betriebsschicht
-            darum herum. 30 Minuten, auf Wunsch mit dem Netzwerkkabel-Beweis.
-          </p>
-          <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
-            <a href="mailto:hello@twenty5ai.com" className="btn btn-primary">
-              Demo buchen (30 Min.)
-              <ArrowRight className="h-4 w-4" />
-            </a>
-            <Link href="/" className="btn btn-secondary">
-              Zurück zur Übersicht
-            </Link>
+        <section className="bg-ink-900 py-24 text-center sm:py-28">
+          <div className="container-quinta">
+            <p className="mb-4 font-serif text-2xl italic text-copper-400">
+              Die anderen führen ein Modell aus. Quinta sorgt dafür, dass es ein Dienst bleibt.
+            </p>
+            <h2 className="mx-auto max-w-[720px] text-display-sm font-semibold text-on-dark sm:text-display-md">
+              Sehen Sie den Unterschied auf Ihrer eigenen Hardware.
+            </h2>
+            <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
+              <a href="mailto:hello@twenty5ai.com" className="btn btn-primary">
+                Demo buchen (30 Min.)
+                <ArrowRight className="h-4 w-4" />
+              </a>
+              <Link href="/" className="btn btn-inverse">
+                Zurück zur Übersicht
+              </Link>
+            </div>
           </div>
         </section>
       </main>
