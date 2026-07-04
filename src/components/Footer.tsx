@@ -7,6 +7,7 @@ const COLUMNS = [
     links: [
       { label: "Plattform", href: "#plattform" },
       { label: "Leistung", href: "#leistung" },
+      { label: "Vergleich", href: "/vergleich" },
       { label: "FAQ", href: "#faq" },
     ],
   },
