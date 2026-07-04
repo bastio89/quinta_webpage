@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Archivo, Newsreader, IBM_Plex_Mono } from "next/font/google";
 import "./globals.css";
+import { CookieConsent } from "@/components/CookieConsent";
 
 const archivo = Archivo({
   subsets: ["latin"],
@@ -67,7 +68,10 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="de" className={`${archivo.variable} ${newsreader.variable} ${plexMono.variable}`}>
-      <body className="min-h-dvh bg-stone-50 font-sans text-ink-700 antialiased">{children}</body>
+      <body className="min-h-dvh bg-stone-50 font-sans text-ink-700 antialiased">
+        {children}
+        <CookieConsent />
+      </body>
     </html>
   );
 }
