@@ -5,16 +5,16 @@ const COLUMNS = [
   {
     title: "Produkt",
     links: [
-      { label: "Plattform", href: "#plattform" },
-      { label: "Leistung", href: "#leistung" },
+      { label: "Plattform", href: "/#plattform" },
+      { label: "Leistung", href: "/#leistung" },
       { label: "Vergleich", href: "/vergleich" },
-      { label: "FAQ", href: "#faq" },
+      { label: "FAQ", href: "/#faq" },
     ],
   },
   {
     title: "Kontakt",
     links: [
-      { label: "Demo buchen", href: "#kontakt" },
+      { label: "Demo buchen", href: "/#kontakt" },
       { label: "hello@twenty5ai.com", href: "mailto:hello@twenty5ai.com" },
     ],
   },
@@ -34,7 +34,9 @@ export function Footer() {
       <div className="container-quinta">
         <div className="flex flex-col items-start justify-between gap-8 border-b border-on-dark/10 pb-8 sm:flex-row">
           <div className="flex flex-col gap-3">
-            <Wordmark size={26} onDark byline />
+            <Link href="/" aria-label="Quinta Startseite">
+              <Wordmark size={26} onDark byline />
+            </Link>
             <span className="max-w-[300px] text-xs leading-relaxed text-on-dark-muted">
               Die souveräne On-Premise-KI-Plattform. Entwickelt in Europa.
             </span>
