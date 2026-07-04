@@ -1,9 +1,11 @@
 import { Navbar } from "@/components/Navbar";
 import { Hero } from "@/components/Hero";
-import { Architecture } from "@/components/Architecture";
+import { Risk } from "@/components/Risk";
+import { Platform } from "@/components/Platform";
 import { Migration } from "@/components/Migration";
 import { Editions } from "@/components/Editions";
 import { Benchmarks } from "@/components/Benchmarks";
+import { Rollout } from "@/components/Rollout";
 import { Security } from "@/components/Security";
 import { UseCases } from "@/components/UseCases";
 import { FAQ } from "@/components/FAQ";
@@ -16,10 +18,12 @@ export default function Home() {
       <Navbar />
       <main>
         <Hero />
-        <Architecture />
+        <Risk />
+        <Platform />
         <Migration />
         <Editions />
         <Benchmarks />
+        <Rollout />
         <Security />
         <UseCases />
         <FAQ />

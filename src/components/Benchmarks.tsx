@@ -1,45 +1,81 @@
 const STATS = [
-  { value: "1×", label: "Identische Token-Rate pro Nutzer", detail: "gegenüber vLLM pur, nur ~56 ms zusätzliche Netzwerk-Latenz bis zum ersten Zeichen" },
-  { value: "18×", label: "Höhere Erfolgsquote unter Volllast", detail: "das Gateway dosiert Anfragen und hält vLLM im effizienten Bereich" },
-  { value: "512", label: "Gleichzeitige Anfragen getestet", detail: "31.200 Requests pro Lauf auf einem NVIDIA DGX Spark (128 GB)" },
+  {
+    value: "18×",
+    label: "höhere Erfolgsquote unter Extremlast",
+    sub: "Das Gateway dosiert Anfragen (bounded admission) und fängt Fehler ab, bevor Nutzer sie sehen — gegenüber dem blanken Inferenz-Server.",
+    accent: true,
+  },
+  {
+    value: "~56 ms",
+    label: "zusätzliche Erst-Latenz",
+    sub: "Reiner Netzwerkweg durch die Plattform-Schicht — die Token-Rate pro Nutzer bleibt identisch.",
+    accent: false,
+  },
+  {
+    value: "512",
+    label: "gleichzeitige Anfragen im Test",
+    sub: "31.200 Requests insgesamt, Quinta-Gateway vs. vLLM pur.",
+    accent: false,
+  },
 ];
 
 export function Benchmarks() {
   return (
-    <section id="benchmarks" className="bg-ink-950 py-24 text-stone-50 sm:py-32">
+    <section id="leistung" className="bg-ink-900 py-24 lg:py-28">
       <div className="container-quinta">
-        <div className="mx-auto max-w-2xl text-center">
-          <p className="kicker text-azul-300">Benchmarks</p>
-          <h2 className="mt-4 text-balance text-3xl font-semibold tracking-[-0.02em] sm:text-4xl">
-            Souveränität kostet keine Leistung
+        <div className="mb-16 max-w-[720px]">
+          <div className="kicker kicker--on-dark mb-3.5">Leistung</div>
+          <h2 className="text-display-md font-semibold text-on-dark sm:text-display-lg">
+            Souveränität kostet keine Leistung — sie liefert sie.
           </h2>
-          <p className="mt-4 text-balance text-lg leading-relaxed text-ink-300">
-            Gemessen mit dem Quinta-Gateway vor vLLM, verglichen gegen vLLM pur — auf
-            derselben Geräteklasse wie ein Asus GX10 / DGX-Spark.
-          </p>
         </div>
 
-        <div className="mx-auto mt-16 grid max-w-5xl gap-6 sm:grid-cols-3">
+        <div className="mb-16 grid gap-12 sm:grid-cols-3">
           {STATS.map((stat) => (
-            <div
-              key={stat.label}
-              className="rounded-2xl border border-white/10 bg-white/[0.03] p-8 text-center"
-            >
-              <p className="font-mono text-5xl font-semibold text-copper-400">{stat.value}</p>
-              <p className="mt-3 text-sm font-semibold text-stone-100">{stat.label}</p>
-              <p className="mt-2 text-xs leading-relaxed text-stone-500">{stat.detail}</p>
+            <div key={stat.label} className="flex flex-col gap-1.5">
+              <span
+                className={
+                  "text-display-xl font-semibold tabular-nums " +
+                  (stat.accent ? "text-azul-400" : "text-on-dark")
+                }
+              >
+                {stat.value}
+              </span>
+              <span className="text-sm font-semibold text-on-dark">{stat.label}</span>
+              <span className="max-w-[260px] text-xs leading-relaxed text-on-dark-muted">
+                {stat.sub}
+              </span>
             </div>
           ))}
         </div>
 
-        <p className="mx-auto mt-10 max-w-2xl text-center text-sm leading-relaxed text-stone-500">
-          Unter Volllast sogar zuverlässiger als vLLM pur: Das Gateway fängt Fehler ab,
-          bevor Ihre Nutzer sie sehen.{" "}
-          <span className="text-ink-300">
-            Benchmark der zugrunde liegenden Open-Source-Engine (Apache 2.0) — Werte aus der
-            Plattform-Dokumentation, nicht Quinta-spezifisch gemessen.
-          </span>
-        </p>
+        <div className="max-w-[760px]">
+          <div className="flex flex-col gap-3.5">
+            <div>
+              <div className="mb-1.5 flex justify-between text-xs text-on-dark">
+                <span>Erfolgreiche Antworten unter Extremlast — mit Quinta-Gateway</span>
+                <span className="font-mono text-signal-green">18×</span>
+              </div>
+              <div className="h-2.5 rounded-full bg-ink-800">
+                <div className="h-full w-full rounded-full bg-gradient-to-r from-azul-500 to-azul-400" />
+              </div>
+            </div>
+            <div>
+              <div className="mb-1.5 flex justify-between text-xs text-on-dark-muted">
+                <span>vLLM pur (blanker Inferenz-Server)</span>
+                <span className="font-mono">1×</span>
+              </div>
+              <div className="h-2.5 rounded-full bg-ink-800">
+                <div className="h-full w-[5.6%] rounded-full bg-ink-500" />
+              </div>
+            </div>
+          </div>
+          <p className="mt-6 text-xs leading-relaxed text-on-dark-muted">
+            Benchmark der zugrunde liegenden Engine, gemessen auf NVIDIA DGX Spark (128 GB): 31.200
+            Requests, bis 512 gleichzeitige Anfragen, Quinta-Gateway gegen vLLM pur. Identische
+            Token-Rate pro Nutzer.
+          </p>
+        </div>
       </div>
     </section>
   );

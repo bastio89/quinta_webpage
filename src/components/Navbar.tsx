@@ -2,13 +2,13 @@
 
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
-import { Logo } from "./Logo";
+import { Wordmark } from "./Wordmark";
 import { cn } from "@/lib/cn";
 
 const NAV_LINKS = [
-  { href: "#architektur", label: "Architektur" },
-  { href: "#funktionen", label: "Funktionen" },
-  { href: "#benchmarks", label: "Benchmarks" },
+  { href: "#plattform", label: "Plattform" },
+  { href: "#funktionen", label: "Editionen" },
+  { href: "#leistung", label: "Leistung" },
   { href: "#sicherheit", label: "Sicherheit" },
   { href: "#faq", label: "FAQ" },
 ];
@@ -17,34 +17,37 @@ export function Navbar() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="fixed inset-x-0 top-0 z-50 border-b border-white/10 bg-ink-950/75 backdrop-blur-md">
-      <div className="container-quinta flex h-16 items-center justify-between">
-        <a href="#top" className="shrink-0" aria-label="Quinta Startseite">
-          <Logo tone="light" />
+    <header className="sticky top-0 z-50 border-b border-stone-100 bg-stone-50/85 backdrop-blur-md">
+      <div className="container-quinta flex h-16 items-center gap-6">
+        <a href="#top" aria-label="Quinta Startseite" className="shrink-0">
+          <Wordmark size={22} />
         </a>
 
-        <nav className="hidden items-center gap-7 lg:flex">
+        <nav className="ml-2 hidden items-center gap-1 lg:flex">
           {NAV_LINKS.map((link) => (
             <a
               key={link.href}
               href={link.href}
-              className="text-sm font-medium text-ink-300 transition-colors hover:text-stone-50"
+              className="rounded-xs px-2.5 py-1.5 text-sm font-medium text-ink-700 transition-colors hover:text-ink-900"
             >
               {link.label}
             </a>
           ))}
         </nav>
 
-        <div className="hidden items-center gap-3 lg:flex">
-          <a href="#kontakt" className="btn btn-primary">
-            Demo anfragen
+        <div className="ml-auto hidden items-center gap-2.5 lg:flex">
+          <button type="button" className="btn btn-ghost btn-sm">
+            Anmelden
+          </button>
+          <a href="#kontakt" className="btn btn-primary btn-sm">
+            Demo buchen
           </a>
         </div>
 
         <button
           type="button"
           onClick={() => setOpen((v) => !v)}
-          className="inline-flex items-center justify-center rounded-lg border border-white/15 p-2 text-stone-100 lg:hidden"
+          className="ml-auto inline-flex items-center justify-center rounded-sm border border-stone-300 p-2 text-ink-700 lg:hidden"
           aria-label="Menü umschalten"
           aria-expanded={open}
         >
@@ -54,27 +57,30 @@ export function Navbar() {
 
       <div
         className={cn(
-          "grid overflow-hidden border-t border-white/10 bg-ink-950 transition-[grid-template-rows,opacity] duration-[250ms] ease-in-out lg:hidden",
+          "grid overflow-hidden border-t border-stone-100 bg-stone-50 transition-[grid-template-rows,opacity] duration-[250ms] ease-in-out lg:hidden",
           open ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0",
         )}
         inert={!open}
       >
-        <div className="min-h-0 overflow-hidden px-6 pb-6 pt-4">
-          <nav className="flex flex-col gap-4">
+        <div className="min-h-0 overflow-hidden px-6 pb-6 pt-2">
+          <nav className="flex flex-col gap-1">
             {NAV_LINKS.map((link) => (
               <a
                 key={link.href}
                 href={link.href}
                 onClick={() => setOpen(false)}
-                className="text-sm font-medium text-stone-200"
+                className="rounded-xs px-2.5 py-2 text-sm font-medium text-ink-700"
               >
                 {link.label}
               </a>
             ))}
           </nav>
-          <div className={cn("mt-5 flex flex-col gap-2.5")}>
+          <div className="mt-4 flex flex-col gap-2.5">
+            <button type="button" className="btn btn-ghost w-full" onClick={() => setOpen(false)}>
+              Anmelden
+            </button>
             <a href="#kontakt" className="btn btn-primary w-full" onClick={() => setOpen(false)}>
-              Demo anfragen
+              Demo buchen
             </a>
           </div>
         </div>

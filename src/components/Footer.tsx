@@ -1,22 +1,20 @@
 import Link from "next/link";
-import { Logo } from "./Logo";
-import { LinkedinIcon } from "./icons";
+import { Wordmark } from "./Wordmark";
 
 const COLUMNS = [
   {
     title: "Produkt",
     links: [
-      { label: "Architektur", href: "#architektur" },
-      { label: "Funktionen", href: "#funktionen" },
-      { label: "Benchmarks", href: "#benchmarks" },
-      { label: "Sicherheit", href: "#sicherheit" },
+      { label: "Plattform", href: "#plattform" },
+      { label: "Leistung", href: "#leistung" },
+      { label: "FAQ", href: "#faq" },
     ],
   },
   {
-    title: "Unternehmen",
+    title: "Kontakt",
     links: [
-      { label: "Über twenty5ai", href: "mailto:hello@twenty5ai.com" },
-      { label: "Kontakt", href: "#kontakt" },
+      { label: "Demo buchen", href: "#kontakt" },
+      { label: "hello@twenty5ai.com", href: "mailto:hello@twenty5ai.com" },
     ],
   },
   {
@@ -31,46 +29,39 @@ const COLUMNS = [
 
 export function Footer() {
   return (
-    <footer className="bg-ink-950 py-16 text-ink-300">
+    <footer className="bg-ink-900 pb-10 pt-22 sm:pt-24">
       <div className="container-quinta">
-        <div className="grid gap-12 lg:grid-cols-[1.4fr_2fr]">
-          <div>
-            <Logo tone="light" />
-            <p className="mt-4 max-w-xs text-sm leading-relaxed text-ink-300">
-              Die souveräne KI-Plattform von twenty5ai. Ihre Daten bleiben zu 100 % bei Ihnen.
-            </p>
-            <div className="mt-6 flex items-center gap-3">
-              <a
-                href="https://www.linkedin.com"
-                aria-label="LinkedIn"
-                className="rounded-lg border border-white/10 p-2 transition-colors hover:border-white/25 hover:text-stone-100"
-              >
-                <LinkedinIcon className="h-4 w-4" />
-              </a>
-            </div>
+        <div className="flex flex-col items-start justify-between gap-8 border-b border-on-dark/10 pb-8 sm:flex-row">
+          <div className="flex flex-col gap-3">
+            <Wordmark size={26} onDark byline />
+            <span className="max-w-[300px] text-xs leading-relaxed text-on-dark-muted">
+              Die souveräne On-Premise-KI-Plattform. Entwickelt in Europa.
+            </span>
           </div>
 
-          <div className="grid grid-cols-2 gap-8 sm:grid-cols-3">
+          <nav className="flex flex-wrap gap-10 sm:gap-12">
             {COLUMNS.map((col) => (
-              <div key={col.title}>
-                <p className="text-xs font-semibold uppercase tracking-wide text-stone-200">{col.title}</p>
-                <ul className="mt-4 space-y-2.5">
-                  {col.links.map((link) => (
-                    <li key={link.label}>
-                      <Link href={link.href} className="text-sm text-ink-300 hover:text-stone-100">
-                        {link.label}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
+              <div key={col.title} className="flex flex-col gap-2.5">
+                <span className="text-2xs font-semibold uppercase tracking-[0.08em] text-on-dark">
+                  {col.title}
+                </span>
+                {col.links.map((link) => (
+                  <Link
+                    key={link.label}
+                    href={link.href}
+                    className="text-sm text-on-dark-muted hover:text-on-dark"
+                  >
+                    {link.label}
+                  </Link>
+                ))}
               </div>
             ))}
-          </div>
+          </nav>
         </div>
 
-        <div className="mt-14 flex flex-col items-center justify-between gap-4 border-t border-white/10 pt-8 text-xs text-ink-400 sm:flex-row">
-          <p>© {new Date().getFullYear()} twenty5ai. Alle Rechte vorbehalten.</p>
-          <p>Motor auf Basis von Apache-2.0-Komponenten · Dashboard unter Elastic License 2.0</p>
+        <div className="flex flex-col justify-between gap-2 pt-5 text-2xs text-on-dark-muted sm:flex-row">
+          <span>© {new Date().getFullYear()} twenty5ai. Alle Rechte vorbehalten.</span>
+          <span>Motor: Open Source (Apache 2.0) · Verwaltungsebene: Eigenentwicklung</span>
         </div>
       </div>
     </footer>

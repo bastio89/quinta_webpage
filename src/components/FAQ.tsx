@@ -1,129 +1,87 @@
 "use client";
 
-import { useId, useState } from "react";
-import { ChevronDown } from "lucide-react";
+import { useState } from "react";
+import { Plus } from "lucide-react";
 
 const QUESTIONS = [
   {
-    q: "Läuft Quinta wirklich vollständig ohne Internet?",
-    a: "Ja. Sobald ein Modell einmal heruntergeladen und ein Deployment aktiv ist, beantwortet Quinta Anfragen komplett offline. Kein Byte verlässt Ihr Netzwerk.",
-  },
-  {
-    q: "Können wir GPT-4, Claude oder andere Cloud-Modelle über Quinta laufen lassen?",
-    a: "Noch nicht. Quinta betreibt Modelle auf Ihrer eigenen Hardware über austauschbare, lokale Inferenz-Engines. Eine Anbindung externer Cloud-Anbieter als zusätzliche Option steht auf der Roadmap.",
-  },
-  {
-    q: "Was bedeutet „OpenAI-kompatibel“ genau?",
-    a: "Ihre Anwendungen sprechen Quinta über dieselbe Schnittstelle an wie OpenAI. Bestehender Code ändert nur base_url und api_key — keine Umprogrammierung nötig.",
+    q: "Was heißt „souverän“ konkret?",
+    a: "Alle Komponenten — Gateway, Daemon, Dashboard, Modell-Registry und Datenbank — laufen auf Ihrer Hardware, in Ihrem Netz. Es gibt keinen Cloud-Anteil, keine Telemetrie nach außen und keinen Anbieter, der Ihre Anfragen sieht.",
   },
   {
     q: "Welche Hardware brauchen wir?",
-    a: "Für Demos genügt ein moderner Rechner mit 16 GB RAM. Für den Produktivbetrieb empfehlen wir eine GPU mit 16+ GB VRAM, z. B. einen dedizierten KI-Rechner wie den Asus GX10.",
+    a: "Von der einzelnen GPU-Workstation bis zu KI-Appliances der DGX-Spark-Klasse (z. B. Asus GX10). Quinta erkennt NVIDIA-, AMD- und Intel-GPUs automatisch; jeder weitere Rechner mit dem Daemon wird selbstständig Teil der Plattform.",
   },
   {
-    q: "Ist der Quellcode einsehbar?",
-    a: "Der Motor (Gateway, Daemon, Infoserver, gemeinsame Bibliotheken) basiert auf Apache-2.0-Code und ist offen. Das Dashboard ist eine eigenständige Entwicklung von twenty5ai unter Elastic License 2.0 — quelloffen einsehbar.",
+    q: "Welche Modelle können wir betreiben?",
+    a: "Über vLLM den gesamten HuggingFace-Katalog — Llama, Mistral, Qwen, Gemma, DeepSeek und mehr. Ollama steht für den einfachen Einstieg bereit. Der Lebenszyklus (Download, Start, Health-Check, Warmup) läuft automatisch.",
   },
   {
-    q: "Wie schnell ist die Einrichtung beim Kunden vor Ort?",
-    a: "Die Erstinstallation dauert typischerweise 30–45 Minuten: Datenbank starten, Dienste hochfahren, erstes Modell live schalten, ersten API-Key erzeugen.",
+    q: "Was kostet der Betrieb?",
+    a: "Hardware und Strom. Es gibt keine Token-Kosten und keine Cloud-Rechnung — die Nutzung ist unbegrenzt und das Budget planbar.",
   },
-];
-
-function FaqItem({ q, a }: { q: string; a: string }) {
-  const [open, setOpen] = useState(false);
-  const id = useId();
-
-  return (
-    <div className="border-b border-stone-300 py-5">
-      <button
-        type="button"
-        onClick={() => setOpen((v) => !v)}
-        className="flex w-full items-center justify-between gap-4 text-left"
-        aria-expanded={open}
-        aria-controls={id}
-      >
-        <span className="text-base font-medium text-ink-950">{q}</span>
-        <ChevronDown
-          className={`h-5 w-5 shrink-0 text-ink-500 transition-transform duration-200 ease-out ${open ? "rotate-180" : ""}`}
-        />
-      </button>
-      <div
-        className={`grid overflow-hidden transition-[grid-template-rows,opacity] duration-[250ms] ease-in-out ${
-          open ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"
-        }`}
-      >
-        <div className="min-h-0">
-          <p id={id} className="mt-3 max-w-2xl text-sm leading-relaxed text-ink-700">
-            {a}
-          </p>
-        </div>
-      </div>
-    </div>
-  );
-}
-
-const OBJECTIONS = [
-  { blocker: "„Das geht nicht, wegen der DSGVO.“", answer: "Läuft vollständig on-premise, DSGVO- und DSG-konform von Grund auf." },
-  { blocker: "„Zu teuer.“", answer: "Planbare Hardware- und Lizenzkosten statt wachsender Cloud-Rechnung pro Token." },
-  { blocker: "„Unsere Daten landen alle in den USA.“", answer: "Ihre Daten verlassen Ihr Netzwerk nie." },
-  { blocker: "„Die Tokens sprengen jedes Budget.“", answer: "Keine Tokenabrechnung — feste Kosten, volle Kontrolle." },
+  {
+    q: "Wie lange dauert die Einführung?",
+    a: "Der Rollout auf vorhandene Hardware dauert Stunden, nicht Monate. Davor steht ein 30-minütiges Planungsgespräch zu Anwendungsfällen und Compliance-Rahmen.",
+  },
+  {
+    q: "Müssen wir unsere Anwendungen umbauen?",
+    a: "Nein. Quinta spricht die OpenAI-API (/v1/chat/completions, Embeddings, Rerank, Audio-Transkription, Responses-API). Bestehende Apps ändern base_url und API-Key — das ist der ganze Umstieg.",
+  },
+  {
+    q: "Können wir parallel weiter Cloud-KI nutzen?",
+    a: "Ja. Quinta betreibt Modelle auf Ihrer Hardware und ersetzt Cloud-APIs dort, wo Datenhoheit zählt. Unkritische Workloads können Sie unabhängig davon weiter in der Cloud laufen lassen — die Entscheidung liegt bei Ihnen.",
+  },
+  {
+    q: "Wer steht hinter Quinta?",
+    a: "Quinta ist eine Eigenentwicklung von twenty5ai. Der Inferenz-Motor basiert auf bewährter Open-Source-Technologie (Apache 2.0); die Verwaltungsebene — Gateway, Dashboard, Registry — ist eigene Entwicklung.",
+  },
 ];
 
 export function FAQ() {
+  const [open, setOpen] = useState(0);
+
   return (
-    <section id="faq" className="bg-stone-50 py-24 sm:py-32">
-      <div className="container-quinta">
-        <div className="mx-auto max-w-2xl text-center">
-          <p className="kicker text-azul-600">FAQ</p>
-          <h2 className="mt-4 text-balance text-3xl font-semibold tracking-[-0.02em] text-ink-950 sm:text-4xl">
-            Häufige Fragen
-          </h2>
-        </div>
+    <section id="faq" className="mx-auto max-w-[860px] px-8 pb-32">
+      <div className="mb-10">
+        <div className="kicker mb-3.5">Häufige Fragen</div>
+        <h2 className="text-display-sm font-semibold text-ink-900 sm:text-display-md">
+          Die Fragen, die CIOs zuerst stellen.
+        </h2>
+      </div>
 
-        <div className="mx-auto mt-14 max-w-3xl">
-          <div className="card-surface p-7">
-            <p className="kicker text-azul-600">Worum es wirklich geht</p>
-            <p className="mt-3 text-sm leading-relaxed text-ink-800">
-              Cloud-KI heißt mieten: Sie zahlen laufend pro Anfrage, und Ihre Daten durchlaufen
-              fremde Server. On-Premise heißt besitzen: Die Hardware steht bei Ihnen, läuft unter
-              Ihrer Kontrolle, und{" "}
-              <strong className="font-semibold text-ink-950">niemand kann Ihnen den Zugang kappen</strong>{" "}
-              oder über Nacht die Preise ändern.
-            </p>
-          </div>
-
-          <div className="mt-6 grid gap-x-8 gap-y-4 border-t border-stone-300 pt-8 sm:grid-cols-2">
-            <div>
-              <p className="text-base font-semibold text-ink-950">Vier Sätze bremsen Ihr Team jeden Tag aus:</p>
-              <ul className="mt-4 space-y-3">
-                {OBJECTIONS.map((o) => (
-                  <li key={o.blocker} className="flex items-start gap-2 text-sm text-ink-500">
-                    <span className="mt-0.5 text-ink-300">×</span>
-                    <span className="italic line-through decoration-ink-300">{o.blocker}</span>
-                  </li>
-                ))}
-              </ul>
+      <div className="border-t border-stone-200">
+        {QUESTIONS.map((item, i) => {
+          const isOpen = open === i;
+          return (
+            <div key={item.q} className="border-b border-stone-200">
+              <button
+                type="button"
+                onClick={() => setOpen(isOpen ? -1 : i)}
+                aria-expanded={isOpen}
+                className="flex w-full items-center justify-between gap-4 px-1 py-5 text-left text-lg font-medium text-ink-900"
+              >
+                {item.q}
+                <Plus
+                  className={
+                    "h-[18px] w-[18px] flex-none text-ink-400 transition-transform duration-200 ease-out " +
+                    (isOpen ? "rotate-45" : "")
+                  }
+                />
+              </button>
+              <div
+                className={
+                  "grid overflow-hidden transition-[grid-template-rows,opacity] duration-[250ms] ease-in-out " +
+                  (isOpen ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0")
+                }
+              >
+                <div className="min-h-0 overflow-hidden">
+                  <p className="max-w-[700px] px-1 pb-5 leading-relaxed text-ink-700">{item.a}</p>
+                </div>
+              </div>
             </div>
-            <div>
-              <p className="text-base font-semibold text-ink-950">Wir räumen alle vier weg.</p>
-              <ul className="mt-4 space-y-3">
-                {OBJECTIONS.map((o) => (
-                  <li key={o.answer} className="flex items-start gap-2 text-sm font-medium text-ink-800">
-                    <span className="mt-0.5 text-azul-600">→</span>
-                    <span>{o.answer}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-        </div>
-
-        <div className="mx-auto mt-10 max-w-3xl">
-          {QUESTIONS.map((item) => (
-            <FaqItem key={item.q} q={item.q} a={item.a} />
-          ))}
-        </div>
+          );
+        })}
       </div>
     </section>
   );
