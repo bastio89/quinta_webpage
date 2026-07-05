@@ -344,17 +344,17 @@ const TONE_STYLES: Record<Tone, { box: string; icon: string; badge: string }> = 
   action: {
     box: "border-azul-200 bg-azul-50",
     icon: "text-azul-600",
-    badge: "bg-azul-100 text-azul-700",
+    badge: "bg-stone-0 text-azul-700 ring-1 ring-azul-200",
   },
   attention: {
     box: "border-amber-600/25 bg-amber-100",
     icon: "text-amber-600",
-    badge: "bg-amber-100 text-amber-600",
+    badge: "bg-stone-0 text-amber-600 ring-1 ring-amber-600/30",
   },
   ok: {
     box: "border-green-600/20 bg-green-100",
     icon: "text-green-600",
-    badge: "bg-green-100 text-green-600",
+    badge: "bg-stone-0 text-green-600 ring-1 ring-green-600/25",
   },
 };
 
