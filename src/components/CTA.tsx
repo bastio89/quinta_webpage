@@ -15,7 +15,12 @@ export function CTA() {
             Demo buchen (30 Min.)
             <ArrowRight className="h-4 w-4" />
           </a>
-          <a href="mailto:hello@twenty5ai.com" className="btn btn-inverse">
+          <a
+            href="/quinta-whitepaper.pdf"
+            target="_blank"
+            rel="noopener"
+            className="btn btn-inverse"
+          >
             Technisches Whitepaper
           </a>
         </div>

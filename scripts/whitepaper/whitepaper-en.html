@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<style>
+  :root{
+    --ink-950:#070B14; --ink-900:#0C1120; --ink-850:#111830; --ink-700:#232E52;
+    --ink-500:#55628B; --ink-400:#7B87AB;
+    --stone-50:#F8F6F1; --stone-100:#F1EDE4; --stone-200:#E6E0D2; --stone-300:#D4CCB8;
+    --azul-600:#2547C4; --azul-400:#5B7EF0; --azul-100:#E3EAFC;
+    --copper-400:#CC8258; --signal:#3DD68C;
+    --on-dark:#F4F3EF; --on-dark-muted:#9AA3BE;
+  }
+  @page{ size:A4; margin:0; }
+  *{ box-sizing:border-box; -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+  html,body{ margin:0; padding:0; }
+  body{ font-family:"Helvetica Neue",Arial,sans-serif; color:var(--ink-900); font-size:10.5pt; line-height:1.5; }
+  .page{ width:210mm; min-height:297mm; padding:20mm 20mm 16mm; position:relative; background:var(--stone-50); page-break-after:always; }
+  .page:last-child{ page-break-after:auto; }
+  h1,h2,h3{ letter-spacing:-0.02em; line-height:1.1; margin:0; }
+  p{ margin:0 0 8pt; }
+  .mono{ font-family:"SFMono-Regular",Menlo,Consolas,monospace; }
+  .wordmark{ font-weight:800; letter-spacing:-0.03em; }
+  .dot{ color:var(--azul-400); }
+  .eyebrow{ font-size:8pt; font-weight:700; letter-spacing:.16em; text-transform:uppercase; color:var(--azul-600); }
+
+  /* Cover */
+  .cover{ background:var(--ink-900); color:var(--on-dark); display:flex; flex-direction:column; justify-content:space-between; }
+  .cover .eyebrow{ color:var(--azul-400); }
+  .cover .brand{ font-size:26pt; }
+  .cover h1{ font-size:34pt; font-weight:700; margin-top:14pt; }
+  .cover .lede{ font-size:13pt; color:var(--on-dark-muted); max-width:130mm; margin-top:14pt; line-height:1.4; }
+  .cover .byline{ font-size:9.5pt; color:var(--on-dark-muted); }
+  .cover .rule{ height:2px; width:54mm; background:var(--azul-400); margin:10pt 0 0; }
+  .badges{ display:flex; flex-wrap:wrap; gap:6pt; margin-top:16pt; }
+  .badge{ font-size:8pt; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:var(--azul-400); border:1px solid rgba(244,243,239,.18); border-radius:4px; padding:4pt 8pt; }
+
+  /* Content */
+  .secnum{ font-size:9pt; font-weight:700; color:var(--azul-600); }
+  h2.sec{ font-size:17pt; font-weight:700; margin:3pt 0 10pt; color:var(--ink-900); }
+  .lead{ font-size:11.5pt; color:var(--ink-700); }
+  .muted{ color:var(--ink-500); }
+  ul{ margin:0 0 8pt; padding-left:0; list-style:none; }
+  li{ position:relative; padding-left:16pt; margin-bottom:5pt; }
+  li::before{ content:""; position:absolute; left:0; top:5.5pt; width:6pt; height:6pt; border-radius:2px; background:var(--azul-600); }
+  .grid2{ display:grid; grid-template-columns:1fr 1fr; gap:8pt 14pt; }
+  .card{ border:1px solid var(--stone-300); border-radius:8px; padding:9pt 11pt; background:#fff; }
+  .card h3{ font-size:10.5pt; font-weight:700; margin-bottom:2pt; }
+  .card p{ font-size:9.5pt; color:var(--ink-500); margin:0; }
+  .stats{ display:flex; gap:10mm; margin:4pt 0 10pt; }
+  .stat .v{ font-size:30pt; font-weight:800; letter-spacing:-0.03em; line-height:1; }
+  .stat .v.accent{ color:var(--azul-600); }
+  .stat .l{ font-size:8.5pt; color:var(--ink-500); max-width:46mm; margin-top:4pt; line-height:1.35; }
+  .code{ background:var(--ink-900); color:var(--on-dark); border-radius:8px; padding:11pt 13pt; font-size:9pt; line-height:1.7; margin:6pt 0 8pt; }
+  .code .add{ color:var(--signal); }
+  .code .dim{ color:var(--on-dark-muted); }
+  .arch{ display:flex; align-items:stretch; gap:0; margin:6pt 0 10pt; }
+  .node{ flex:1; border:1px solid var(--stone-300); border-radius:8px; padding:8pt 9pt; background:#fff; }
+  .node .n{ font-size:10pt; font-weight:700; }
+  .node .s{ font-size:8pt; color:var(--ink-500); margin-top:2pt; }
+  .arrow{ width:22pt; display:flex; align-items:center; justify-content:center; color:var(--azul-400); font-weight:700; }
+  .kv{ display:grid; grid-template-columns:auto 1fr; gap:4pt 12pt; font-size:10pt; }
+  .kv .k{ font-weight:700; }
+  .callout{ border-left:3px solid var(--copper-400); padding:2pt 0 2pt 12pt; font-size:11pt; color:var(--ink-700); margin:6pt 0 10pt; }
+  .pagefoot{ position:absolute; left:20mm; right:20mm; bottom:9mm; display:flex; justify-content:space-between; font-size:7.5pt; color:var(--ink-400); border-top:1px solid var(--stone-200); padding-top:5pt; }
+  .disc{ font-size:8pt; color:var(--ink-400); margin-top:10pt; line-height:1.4; }
+  .sechead{ margin-bottom:10pt; }
+  .two{ display:grid; grid-template-columns:1fr 1fr; gap:16pt; }
+</style>
+</head>
+<body>
+
+
+<!-- COVER -->
+<section class="page cover">
+  <div>
+    <div class="brand wordmark">quinta<span class="dot">.</span></div>
+    <div class="eyebrow" style="margin-top:2pt;">Sovereign on-premise AI · by twenty5ai</div>
+  </div>
+  <div>
+    <div class="eyebrow">Technical Whitepaper</div>
+    <h1>Your AI. Your hardware.<br>Not a single byte leaves the building.</h1>
+    <div class="rule"></div>
+    <p class="lede">How Quinta turns your own hardware into a private, OpenAI-compatible AI service —
+      with enterprise management, a complete audit trail and no data egress.</p>
+    <div class="badges">
+      <span class="badge">GDPR-compliant</span>
+      <span class="badge">EU-AI-Act-ready</span>
+      <span class="badge">100% European</span>
+      <span class="badge">OpenAI-compatible API</span>
+    </div>
+  </div>
+  <div class="byline">twenty5ai · July 2026 · quinta.twenty5ai.com</div>
+</section>
+
+<!-- PAGE 2 -->
+<section class="page">
+  <div class="sechead"><div class="secnum">01 — Executive summary</div><h2 class="sec">Sovereignty costs no performance — it delivers it.</h2></div>
+  <p class="lead">Quinta is not another inference engine, but the complete operating layer a regulated
+    enterprise needs to run AI in production: access control, multi-GPU orchestration, governance and
+    a complete audit trail — entirely on your own hardware.</p>
+  <ul>
+    <li>OpenAI-compatible API: existing applications migrate by changing <span class="mono">base_url</span> and the API key — nothing else.</li>
+    <li>Runs on-premise, from a workstation to an AI appliance; scales horizontally across self-registering GPU nodes.</li>
+    <li>Two inference engines built in: Ollama for a simple start, vLLM for high performance and the entire HuggingFace catalogue.</li>
+    <li>Enterprise management: dashboard, RBAC, four login methods, multi-organization, audit trail, fine-tuning and MCP.</li>
+    <li>No data transfer, no external processor for inference — the basis for GDPR, the EU AI Act and NIS2.</li>
+  </ul>
+
+  <div class="sechead" style="margin-top:16pt;"><div class="secnum">02 — The problem</div><h2 class="sec">Cloud AI means someone else’s infrastructure, someone else’s rules.</h2></div>
+  <div class="grid2">
+    <div class="card"><h3>Data leaves Europe</h3><p>The most sensitive data goes to US cloud APIs — without an audit trail, with GDPR, EU AI Act and NIS2 risk.</p></div>
+    <div class="card"><h3>Costs without a ceiling</h3><p>Token billing makes budgets unpredictable. Every new use case raises the running cost.</p></div>
+    <div class="card"><h3>Dependence on vendors</h3><p>Models, prices and availability are set by a third party. Switching an API means a rebuild, not a move.</p></div>
+    <div class="card"><h3>No proof</h3><p>The audit trail ends at the provider’s system boundary — exactly where regulation demands it.</p></div>
+  </div>
+  <div class="pagefoot"><span>Quinta — Technical Whitepaper</span><span>2</span></div>
+</section>
+
+<!-- PAGE 3 -->
+<section class="page">
+  <div class="sechead"><div class="secnum">03 — The platform</div><h2 class="sec">Not a model runner. The complete operating layer.</h2></div>
+  <p>Every request takes the same path: through the gateway (the gatekeeper), to the daemon on the
+    GPU machine, into the model — connected through a central registry. Every additional machine
+    running the Quinta daemon becomes part of the platform automatically.</p>
+  <div class="arch">
+    <div class="node"><div class="n">Your application</div><div class="s">OpenAI SDK, unchanged</div></div>
+    <div class="arrow">→</div>
+    <div class="node"><div class="n">Gateway</div><div class="s">Auth · RBAC · Audit · Admission</div></div>
+    <div class="arrow">→</div>
+    <div class="node"><div class="n">Daemon</div><div class="s">per GPU machine, self-registering</div></div>
+    <div class="arrow">→</div>
+    <div class="node"><div class="n">Model</div><div class="s">vLLM or Ollama</div></div>
+  </div>
+
+  <div class="two" style="margin-top:6pt;">
+    <div>
+      <h3 style="font-size:11pt;font-weight:700;margin-bottom:4pt;">Two inference engines</h3>
+      <p class="muted" style="font-size:9.5pt;"><strong style="color:var(--ink-900)">vLLM</strong> — high performance for production, the entire HuggingFace catalogue (Llama, Mistral, Qwen, Gemma, DeepSeek). Fully automated lifecycle: download → warmup → ready.</p>
+      <p class="muted" style="font-size:9.5pt;"><strong style="color:var(--ink-900)">Ollama</strong> — a simple start, from a workstation to the DGX Spark class. GPU detection for NVIDIA, AMD and Intel, automatic routing.</p>
+    </div>
+    <div>
+      <h3 style="font-size:11pt;font-weight:700;margin-bottom:4pt;">Migration in two lines</h3>
+      <div class="code mono">
+        <div class="dim">client = OpenAI(</div>
+        <div class="add">&nbsp;&nbsp;base_url="https://quinta.intern/v1",</div>
+        <div class="add">&nbsp;&nbsp;api_key="qnt-prod-…",</div>
+        <div class="dim">)</div>
+      </div>
+      <p class="muted" style="font-size:9pt;">Chat, embeddings, rerank, audio transcription and the Responses API — no reprogramming, no new SDK.</p>
+    </div>
+  </div>
+  <div class="pagefoot"><span>Quinta — Technical Whitepaper</span><span>3</span></div>
+</section>
+
+<!-- PAGE 4 -->
+<section class="page">
+  <div class="sechead"><div class="secnum">04 — Performance</div><h2 class="sec">Same engine. A different behaviour at the limit.</h2></div>
+  <div class="stats">
+    <div class="stat"><div class="v accent">18×</div><div class="l">higher success rate under extreme load (bounded admission)</div></div>
+    <div class="stat"><div class="v">~56 ms</div><div class="l">additional first-token latency — per-user token rate identical</div></div>
+    <div class="stat"><div class="v">512</div><div class="l">concurrent requests in the test</div></div>
+  </div>
+  <p class="muted" style="font-size:9pt;">Benchmark of the underlying engine, measured on an NVIDIA DGX Spark (128 GB): 31,200 requests, up to 512 concurrent requests, Quinta gateway against vLLM alone. The gateway meters requests and absorbs errors before users see them — at identical inference.</p>
+
+  <div class="sechead" style="margin-top:16pt;"><div class="secnum">05 — Enterprise features</div><h2 class="sec">Built for IT leadership, not just for developers.</h2></div>
+  <div class="grid2">
+    <div class="card"><h3>Deployments by click</h3><p>Roll out, scale and retract models — without a terminal.</p></div>
+    <div class="card"><h3>API key management</h3><p>Keys per team and application, revocable at any time.</p></div>
+    <div class="card"><h3>Multi-organization (RBAC)</h3><p>Multi-tenant, roles & permissions, team invitations.</p></div>
+    <div class="card"><h3>4 login methods</h3><p>Password, 2-factor (TOTP), passkeys, SSO/SAML (Entra ID, Okta).</p></div>
+    <div class="card"><h3>Usage & metrics</h3><p>Tracking per unit plus Prometheus metrics.</p></div>
+    <div class="card"><h3>Complete audit trail</h3><p>Every access, every change traceable — tamper-evident.</p></div>
+    <div class="card"><h3>Fine-tuning</h3><p>Adapt your own models, directly from the interface.</p></div>
+    <div class="card"><h3>MCP interface</h3><p>AI assistants manage the infrastructure themselves.</p></div>
+  </div>
+  <div class="pagefoot"><span>Quinta — Technical Whitepaper</span><span>4</span></div>
+</section>
+
+<!-- PAGE 5 -->
+<section class="page">
+  <div class="sechead"><div class="secnum">06 — Compliance & sovereignty</div><h2 class="sec">Regulation is not an appendix. It is the reason.</h2></div>
+  <div class="grid2">
+    <div class="card"><h3>GDPR</h3><p>Processing stays in the house: no third-country transfer, no processor for inference.</p></div>
+    <div class="card"><h3>EU AI Act</h3><p>Full control over models and versions; the audit trail as documentation basis.</p></div>
+    <div class="card"><h3>NIS2</h3><p>Operation in your own security zone: SSO/RBAC, traceable administration.</p></div>
+    <div class="card"><h3>No DPA for inference</h3><p>Without an external processor, the transfer and DPA risk of cloud AI disappears.</p></div>
+  </div>
+  <div class="callout">“Not a single byte leaves the building” means, in data-protection terms: no transfer, no external processor, no access under foreign law.</div>
+
+  <div class="sechead" style="margin-top:12pt;"><div class="secnum">07 — Rollout</div><h2 class="sec">Three steps to your own AI service.</h2></div>
+  <div class="kv">
+    <div class="k">01 · Plan</div><div>A 30-minute conversation: use cases, hardware, compliance framework. The deployment plan follows.</div>
+    <div class="k">02 · Deploy</div><div>The daemon onto your GPU machines, gateway and dashboard alongside — nodes register themselves, models start automatically. Hours, not months.</div>
+    <div class="k">03 · Operate</div><div>Deployments by click, API keys, usage per unit, Prometheus metrics and a complete audit trail in the dashboard.</div>
+  </div>
+
+  <div class="sechead" style="margin-top:12pt;"><div class="secnum">08 — Editions</div><h2 class="sec">Business and Enterprise.</h2></div>
+  <div class="kv">
+    <div class="k">Business</div><div>For production use — multiple compute nodes, RBAC, API keys, model management. Price on request (license per site).</div>
+    <div class="k">Enterprise</div><div>Additionally multi-site, SSO/SAML, 2FA & passkeys, audit trail, fine-tuning UI & MCP, a dedicated contact. Custom contract & SLA.</div>
+  </div>
+
+  <div style="margin-top:16pt; background:var(--ink-900); color:var(--on-dark); border-radius:10px; padding:14pt 16pt; display:flex; justify-content:space-between; align-items:center;">
+    <div>
+      <div class="wordmark" style="font-size:15pt;">quinta<span class="dot">.</span></div>
+      <div style="font-size:9.5pt; color:var(--on-dark-muted); margin-top:3pt;">Bring your AI home. Book a demo (30 min.).</div>
+    </div>
+    <div style="text-align:right; font-size:10pt;">
+      <div class="mono" style="color:var(--azul-400);">hello@twenty5ai.com</div>
+      <div class="mono" style="color:var(--on-dark-muted); font-size:9pt;">quinta.twenty5ai.com</div>
+    </div>
+  </div>
+
+  <p class="disc">Benchmark figures refer to the measurement of the underlying engine (Quinta gateway
+    vs. vLLM alone, NVIDIA DGX Spark 128 GB) and are reproduced unchanged. Compliance statements
+    describe the architecture, not certifications. The inference engine builds on open-source
+    technology (Apache 2.0); the management layer is developed in-house by twenty5ai. This document is
+    not legal advice.</p>
+  <div class="pagefoot"><span>Quinta — Technical Whitepaper · © 2026 twenty5ai</span><span>5</span></div>
+</section>
+
+</body>
+</html>

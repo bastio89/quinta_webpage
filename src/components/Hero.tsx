@@ -35,7 +35,12 @@ export function Hero() {
               Demo buchen (30 Min.)
               <ArrowRight className="h-4 w-4" />
             </a>
-            <a href="#plattform" className="btn btn-secondary">
+            <a
+              href="/quinta-whitepaper.pdf"
+              target="_blank"
+              rel="noopener"
+              className="btn btn-secondary"
+            >
               Technisches Whitepaper
             </a>
           </div>

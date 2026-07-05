@@ -43,7 +43,12 @@ export function HeroEn() {
               Book a demo (30 min.)
               <ArrowRight className="h-4 w-4" />
             </a>
-            <a href="#plattform" className="btn btn-secondary">
+            <a
+              href="/quinta-whitepaper-en.pdf"
+              target="_blank"
+              rel="noopener"
+              className="btn btn-secondary"
+            >
               Technical whitepaper
             </a>
           </div>
@@ -469,7 +474,12 @@ export function CtaEn() {
             Book a demo (30 min.)
             <ArrowRight className="h-4 w-4" />
           </a>
-          <a href="mailto:hello@twenty5ai.com" className="btn btn-inverse">
+          <a
+            href="/quinta-whitepaper-en.pdf"
+            target="_blank"
+            rel="noopener"
+            className="btn btn-inverse"
+          >
             Technical whitepaper
           </a>
         </div>
