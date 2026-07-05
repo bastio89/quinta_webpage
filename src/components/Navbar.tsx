@@ -51,6 +51,10 @@ export function Navbar({ lang = "de" }: { lang?: Lang }) {
     "/vergleich",
     "/insights",
     "/insights/eu-ai-act-frist-2026",
+    "/insights/bounded-admission-last",
+    "/insights/datensouveraenitaet-cloud-act",
+    "/insights/on-premise-vs-cloud-kosten",
+    "/insights/nis2-ki-betrieb",
   ]); // DE-Pfade mit /en-Pendant
   const isEn = pathname === "/en" || pathname.startsWith("/en/");
   const dePath = isEn ? pathname.replace(/^\/en/, "") || "/" : pathname;

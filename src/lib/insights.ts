@@ -72,7 +72,34 @@ export const INSIGHTS_EN: InsightMeta[] = [
     excerpt:
       "From 2 August 2026 a central tranche of the EU AI Act applies. What that means for high-risk AI — and why sovereignty delivers the documentation an audit demands.",
     date: "2026-07-05",
-    readingMinutes: 6,
+    readingMinutes: 11,
+  },
+  {
+    href: "/en/insights/bounded-admission-last",
+    category: "Architecture",
+    title: "Bounded admission: why an inference server buckles under load",
+    excerpt:
+      "18× higher success rate on the same engine — the difference is not the model, it’s the queue. How a gateway meters overload instead of breaking under it.",
+    date: "2026-07-04",
+    readingMinutes: 10,
+  },
+  {
+    href: "/en/insights/datensouveraenitaet-cloud-act",
+    category: "Data sovereignty",
+    title: "GDPR, Schrems II and the US CLOUD Act: why an “EU region” is not enough",
+    excerpt:
+      "A European data centre run by a US provider does not remove US access rights. Why real data sovereignty means your data never leaves your control.",
+    date: "2026-07-03",
+    readingMinutes: 11,
+  },
+  {
+    href: "/en/insights/on-premise-vs-cloud-kosten",
+    category: "Economics",
+    title: "On-premise vs. cloud AI: the honest cost calculation",
+    excerpt:
+      "Cloud AI means renting, on-premise means owning. What the token bill hides, where the break-even sits — and when your own hardware really pays off.",
+    date: "2026-07-02",
+    readingMinutes: 10,
   },
   {
     href: "/en/vergleich",
@@ -82,6 +109,15 @@ export const INSIGHTS_EN: InsightMeta[] = [
       "Ollama, vLLM and LocalAI run a model. Quinta is the operating layer around it — access control, orchestration, governance and audit. The honest comparison.",
     date: "2026-07-01",
     readingMinutes: 5,
+  },
+  {
+    href: "/en/insights/nis2-ki-betrieb",
+    category: "Compliance",
+    title: "NIS2 and running AI: the second regulation that applies to you",
+    excerpt:
+      "Beyond the EU AI Act, NIS2 extends cybersecurity duties to many industries — with management liability. What that means for your AI stack.",
+    date: "2026-06-30",
+    readingMinutes: 10,
   },
 ];
 
