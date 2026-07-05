@@ -146,6 +146,19 @@ export default function Page() {
         </p>
       </Section>
 
+      <div className="rounded-lg border border-stone-200 bg-stone-100 p-6">
+        <p className="text-md leading-relaxed text-ink-800">
+          Whether NIS2 captures your organization, you can clarify in five questions — alongside the
+          EU AI Act and GDPR, assessed right in your browser.
+        </p>
+        <a
+          href="/en/check"
+          className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-azul-600 hover:text-azul-700"
+        >
+          To the compliance self-check →
+        </a>
+      </div>
+
       <Note>
         Note: this article gives a generally accessible overview and is not legal advice. Whether and
         how NIS2 applies to your organization, and which measures are concretely required, should be

@@ -1,6 +1,7 @@
 import type { MetadataRoute } from "next";
 import { SITE_URL } from "@/lib/jsonLd";
 import { INSIGHTS } from "@/lib/insights";
+import { GLOSSARY } from "@/lib/glossary";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();
@@ -22,6 +23,24 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${SITE_URL}/en/vergleich`, lastModified: now, changeFrequency: "monthly", priority: 0.7 },
     { url: `${SITE_URL}/rechner`, lastModified: now, changeFrequency: "monthly", priority: 0.7 },
     { url: `${SITE_URL}/en/rechner`, lastModified: now, changeFrequency: "monthly", priority: 0.6 },
+    { url: `${SITE_URL}/check`, lastModified: now, changeFrequency: "monthly", priority: 0.7 },
+    { url: `${SITE_URL}/en/check`, lastModified: now, changeFrequency: "monthly", priority: 0.6 },
+    { url: `${SITE_URL}/glossar`, lastModified: now, changeFrequency: "monthly", priority: 0.6 },
+    { url: `${SITE_URL}/en/glossar`, lastModified: now, changeFrequency: "monthly", priority: 0.5 },
+    ...GLOSSARY.flatMap((e) => [
+      {
+        url: `${SITE_URL}/glossar/${e.slug}`,
+        lastModified: now,
+        changeFrequency: "yearly" as const,
+        priority: 0.4,
+      },
+      {
+        url: `${SITE_URL}/en/glossar/${e.slug}`,
+        lastModified: now,
+        changeFrequency: "yearly" as const,
+        priority: 0.35,
+      },
+    ]),
     { url: `${SITE_URL}/insights`, lastModified: now, changeFrequency: "monthly", priority: 0.7 },
     { url: `${SITE_URL}/en/insights`, lastModified: now, changeFrequency: "monthly", priority: 0.6 },
     ...INSIGHTS.filter((a) => a.href.startsWith("/insights/")).map((a) => ({

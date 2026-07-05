@@ -235,6 +235,19 @@ export default function Page() {
         />
       </Section>
 
+      <div className="rounded-lg border border-stone-200 bg-stone-100 p-6">
+        <p className="text-md leading-relaxed text-ink-800">
+          You can work out whether and how the EU AI Act applies to you in five questions — together
+          with NIS2 and GDPR, no sign-up.
+        </p>
+        <a
+          href="/en/check"
+          className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-azul-600 hover:text-azul-700"
+        >
+          To the compliance self-check →
+        </a>
+      </div>
+
       <Note>
         Note: this article gives a generally accessible overview and is not legal advice. Specific
         deadlines, classifications and duties depend on the individual case and should be reviewed

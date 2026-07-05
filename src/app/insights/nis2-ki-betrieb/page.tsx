@@ -145,6 +145,19 @@ export default function Page() {
         </p>
       </Section>
 
+      <div className="rounded-lg border border-stone-200 bg-stone-100 p-6">
+        <p className="text-md leading-relaxed text-ink-800">
+          Ob NIS2 Ihre Organisation erfasst, klären Sie in fünf Fragen — gemeinsam mit EU AI Act und
+          DSGVO, direkt im Browser ausgewertet.
+        </p>
+        <a
+          href="/check"
+          className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-azul-600 hover:text-azul-700"
+        >
+          Zum Compliance-Self-Check →
+        </a>
+      </div>
+
       <Note>
         Hinweis: Dieser Beitrag gibt den Rahmen allgemein verständlich wieder und ist keine
         Rechtsberatung. Ob und wie NIS2 auf Ihre Organisation anwendbar ist und welche Maßnahmen

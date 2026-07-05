@@ -72,6 +72,8 @@ export function Navbar({ lang = "de" }: { lang?: Lang }) {
     "/",
     "/vergleich",
     "/rechner",
+    "/check",
+    "/glossar",
     "/insights",
     "/insights/eu-ai-act-frist-2026",
     "/insights/bounded-admission-last",
@@ -79,11 +81,15 @@ export function Navbar({ lang = "de" }: { lang?: Lang }) {
     "/insights/on-premise-vs-cloud-kosten",
     "/insights/nis2-ki-betrieb",
   ]); // DE-Pfade mit /en-Pendant
+  // Dynamische Bereiche mit vollständiger EN-Parität (z. B. Glossar-Detailseiten)
+  const EN_PREFIXES = ["/glossar/"];
   const isEn = pathname === "/en" || pathname.startsWith("/en/");
   const dePath = isEn ? pathname.replace(/^\/en/, "") || "/" : pathname;
+  const hasEnPendant =
+    EN_TRANSLATED.has(dePath) || EN_PREFIXES.some((p) => dePath.startsWith(p));
   const altHref = isEn
     ? dePath // Rückweg nach DE existiert immer
-    : EN_TRANSLATED.has(dePath)
+    : hasEnPendant
       ? `/en${dePath === "/" ? "" : dePath}`
       : "/en";
   const altLabel = isEn ? "DE" : "EN";
