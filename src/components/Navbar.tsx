@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Menu, X, Globe } from "lucide-react";
+import { Menu, X, Globe, ChevronDown } from "lucide-react";
 import { Wordmark } from "./Wordmark";
 import { cn } from "@/lib/cn";
 
@@ -18,6 +18,16 @@ const LABELS = {
       { id: "sicherheit", label: "Sicherheit" },
       { id: "faq", label: "FAQ" },
     ],
+    resources: {
+      label: "Ressourcen",
+      items: [
+        { label: "Vergleich", href: "/vergleich" },
+        { label: "Kosten-Rechner", href: "/rechner" },
+        { label: "Self-Check", href: "/check" },
+        { label: "Insights", href: "/insights" },
+        { label: "Glossar", href: "/glossar" },
+      ],
+    },
     demo: "Demo buchen",
     home: "Quinta Startseite",
     toggle: "Menü umschalten",
@@ -30,6 +40,16 @@ const LABELS = {
       { id: "sicherheit", label: "Security" },
       { id: "faq", label: "FAQ" },
     ],
+    resources: {
+      label: "Resources",
+      items: [
+        { label: "Comparison", href: "/vergleich" },
+        { label: "Cost calculator", href: "/rechner" },
+        { label: "Self-check", href: "/check" },
+        { label: "Insights", href: "/insights" },
+        { label: "Glossary", href: "/glossar" },
+      ],
+    },
     demo: "Book a demo",
     home: "Quinta home",
     toggle: "Toggle menu",
@@ -43,6 +63,14 @@ export function Navbar({ lang = "de" }: { lang?: Lang }) {
   const t = LABELS[lang];
   const home = lang === "en" ? "/en" : "/";
   const navLinks = t.links.map((l) => ({ href: `${home}#${l.id}`, label: l.label, id: l.id }));
+  const enPrefix = lang === "en" ? "/en" : "";
+  const resourceLinks = t.resources.items.map((it) => ({
+    label: it.label,
+    href: `${enPrefix}${it.href}`,
+  }));
+  const resourcesActive = resourceLinks.some(
+    (r) => pathname === r.href || pathname.startsWith(`${r.href}/`),
+  );
 
   // Scroll-Spy: aktive Sektion hervorheben (nur auf der Startseite).
   const [activeId, setActiveId] = useState("");
@@ -117,6 +145,33 @@ export function Navbar({ lang = "de" }: { lang?: Lang }) {
               {link.label}
             </Link>
           ))}
+
+          <div className="group relative">
+            <button
+              type="button"
+              className={cn(
+                "inline-flex items-center gap-1 rounded-xs px-2.5 py-1.5 text-sm font-medium transition-colors group-focus-within:text-ink-900",
+                resourcesActive ? "text-azul-600" : "text-ink-700 hover:text-ink-900",
+              )}
+              aria-haspopup="true"
+            >
+              {t.resources.label}
+              <ChevronDown className="h-3.5 w-3.5 transition-transform group-hover:rotate-180 group-focus-within:rotate-180" />
+            </button>
+            <div className="invisible absolute left-0 top-full pt-2 opacity-0 transition-opacity duration-150 group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100">
+              <div className="flex w-52 flex-col rounded-md border border-stone-200 bg-stone-0 p-1.5 shadow-raised">
+                {resourceLinks.map((r) => (
+                  <Link
+                    key={r.href}
+                    href={r.href}
+                    className="rounded-xs px-3 py-2 text-sm font-medium text-ink-700 transition-colors hover:bg-stone-100 hover:text-ink-900"
+                  >
+                    {r.label}
+                  </Link>
+                ))}
+              </div>
+            </div>
+          </div>
         </nav>
 
         <div className="ml-auto hidden items-center gap-2.5 lg:flex">
@@ -164,6 +219,25 @@ export function Navbar({ lang = "de" }: { lang?: Lang }) {
               </Link>
             ))}
           </nav>
+
+          <div className="mt-4 border-t border-stone-100 pt-4">
+            <span className="px-2.5 text-2xs font-semibold uppercase tracking-[0.08em] text-ink-400">
+              {t.resources.label}
+            </span>
+            <nav className="mt-1 flex flex-col gap-1">
+              {resourceLinks.map((r) => (
+                <Link
+                  key={r.href}
+                  href={r.href}
+                  onClick={() => setOpen(false)}
+                  className="rounded-xs px-2.5 py-2 text-sm font-medium text-ink-700"
+                >
+                  {r.label}
+                </Link>
+              ))}
+            </nav>
+          </div>
+
           <div className="mt-4 flex flex-col gap-2.5">
             <Link
               href={`${home}#kontakt`}
