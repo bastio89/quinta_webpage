@@ -16,7 +16,7 @@ function getRemaining() {
   return { days, hours, minutes, seconds };
 }
 
-export function AiActCountdown() {
+export function AiActCountdown({ lang = "de" }: { lang?: "de" | "en" }) {
   const [remaining, setRemaining] = useState<ReturnType<typeof getRemaining> | null>(null);
 
   useEffect(() => {
@@ -25,11 +25,16 @@ export function AiActCountdown() {
     return () => clearInterval(timer);
   }, []);
 
+  const L =
+    lang === "en"
+      ? { days: "Days", hours: "Hrs", minutes: "Min", seconds: "Sec", note: "Until 2 August 2026 — high-risk obligations of the EU AI Act" }
+      : { days: "Tage", hours: "Std", minutes: "Min", seconds: "Sek", note: "Bis zum 2. August 2026 — Hochrisiko-Pflichten des EU AI Act" };
+
   const parts = [
-    { label: "Tage", value: remaining?.days },
-    { label: "Std", value: remaining?.hours },
-    { label: "Min", value: remaining?.minutes },
-    { label: "Sek", value: remaining?.seconds },
+    { label: L.days, value: remaining?.days },
+    { label: L.hours, value: remaining?.hours },
+    { label: L.minutes, value: remaining?.minutes },
+    { label: L.seconds, value: remaining?.seconds },
   ];
 
   return (
@@ -45,7 +50,7 @@ export function AiActCountdown() {
           </span>
         ))}
       </div>
-      <p className="mt-2 text-sm text-ink-500">Bis zum 2. August 2026 — Hochrisiko-Pflichten des EU AI Act</p>
+      <p className="mt-2 text-sm text-ink-500">{L.note}</p>
     </div>
   );
 }

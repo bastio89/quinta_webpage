@@ -14,6 +14,14 @@ import { Footer } from "@/components/Footer";
 import { JsonLd } from "@/components/JsonLd";
 import { faqPageLd } from "@/lib/jsonLd";
 import { LANDING_FAQ } from "@/lib/faq";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  alternates: {
+    canonical: "/",
+    languages: { de: "/", en: "/en" },
+  },
+};
 
 export default function Home() {
   return (

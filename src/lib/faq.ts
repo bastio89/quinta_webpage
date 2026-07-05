@@ -34,3 +34,38 @@ export const LANDING_FAQ: FaqItem[] = [
     a: "Quinta ist eine Eigenentwicklung von twenty5ai. Der Inferenz-Motor basiert auf bewährter Open-Source-Technologie (Apache 2.0); die Verwaltungsebene — Gateway, Dashboard, Registry — ist eigene Entwicklung.",
   },
 ];
+
+export const LANDING_FAQ_EN: FaqItem[] = [
+  {
+    q: "What does “sovereign” actually mean?",
+    a: "Every component — gateway, daemon, dashboard, model registry and database — runs on your hardware, in your network. There is no cloud portion, no telemetry to the outside and no provider that sees your requests.",
+  },
+  {
+    q: "What hardware do we need?",
+    a: "From a single GPU workstation to AI appliances of the DGX Spark class (e.g. Asus GX10). Quinta detects NVIDIA, AMD and Intel GPUs automatically; every additional machine running the daemon becomes part of the platform on its own.",
+  },
+  {
+    q: "Which models can we run?",
+    a: "Through vLLM the entire HuggingFace catalogue — Llama, Mistral, Qwen, Gemma, DeepSeek and more. Ollama is available for a simple start. The lifecycle (download, start, health check, warmup) runs automatically.",
+  },
+  {
+    q: "What does operation cost?",
+    a: "Hardware and electricity. There are no token costs and no cloud bill — usage is unlimited and the budget is predictable.",
+  },
+  {
+    q: "How long does rollout take?",
+    a: "Rollout onto existing hardware takes hours, not months. It is preceded by a 30-minute planning conversation about use cases and your compliance framework.",
+  },
+  {
+    q: "Do we have to rebuild our applications?",
+    a: "No. Quinta speaks the OpenAI API (/v1/chat/completions, embeddings, rerank, audio transcription, Responses API). Existing apps change base_url and API key — that is the entire switch.",
+  },
+  {
+    q: "Can we keep using cloud AI in parallel?",
+    a: "Yes. Quinta runs models on your hardware and replaces cloud APIs where data sovereignty matters. Non-critical workloads can keep running in the cloud, independently — the decision is yours.",
+  },
+  {
+    q: "Who is behind Quinta?",
+    a: "Quinta is developed in-house by twenty5ai. The inference engine builds on proven open-source technology (Apache 2.0); the management layer — gateway, dashboard, registry — is our own development.",
+  },
+];
