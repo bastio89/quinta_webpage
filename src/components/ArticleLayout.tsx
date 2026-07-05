@@ -1,6 +1,6 @@
 import type { ReactNode } from "react";
 import Link from "next/link";
-import { ArrowRight, ArrowLeft } from "lucide-react";
+import { ArrowRight, ArrowLeft, Check } from "lucide-react";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { JsonLd } from "@/components/JsonLd";
@@ -137,5 +137,37 @@ export function Note({ children }: { children: ReactNode }) {
     <p className="rounded-md border border-stone-200 bg-stone-100 p-5 text-sm leading-relaxed text-ink-500">
       {children}
     </p>
+  );
+}
+
+export function SubHeading({ children }: { children: ReactNode }) {
+  return (
+    <h3 className="mt-2 text-xl font-semibold tracking-[-0.025em] text-ink-900">{children}</h3>
+  );
+}
+
+export function Bullets({ items }: { items: ReactNode[] }) {
+  return (
+    <ul className="flex flex-col gap-2.5">
+      {items.map((t, i) => (
+        <li key={i} className="flex items-start gap-2.5 text-md leading-relaxed text-ink-700">
+          <Check className="mt-1 h-4 w-4 flex-none text-azul-600" strokeWidth={2.25} />
+          <span>{t}</span>
+        </li>
+      ))}
+    </ul>
+  );
+}
+
+export function CardGrid({ items }: { items: { t: string; d: string }[] }) {
+  return (
+    <div className="grid gap-4 sm:grid-cols-2">
+      {items.map((c) => (
+        <div key={c.t} className="card-surface p-6">
+          <h3 className="text-md font-semibold text-ink-900">{c.t}</h3>
+          <p className="mt-1.5 text-sm leading-relaxed text-ink-500">{c.d}</p>
+        </div>
+      ))}
+    </div>
   );
 }

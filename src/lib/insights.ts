@@ -15,7 +15,7 @@ export const INSIGHTS: InsightMeta[] = [
     excerpt:
       "Ab dem 2. August 2026 gilt eine zentrale Tranche des EU AI Act. Was das für Hochrisiko-KI bedeutet — und warum Souveränität die Dokumentation liefert, die eine Prüfung verlangt.",
     date: "2026-07-05",
-    readingMinutes: 6,
+    readingMinutes: 11,
   },
   {
     href: "/insights/bounded-admission-last",
@@ -24,7 +24,7 @@ export const INSIGHTS: InsightMeta[] = [
     excerpt:
       "18× höhere Erfolgsquote bei identischer Engine — der Unterschied liegt nicht im Modell, sondern in der Warteschlange. Wie ein Gateway Überlast dosiert, statt daran zu zerbrechen.",
     date: "2026-07-04",
-    readingMinutes: 6,
+    readingMinutes: 10,
   },
   {
     href: "/insights/datensouveraenitaet-cloud-act",
@@ -33,7 +33,7 @@ export const INSIGHTS: InsightMeta[] = [
     excerpt:
       "Ein europäisches Rechenzentrum eines US-Anbieters hebt die US-Zugriffsrechte nicht auf. Warum echte Datensouveränität heißt, dass Daten Ihre Kontrolle nie verlassen.",
     date: "2026-07-03",
-    readingMinutes: 7,
+    readingMinutes: 11,
   },
   {
     href: "/insights/on-premise-vs-cloud-kosten",
@@ -42,7 +42,7 @@ export const INSIGHTS: InsightMeta[] = [
     excerpt:
       "Cloud-KI heißt mieten, On-Premise heißt besitzen. Was die Token-Rechnung verschweigt, wo der Break-even liegt — und wann sich eigene Hardware wirklich rechnet.",
     date: "2026-07-02",
-    readingMinutes: 6,
+    readingMinutes: 10,
   },
   {
     href: "/vergleich",
@@ -60,7 +60,7 @@ export const INSIGHTS: InsightMeta[] = [
     excerpt:
       "Neben dem EU AI Act erweitert NIS2 die Cybersicherheitspflichten auf viele Branchen — mit Geschäftsleitungshaftung. Was das für Ihren KI-Stack bedeutet.",
     date: "2026-06-30",
-    readingMinutes: 6,
+    readingMinutes: 10,
   },
 ];
 
