@@ -43,9 +43,9 @@ const T = {
         label: "openai.com",
       },
       {
-        text: "Seat-Modelle zum Vergleich: GitHub Copilot rechnet pro Nutzer (Business 19 $, Enterprise 39 $ je Monat; seit Juni 2026 zusätzlich guthabenbasiert, 1 Credit = 0,01 $) — ein anderes Abrechnungsmodell als die reine Token-Nutzung, die dieser Rechner abbildet.",
-        href: "https://github.com/features/copilot/plans",
-        label: "github.com",
+        text: "Auch GitHub Copilot rechnet seit dem 1. Juni 2026 tokenbasiert ab: Input-, Output- und Cache-Tokens werden zu den API-Raten des jeweiligen Modells in AI Credits umgerechnet (1 Credit = 0,01 $), Basisrate 0,80 $ je 1 Mio. Input- und 3,20 $ je 1 Mio. Output-Tokens — zusätzlich zu einem festen monatlichen Credit-Guthaben je Sitz (Business ab 19 $, Enterprise ab 39 $). Das liegt nahe am Nutzungsmodell, das dieser Rechner abbildet.",
+        href: "https://docs.github.com/en/copilot/reference/copilot-billing/models-and-pricing",
+        label: "docs.github.com",
       },
       {
         text: "Hardware (30.000 €) und Betrieb (400 € / Monat) sind illustrative Annahmen für einen kleinen Inferenz-Server der DGX-Klasse; reale Werte hängen von Ausstattung, Strompreis und Auslastung ab.",
@@ -91,9 +91,9 @@ const T = {
         label: "openai.com",
       },
       {
-        text: "Seat models for comparison: GitHub Copilot bills per user (Business $19, Enterprise $39 per month; since June 2026 additionally credit-based, 1 credit = $0.01) — a different billing model than the pure token usage this calculator reflects.",
-        href: "https://github.com/features/copilot/plans",
-        label: "github.com",
+        text: "Since 1 June 2026 GitHub Copilot also bills by token: input, output and cached tokens are converted to AI credits at each model's API rate (1 credit = $0.01), base rate $0.80 per 1M input and $3.20 per 1M output tokens — on top of a fixed monthly credit allowance per seat (Business from $19, Enterprise from $39). That puts it close to the usage model this calculator reflects.",
+        href: "https://docs.github.com/en/copilot/reference/copilot-billing/models-and-pricing",
+        label: "docs.github.com",
       },
       {
         text: "Hardware (€30,000) and operation (€400 / month) are illustrative assumptions for a small DGX-class inference server; real figures depend on configuration, electricity price and utilization.",
