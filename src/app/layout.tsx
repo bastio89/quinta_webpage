@@ -62,9 +62,6 @@ export const metadata: Metadata = {
     description:
       "Ihre eigene, private KI-Zentrale — OpenAI-kompatibel, aber Ihre Daten bleiben zu 100 % bei Ihnen.",
   },
-  icons: {
-    icon: [{ url: "/icon.svg", type: "image/svg+xml" }],
-  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
