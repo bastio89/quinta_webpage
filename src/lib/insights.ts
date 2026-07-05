@@ -18,6 +18,33 @@ export const INSIGHTS: InsightMeta[] = [
     readingMinutes: 6,
   },
   {
+    href: "/insights/bounded-admission-last",
+    category: "Architektur",
+    title: "Bounded Admission: warum ein Inferenz-Server unter Last kippt",
+    excerpt:
+      "18× höhere Erfolgsquote bei identischer Engine — der Unterschied liegt nicht im Modell, sondern in der Warteschlange. Wie ein Gateway Überlast dosiert, statt daran zu zerbrechen.",
+    date: "2026-07-04",
+    readingMinutes: 6,
+  },
+  {
+    href: "/insights/datensouveraenitaet-cloud-act",
+    category: "Datensouveränität",
+    title: "DSGVO, Schrems II und der US CLOUD Act: warum die „EU-Region“ nicht genügt",
+    excerpt:
+      "Ein europäisches Rechenzentrum eines US-Anbieters hebt die US-Zugriffsrechte nicht auf. Warum echte Datensouveränität heißt, dass Daten Ihre Kontrolle nie verlassen.",
+    date: "2026-07-03",
+    readingMinutes: 7,
+  },
+  {
+    href: "/insights/on-premise-vs-cloud-kosten",
+    category: "Wirtschaftlichkeit",
+    title: "On-Premise vs. Cloud-KI: die ehrliche Kostenrechnung",
+    excerpt:
+      "Cloud-KI heißt mieten, On-Premise heißt besitzen. Was die Token-Rechnung verschweigt, wo der Break-even liegt — und wann sich eigene Hardware wirklich rechnet.",
+    date: "2026-07-02",
+    readingMinutes: 6,
+  },
+  {
     href: "/vergleich",
     category: "Vergleich",
     title: "Quinta im Vergleich zu Ollama, vLLM und LocalAI",
@@ -25,6 +52,15 @@ export const INSIGHTS: InsightMeta[] = [
       "Ollama, vLLM und LocalAI führen ein Modell aus. Quinta ist die Betriebsschicht darum herum — Zugriffskontrolle, Orchestrierung, Governance und Audit. Der ehrliche Vergleich.",
     date: "2026-07-01",
     readingMinutes: 5,
+  },
+  {
+    href: "/insights/nis2-ki-betrieb",
+    category: "Compliance",
+    title: "NIS2 und der KI-Betrieb: die zweite Regulatorik, die Sie betrifft",
+    excerpt:
+      "Neben dem EU AI Act erweitert NIS2 die Cybersicherheitspflichten auf viele Branchen — mit Geschäftsleitungshaftung. Was das für Ihren KI-Stack bedeutet.",
+    date: "2026-06-30",
+    readingMinutes: 6,
   },
 ];
 
