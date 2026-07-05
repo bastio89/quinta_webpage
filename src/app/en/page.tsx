@@ -14,6 +14,7 @@ import {
   CtaEn,
 } from "@/components/en/marketing";
 import { EditionsEn, SecurityEn, UseCasesEn, FaqEn } from "@/components/en/business";
+import { Reveal } from "@/components/motion/Reveal";
 
 export const metadata: Metadata = {
   title: "Quinta – The sovereign on-premise AI platform by twenty5ai",
@@ -40,16 +41,16 @@ export default function HomeEn() {
       <Navbar lang="en" />
       <main>
         <HeroEn />
-        <RiskEn />
-        <PlatformEn />
-        <MigrationEn />
-        <EditionsEn />
-        <BenchmarksEn />
-        <RolloutEn />
-        <SecurityEn />
-        <UseCasesEn />
-        <FaqEn />
-        <CtaEn />
+        <Reveal><RiskEn /></Reveal>
+        <Reveal><PlatformEn /></Reveal>
+        <Reveal><MigrationEn /></Reveal>
+        <Reveal><EditionsEn /></Reveal>
+        <Reveal><BenchmarksEn /></Reveal>
+        <Reveal><RolloutEn /></Reveal>
+        <Reveal><SecurityEn /></Reveal>
+        <Reveal><UseCasesEn /></Reveal>
+        <Reveal><FaqEn /></Reveal>
+        <Reveal><CtaEn /></Reveal>
       </main>
       <Footer lang="en" />
     </>

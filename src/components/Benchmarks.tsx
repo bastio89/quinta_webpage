@@ -1,18 +1,27 @@
+import { CountUp } from "@/components/motion/CountUp";
+import { GrowBar } from "@/components/motion/GrowBar";
+
 const STATS = [
   {
-    value: "18×",
+    prefix: "",
+    value: 18,
+    suffix: "×",
     label: "höhere Erfolgsquote unter Extremlast",
     sub: "Das Gateway dosiert Anfragen (bounded admission) und fängt Fehler ab, bevor Nutzer sie sehen — gegenüber dem blanken Inferenz-Server.",
     accent: true,
   },
   {
-    value: "~56 ms",
+    prefix: "~",
+    value: 56,
+    suffix: " ms",
     label: "zusätzliche Erst-Latenz",
     sub: "Reiner Netzwerkweg durch die Plattform-Schicht — die Token-Rate pro Nutzer bleibt identisch.",
     accent: false,
   },
   {
-    value: "512",
+    prefix: "",
+    value: 512,
+    suffix: "",
     label: "gleichzeitige Anfragen im Test",
     sub: "31.200 Requests insgesamt, Quinta-Gateway vs. vLLM pur.",
     accent: false,
@@ -33,14 +42,15 @@ export function Benchmarks() {
         <div className="mb-16 grid gap-12 sm:grid-cols-3">
           {STATS.map((stat) => (
             <div key={stat.label} className="flex flex-col gap-1.5">
-              <span
+              <CountUp
+                prefix={stat.prefix}
+                value={stat.value}
+                suffix={stat.suffix}
                 className={
                   "text-display-xl font-semibold tabular-nums " +
                   (stat.accent ? "text-azul-400" : "text-on-dark")
                 }
-              >
-                {stat.value}
-              </span>
+              />
               <span className="text-sm font-semibold text-on-dark">{stat.label}</span>
               <span className="max-w-[260px] text-xs leading-relaxed text-on-dark-muted">
                 {stat.sub}
@@ -57,7 +67,7 @@ export function Benchmarks() {
                 <span className="font-mono text-signal-green">18×</span>
               </div>
               <div className="h-2.5 rounded-full bg-ink-800">
-                <div className="h-full w-full rounded-full bg-gradient-to-r from-azul-500 to-azul-400" />
+                <GrowBar width="100%" className="bg-gradient-to-r from-azul-500 to-azul-400" />
               </div>
             </div>
             <div>
@@ -66,7 +76,7 @@ export function Benchmarks() {
                 <span className="font-mono">1×</span>
               </div>
               <div className="h-2.5 rounded-full bg-ink-800">
-                <div className="h-full w-[5.6%] rounded-full bg-ink-500" />
+                <GrowBar width="5.6%" className="bg-ink-500" />
               </div>
             </div>
           </div>

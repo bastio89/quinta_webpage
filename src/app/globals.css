@@ -147,6 +147,11 @@
     scroll-behavior: smooth;
   }
 
+  /* Anker-Sprünge unter der klebenden Navbar landen lassen */
+  section[id] {
+    scroll-margin-top: 5rem;
+  }
+
   body {
     background-color: var(--color-stone-50);
     color: var(--color-ink-700);
@@ -271,6 +276,21 @@
     background-color: var(--color-stone-0);
     border: 1px solid var(--color-stone-200);
     border-radius: var(--radius-md);
+    transition: transform 200ms cubic-bezier(0.2, 0, 0, 1),
+      box-shadow 200ms cubic-bezier(0.2, 0, 0, 1), border-color 200ms cubic-bezier(0.2, 0, 0, 1);
+  }
+  .card-surface:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-raised);
+    border-color: var(--color-stone-300);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .card-surface {
+      transition: none;
+    }
+    .card-surface:hover {
+      transform: none;
+    }
   }
   .card-surface--sunken {
     background-color: var(--color-stone-100);

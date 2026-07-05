@@ -12,11 +12,19 @@ import {
   Server,
   Cpu,
 } from "lucide-react";
+import { CountUp } from "@/components/motion/CountUp";
+import { GrowBar } from "@/components/motion/GrowBar";
+import { TerminalStream } from "@/components/motion/TerminalStream";
 
 /* ---------------- Hero ---------------- */
 
 const BADGES = ["GDPR-compliant", "EU-AI-Act-ready", "100% European", "OpenAI-compatible API"];
 const ROW = "flex items-center justify-between border-b border-on-dark/10 py-2.5 font-mono text-[12.5px]";
+const STREAM = [
+  "Sovereignty costs no performance.",
+  "Not a single byte leaves the building.",
+  "Response generated — locally, no cloud.",
+];
 
 export function HeroEn() {
   const [offline, setOffline] = useState(false);
@@ -98,6 +106,13 @@ export function HeroEn() {
           <div className={ROW}>
             <span className="text-on-dark-muted">llama-3.3-70b</span>
             <span className="animate-q-pulse text-signal-green">▮ answering …</span>
+          </div>
+
+          <div className="mt-3 flex items-start gap-2 font-mono text-[12px] leading-relaxed text-signal-green">
+            <span className="text-on-dark-muted">›</span>
+            <span>
+              <TerminalStream phrases={STREAM} />
+            </span>
           </div>
 
           <p className="mt-4 text-sm leading-relaxed text-on-dark-muted">
@@ -326,19 +341,25 @@ export function MigrationEn() {
 
 const STATS = [
   {
-    value: "18×",
+    prefix: "",
+    value: 18,
+    suffix: "×",
     label: "higher success rate under extreme load",
     sub: "The gateway meters requests (bounded admission) and absorbs errors before users see them — against the bare inference server.",
     accent: true,
   },
   {
-    value: "~56 ms",
+    prefix: "~",
+    value: 56,
+    suffix: " ms",
     label: "additional first-token latency",
     sub: "Pure network path through the platform layer — the per-user token rate stays identical.",
     accent: false,
   },
   {
-    value: "512",
+    prefix: "",
+    value: 512,
+    suffix: "",
     label: "concurrent requests in the test",
     sub: "31,200 requests in total, Quinta gateway vs. vLLM alone.",
     accent: false,
@@ -359,14 +380,15 @@ export function BenchmarksEn() {
         <div className="mb-16 grid gap-12 sm:grid-cols-3">
           {STATS.map((s) => (
             <div key={s.label} className="flex flex-col gap-1.5">
-              <span
+              <CountUp
+                prefix={s.prefix}
+                value={s.value}
+                suffix={s.suffix}
                 className={
                   "text-display-xl font-semibold tabular-nums " +
                   (s.accent ? "text-azul-400" : "text-on-dark")
                 }
-              >
-                {s.value}
-              </span>
+              />
               <span className="text-sm font-semibold text-on-dark">{s.label}</span>
               <span className="max-w-[260px] text-xs leading-relaxed text-on-dark-muted">{s.sub}</span>
             </div>
@@ -381,7 +403,7 @@ export function BenchmarksEn() {
                 <span className="font-mono text-signal-green">18×</span>
               </div>
               <div className="h-2.5 rounded-full bg-ink-800">
-                <div className="h-full w-full rounded-full bg-gradient-to-r from-azul-500 to-azul-400" />
+                <GrowBar width="100%" className="bg-gradient-to-r from-azul-500 to-azul-400" />
               </div>
             </div>
             <div>
@@ -390,7 +412,7 @@ export function BenchmarksEn() {
                 <span className="font-mono">1×</span>
               </div>
               <div className="h-2.5 rounded-full bg-ink-800">
-                <div className="h-full w-[5.6%] rounded-full bg-ink-500" />
+                <GrowBar width="5.6%" className="bg-ink-500" />
               </div>
             </div>
           </div>

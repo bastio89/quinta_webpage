@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Menu, X, Globe } from "lucide-react";
@@ -42,7 +42,29 @@ export function Navbar({ lang = "de" }: { lang?: Lang }) {
 
   const t = LABELS[lang];
   const home = lang === "en" ? "/en" : "/";
-  const navLinks = t.links.map((l) => ({ href: `${home}#${l.id}`, label: l.label }));
+  const navLinks = t.links.map((l) => ({ href: `${home}#${l.id}`, label: l.label, id: l.id }));
+
+  // Scroll-Spy: aktive Sektion hervorheben (nur auf der Startseite).
+  const [activeId, setActiveId] = useState("");
+  const isHome = pathname === "/" || pathname === "/en";
+  useEffect(() => {
+    if (!isHome) return;
+    const ids = t.links.map((l) => l.id);
+    const els = ids
+      .map((id) => document.getElementById(id))
+      .filter((el): el is HTMLElement => el !== null);
+    if (!els.length) return;
+    const io = new IntersectionObserver(
+      (entries) => {
+        for (const e of entries) {
+          if (e.isIntersecting) setActiveId(e.target.id);
+        }
+      },
+      { rootMargin: "-45% 0px -50% 0px", threshold: 0 },
+    );
+    els.forEach((el) => io.observe(el));
+    return () => io.disconnect();
+  }, [isHome, t.links]);
 
   // Sprachumschalter. Nur Seiten mit vorhandener EN-Fassung mappen 1:1;
   // für alle anderen fällt der Wechsel auf die Sprach-Startseite zurück (kein 404).
@@ -78,7 +100,12 @@ export function Navbar({ lang = "de" }: { lang?: Lang }) {
             <Link
               key={link.href}
               href={link.href}
-              className="rounded-xs px-2.5 py-1.5 text-sm font-medium text-ink-700 transition-colors hover:text-ink-900"
+              className={cn(
+                "rounded-xs px-2.5 py-1.5 text-sm font-medium transition-colors",
+                isHome && activeId === link.id
+                  ? "text-azul-600"
+                  : "text-ink-700 hover:text-ink-900",
+              )}
             >
               {link.label}
             </Link>

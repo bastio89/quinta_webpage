@@ -12,6 +12,7 @@ import { FAQ } from "@/components/FAQ";
 import { CTA } from "@/components/CTA";
 import { Footer } from "@/components/Footer";
 import { JsonLd } from "@/components/JsonLd";
+import { Reveal } from "@/components/motion/Reveal";
 import { faqPageLd } from "@/lib/jsonLd";
 import { LANDING_FAQ } from "@/lib/faq";
 import type { Metadata } from "next";
@@ -30,16 +31,16 @@ export default function Home() {
       <Navbar />
       <main>
         <Hero />
-        <Risk />
-        <Platform />
-        <Migration />
-        <Editions />
-        <Benchmarks />
-        <Rollout />
-        <Security />
-        <UseCases />
-        <FAQ />
-        <CTA />
+        <Reveal><Risk /></Reveal>
+        <Reveal><Platform /></Reveal>
+        <Reveal><Migration /></Reveal>
+        <Reveal><Editions /></Reveal>
+        <Reveal><Benchmarks /></Reveal>
+        <Reveal><Rollout /></Reveal>
+        <Reveal><Security /></Reveal>
+        <Reveal><UseCases /></Reveal>
+        <Reveal><FAQ /></Reveal>
+        <Reveal><CTA /></Reveal>
       </main>
       <Footer />
     </>

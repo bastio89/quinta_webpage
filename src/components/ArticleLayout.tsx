@@ -4,6 +4,7 @@ import { ArrowRight, ArrowLeft, Check } from "lucide-react";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { JsonLd } from "@/components/JsonLd";
+import { ReadingProgress } from "@/components/motion/ReadingProgress";
 import { articleLd } from "@/lib/jsonLd";
 import { formatInsightDate } from "@/lib/insights";
 
@@ -61,6 +62,7 @@ export function ArticleLayout({
   return (
     <>
       <JsonLd data={articleLd({ title, description, path, datePublished: date })} />
+      <ReadingProgress />
       <Navbar lang={lang} />
       <main>
         <section className="container-quinta pt-16 pb-12 sm:pt-20">

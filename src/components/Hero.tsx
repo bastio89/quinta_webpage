@@ -2,8 +2,15 @@
 
 import { useState } from "react";
 import { ArrowRight } from "lucide-react";
+import { TerminalStream } from "@/components/motion/TerminalStream";
 
 const BADGES = ["GDPR-konform", "EU-AI-Act-ready", "100 % europäisch", "OpenAI-kompatible API"];
+
+const STREAM = [
+  "Souveränität kostet keine Leistung.",
+  "Kein Byte verlässt das Haus.",
+  "Antwort erzeugt — lokal, ohne Cloud.",
+];
 
 const ROW_CLASS =
   "flex items-center justify-between border-b border-on-dark/10 py-2.5 font-mono text-[12.5px]";
@@ -90,6 +97,13 @@ export function Hero() {
           <div className={ROW_CLASS}>
             <span className="text-on-dark-muted">llama-3.3-70b</span>
             <span className="animate-q-pulse text-signal-green">▮ antwortet …</span>
+          </div>
+
+          <div className="mt-3 flex items-start gap-2 font-mono text-[12px] leading-relaxed text-signal-green">
+            <span className="text-on-dark-muted">›</span>
+            <span>
+              <TerminalStream phrases={STREAM} />
+            </span>
           </div>
 
           <p className="mt-4 text-sm leading-relaxed text-on-dark-muted">
