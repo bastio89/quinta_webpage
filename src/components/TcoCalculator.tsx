@@ -33,6 +33,25 @@ const T = {
     tokensPerMonth: "Tokens pro Monat",
     disclaimer:
       "Illustrative Modellrechnung — keine Preisaussage. Alle Werte sind frei anpassbar; reale Kosten hängen von Hardware, Auslastung und Tarifen ab. On-Premise-Kosten werden als Hardware (einmalig) plus laufender Betrieb modelliert, Cloud rein nutzungsbasiert.",
+    basisTitle: "Grundlage der Voreinstellungen",
+    basisIntro:
+      "Die Startwerte sind keine Quinta-Preise, sondern öffentlich einsehbare Marktanker — bewusst konservativ gewählt und jederzeit mit den Reglern überschreibbar:",
+    basisItems: [
+      {
+        text: "Cloud-Tarif 0,60 € je 1 Mio. Tokens — angelehnt an die Listenpreise günstiger API-Modelle. OpenAI nennt für GPT-4o mini 0,15 $ (Eingabe) bzw. 0,60 $ (Ausgabe) je 1 Mio. Tokens; leistungsstärkere Modelle liegen um ein Vielfaches darüber.",
+        href: "https://developers.openai.com/api/docs/pricing",
+        label: "openai.com",
+      },
+      {
+        text: "Seat-Modelle zum Vergleich: GitHub Copilot rechnet pro Nutzer (Business 19 $, Enterprise 39 $ je Monat; seit Juni 2026 zusätzlich guthabenbasiert, 1 Credit = 0,01 $) — ein anderes Abrechnungsmodell als die reine Token-Nutzung, die dieser Rechner abbildet.",
+        href: "https://github.com/features/copilot/plans",
+        label: "github.com",
+      },
+      {
+        text: "Hardware (30.000 €) und Betrieb (400 € / Monat) sind illustrative Annahmen für einen kleinen Inferenz-Server der DGX-Klasse; reale Werte hängen von Ausstattung, Strompreis und Auslastung ab.",
+      },
+    ],
+    basisNote: "Stand der Referenzpreise: Juli 2026, in US-Dollar ausgewiesen. Anbieterpreise können sich jederzeit ändern.",
   },
   en: {
     needs: "Your demand",
@@ -62,6 +81,25 @@ const T = {
     tokensPerMonth: "tokens per month",
     disclaimer:
       "Illustrative model calculation — not a price statement. All values are freely adjustable; real costs depend on hardware, utilization and rates. On-premise cost is modelled as hardware (one-off) plus running operation, cloud purely usage-based.",
+    basisTitle: "Basis of the default values",
+    basisIntro:
+      "The starting values are not Quinta prices but publicly available market anchors — deliberately conservative and overridable with the sliders at any time:",
+    basisItems: [
+      {
+        text: "Cloud rate €0.60 per 1M tokens — based on the list prices of low-cost API models. OpenAI lists GPT-4o mini at $0.15 (input) and $0.60 (output) per 1M tokens; more capable models cost several times more.",
+        href: "https://developers.openai.com/api/docs/pricing",
+        label: "openai.com",
+      },
+      {
+        text: "Seat models for comparison: GitHub Copilot bills per user (Business $19, Enterprise $39 per month; since June 2026 additionally credit-based, 1 credit = $0.01) — a different billing model than the pure token usage this calculator reflects.",
+        href: "https://github.com/features/copilot/plans",
+        label: "github.com",
+      },
+      {
+        text: "Hardware (€30,000) and operation (€400 / month) are illustrative assumptions for a small DGX-class inference server; real figures depend on configuration, electricity price and utilization.",
+      },
+    ],
+    basisNote: "Reference prices as of July 2026, stated in US dollars. Provider prices can change at any time.",
   },
 } as const;
 
@@ -323,6 +361,40 @@ export function TcoCalculator({ lang = "de" }: { lang?: Lang }) {
         </div>
 
         <p className="text-xs leading-relaxed text-ink-400">{t.disclaimer}</p>
+
+        <details className="group rounded-lg border border-stone-200 bg-stone-100/60 px-4 py-3">
+          <summary className="cursor-pointer list-none text-xs font-semibold uppercase tracking-[0.08em] text-ink-600 marker:content-none">
+            <span className="inline-flex items-center gap-1.5">
+              <span className="text-ink-400 transition-transform group-open:rotate-90">›</span>
+              {t.basisTitle}
+            </span>
+          </summary>
+          <div className="mt-3 flex flex-col gap-2.5">
+            <p className="text-xs leading-relaxed text-ink-500">{t.basisIntro}</p>
+            <ul className="flex flex-col gap-2">
+              {t.basisItems.map((it, i) => (
+                <li key={i} className="text-xs leading-relaxed text-ink-500">
+                  <span className="mr-1.5 text-azul-500">•</span>
+                  {it.text}
+                  {"href" in it && it.href ? (
+                    <>
+                      {" "}
+                      <a
+                        href={it.href}
+                        target="_blank"
+                        rel="noopener nofollow"
+                        className="font-medium text-azul-600 underline decoration-azul-300 underline-offset-2 hover:text-azul-700"
+                      >
+                        {it.label}
+                      </a>
+                    </>
+                  ) : null}
+                </li>
+              ))}
+            </ul>
+            <p className="text-[0.7rem] leading-relaxed text-ink-400">{t.basisNote}</p>
+          </div>
+        </details>
       </div>
     </div>
   );
