@@ -11,10 +11,14 @@ import { UseCases } from "@/components/UseCases";
 import { FAQ } from "@/components/FAQ";
 import { CTA } from "@/components/CTA";
 import { Footer } from "@/components/Footer";
+import { JsonLd } from "@/components/JsonLd";
+import { faqPageLd } from "@/lib/jsonLd";
+import { LANDING_FAQ } from "@/lib/faq";
 
 export default function Home() {
   return (
     <>
+      <JsonLd data={faqPageLd(LANDING_FAQ)} />
       <Navbar />
       <main>
         <Hero />

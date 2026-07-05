@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Archivo, Newsreader, IBM_Plex_Mono } from "next/font/google";
 import "./globals.css";
 import { CookieConsent } from "@/components/CookieConsent";
+import { JsonLd } from "@/components/JsonLd";
+import { organizationLd } from "@/lib/jsonLd";
 
 const archivo = Archivo({
   subsets: ["latin"],
@@ -71,6 +73,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body className="min-h-dvh bg-stone-50 font-sans text-ink-700 antialiased">
         {children}
         <CookieConsent />
+        <JsonLd data={organizationLd} />
       </body>
     </html>
   );

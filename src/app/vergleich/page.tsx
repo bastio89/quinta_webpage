@@ -5,6 +5,8 @@ import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { ComparisonTable } from "@/components/ComparisonTable";
 import { FaqAccordion } from "@/components/FaqAccordion";
+import { JsonLd } from "@/components/JsonLd";
+import { faqPageLd } from "@/lib/jsonLd";
 
 export const metadata: Metadata = {
   title: "Quinta im Vergleich zu Ollama, vLLM und LocalAI",
@@ -66,6 +68,7 @@ const FAQ = [
 export default function VergleichPage() {
   return (
     <>
+      <JsonLd data={faqPageLd(FAQ)} />
       <Navbar />
       <main>
         {/* Header */}
