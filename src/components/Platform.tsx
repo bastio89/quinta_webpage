@@ -4,7 +4,7 @@ const STAGES = [
   { icon: AppWindow, name: "Ihre Anwendung", sub: "OpenAI-SDK, unverändert" },
   { icon: ShieldCheck, name: "Gateway", sub: "Auth · RBAC · Audit · Dosierung" },
   { icon: Server, name: "Daemon", sub: "je GPU-Rechner, selbstregistrierend" },
-  { icon: Cpu, name: "Modell", sub: "vLLM oder Ollama" },
+  { icon: Cpu, name: "Modell", sub: "vLLM oder Modell-Runner" },
 ];
 
 const MODELS = ["llama", "mistral", "qwen", "gemma", "deepseek"];
@@ -71,7 +71,7 @@ export function Platform() {
           </div>
           <div className="rounded-md border border-on-dark/10 bg-ink-850 p-5 shadow-inset-dark">
             <div className="flex items-center gap-2.5">
-              <span className="text-md font-semibold text-on-dark">Ollama</span>
+              <span className="text-md font-semibold text-on-dark">Leichter Modell-Runner</span>
               <span className="text-2xs font-semibold uppercase tracking-[0.08em] text-azul-400">
                 Einstieg
               </span>

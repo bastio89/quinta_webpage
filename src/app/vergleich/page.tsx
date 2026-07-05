@@ -9,9 +9,9 @@ import { JsonLd } from "@/components/JsonLd";
 import { faqPageLd } from "@/lib/jsonLd";
 
 export const metadata: Metadata = {
-  title: "Quinta im Vergleich zu Ollama, vLLM und LocalAI",
+  title: "Quinta im Vergleich zu vLLM, LocalAI und anderen Inferenz-Motoren",
   description:
-    "Ollama, vLLM und LocalAI führen ein Modell aus. Quinta ist die Betriebsschicht darum herum — Zugriffskontrolle, Multi-GPU-Orchestrierung, Governance und lückenloser Audit-Trail. Der ehrliche Vergleich.",
+    "vLLM, LocalAI und andere Inferenz-Motoren führen ein Modell aus. Quinta ist die Betriebsschicht darum herum — Zugriffskontrolle, Multi-GPU-Orchestrierung, Governance und lückenloser Audit-Trail. Der ehrliche Vergleich.",
   alternates: { canonical: "/vergleich", languages: { de: "/vergleich", en: "/en/vergleich" } },
 };
 
@@ -40,8 +40,8 @@ const OPS_QUESTIONS = [
 
 const FAQ = [
   {
-    q: "Ist Quinta ein Ersatz für Ollama oder vLLM?",
-    a: "Nein. Quinta nutzt Inferenz-Motoren wie Ollama und vLLM im Hintergrund und legt die Betriebsschicht darum herum — Zugriffskontrolle, Orchestrierung, Governance und Audit —, die ein Unternehmen in Produktion braucht.",
+    q: "Ist Quinta ein Ersatz für vLLM oder einen Modell-Runner?",
+    a: "Nein. Quinta nutzt Inferenz-Motoren wie vLLM und leichtgewichtige Modell-Runner im Hintergrund und legt die Betriebsschicht darum herum — Zugriffskontrolle, Orchestrierung, Governance und Audit —, die ein Unternehmen in Produktion braucht.",
   },
   {
     q: "Was ist der Unterschied zwischen einem Inferenz-Motor und einer Betriebsschicht?",
@@ -76,7 +76,7 @@ export default function VergleichPage() {
           <div className="max-w-3xl">
             <div className="kicker mb-3.5">Vergleich</div>
             <h1 className="text-display-md font-semibold text-ink-900 sm:text-display-lg">
-              Quinta im Vergleich zu Ollama, vLLM und LocalAI
+              Quinta im Vergleich zu vLLM, LocalAI und anderen Inferenz-Motoren
             </h1>
             <p className="mt-4 font-mono text-xs uppercase tracking-[0.08em] text-ink-400">
               twenty5ai · Sovereign-AI · Juli 2026
@@ -91,8 +91,8 @@ export default function VergleichPage() {
               Kurze Antwort
             </p>
             <p className="mt-4 text-lg leading-relaxed text-ink-800">
-              Werkzeuge wie Ollama, vLLM und LocalAI sind hervorragende Inferenz-Motoren. Sie führen
-              ein Modell aus. <strong className="font-semibold text-ink-950">Quinta ist die
+              Werkzeuge wie vLLM, LocalAI und andere Modell-Runner sind hervorragende
+              Inferenz-Motoren. Sie führen ein Modell aus. <strong className="font-semibold text-ink-950">Quinta ist die
               Betriebsschicht</strong> um das Modell herum — das, was ein reguliertes Unternehmen
               braucht, um KI in Produktion zu betreiben: Zugriffskontrolle, Multi-Modell- und
               Multi-GPU-Orchestrierung, Governance und ein lückenloser Prüfpfad. Quinta nutzt solche
@@ -111,8 +111,8 @@ export default function VergleichPage() {
             </h2>
             <div className="mt-5 flex flex-col gap-4 text-md leading-relaxed text-ink-700">
               <p>
-                Wer schon einmal ein Modell mit Ollama geladen oder vLLM gestartet hat, weiß, wie
-                weit offene Werkzeuge inzwischen sind. In wenigen Minuten steht ein
+                Wer schon einmal ein Modell mit einem Modell-Runner geladen oder vLLM gestartet hat,
+                weiß, wie weit offene Werkzeuge inzwischen sind. In wenigen Minuten steht ein
                 OpenAI-kompatibler Endpunkt, der ein leistungsfähiges offenes Modell auf Ihrer
                 eigenen Hardware bereitstellt. Für den Prototyp eines Entwicklers ist das oft schon
                 alles.
@@ -141,9 +141,9 @@ export default function VergleichPage() {
             </h2>
             <div className="mt-5 flex flex-col gap-4 text-md leading-relaxed text-ink-700">
               <p>
-                Ein Inferenz-Motor nimmt ein Modell und stellt es effizient bereit. Ollama, vLLM und
-                LocalAI sind Inferenz-Motoren: Sie optimieren den Durchsatz, verwalten den
-                GPU-Speicher und stellen eine API bereit. Das machen sie gut.
+                Ein Inferenz-Motor nimmt ein Modell und stellt es effizient bereit. vLLM, LocalAI und
+                vergleichbare Modell-Runner sind Inferenz-Motoren: Sie optimieren den Durchsatz,
+                verwalten den GPU-Speicher und stellen eine API bereit. Das machen sie gut.
               </p>
               <p>
                 Eine Betriebsschicht sitzt darüber und macht KI in einer Organisation nutzbar. Sie
@@ -172,7 +172,7 @@ export default function VergleichPage() {
           <div className="mx-auto mb-10 max-w-5xl">
             <div className="kicker mb-3.5">Funktionsvergleich</div>
             <h2 className="max-w-2xl text-display-sm font-semibold text-ink-900">
-              Quinta vs. Ollama, vLLM und LocalAI
+              Quinta vs. vLLM, LocalAI und andere Inferenz-Motoren
             </h2>
             <p className="mt-4 max-w-2xl text-md leading-relaxed text-ink-700">
               Es geht nicht darum, dass die Inferenz-Motoren unzureichend wären — sie sind exzellent
@@ -183,17 +183,17 @@ export default function VergleichPage() {
           <ComparisonTable />
           <div className="mx-auto mt-6 max-w-5xl">
             <p className="max-w-3xl text-md leading-relaxed text-ink-700">
-              Sowohl Ollama als auch vLLM sind sehr starke Werkzeuge; vLLM liefert insbesondere
-              exzellenten Multi-GPU-Durchsatz. Was keines von ihnen standardmäßig mitbringt, sind die
+              Diese Werkzeuge sind allesamt sehr stark; vLLM liefert insbesondere exzellenten
+              Multi-GPU-Durchsatz. Was keines von ihnen standardmäßig mitbringt, sind die
               Zugriffskontrolle, die Governance und der mandantenfähige Betrieb, die ein reguliertes
               Unternehmen zwingend braucht, bevor KI überhaupt in die Nähe von Produktionsdaten
               kommt.
             </p>
             <p className="mt-5 text-xs leading-relaxed text-ink-500">
               ✓ integriert · — nicht integraler Bestandteil. Der Vergleich betrifft die eingebauten
-              Plattform-Funktionen, nicht die Inferenz-Qualität der Engines. Angaben zu Ollama, vLLM
-              und LocalAI beschreiben den Standardumfang der jeweiligen Projekte und ersetzen keine
-              eigene Prüfung.
+              Plattform-Funktionen, nicht die Inferenz-Qualität der Engines. Angaben zu vLLM, LocalAI
+              und vergleichbaren Modell-Runnern beschreiben den Standardumfang der jeweiligen
+              Projekte und ersetzen keine eigene Prüfung.
             </p>
           </div>
         </section>

@@ -6,11 +6,11 @@ type Cell = true | false | string;
 type Product = { key: string; name: string; role: string; highlight: boolean };
 type Group = { label: string; rows: { feature: string; cells: [Cell, Cell, Cell, Cell] }[] };
 
-// Zellreihenfolge: [Ollama, vLLM, LocalAI, Quinta]
+// Zellreihenfolge: [Modell-Runner, vLLM, LocalAI, Quinta]
 const DATA: Record<Lang, { products: Product[]; groups: Group[] }> = {
   de: {
     products: [
-      { key: "ollama", name: "Ollama", role: "Modell-Runner", highlight: false },
+      { key: "runner", name: "Modell-Runner", role: "leichtgewichtig", highlight: false },
       { key: "vllm", name: "vLLM", role: "Inferenz-Server", highlight: false },
       { key: "localai", name: "LocalAI", role: "Modell-Runner", highlight: false },
       { key: "quinta", name: "quinta.", role: "Betriebsschicht", highlight: true },
@@ -21,7 +21,7 @@ const DATA: Record<Lang, { products: Product[]; groups: Group[] }> = {
         rows: [
           { feature: "Läuft vollständig On-Premise", cells: [true, true, true, true] },
           { feature: "OpenAI-kompatible API", cells: [true, true, true, true] },
-          { feature: "Inferenz-Engine", cells: ["llama.cpp", "vLLM", "mehrere", "Ollama + vLLM"] },
+          { feature: "Inferenz-Engine", cells: ["llama.cpp", "vLLM", "mehrere", "Modell-Runner + vLLM"] },
           { feature: "Ganzer HuggingFace-Katalog", cells: ["teilweise", true, "teilweise", true] },
           { feature: "Automatischer Modell-Lebenszyklus", cells: [false, false, "teilweise", "Download → Warmup → ready"] },
         ],
@@ -58,7 +58,7 @@ const DATA: Record<Lang, { products: Product[]; groups: Group[] }> = {
   },
   en: {
     products: [
-      { key: "ollama", name: "Ollama", role: "Model runner", highlight: false },
+      { key: "runner", name: "Model runner", role: "lightweight", highlight: false },
       { key: "vllm", name: "vLLM", role: "Inference server", highlight: false },
       { key: "localai", name: "LocalAI", role: "Model runner", highlight: false },
       { key: "quinta", name: "quinta.", role: "Operating layer", highlight: true },
@@ -69,7 +69,7 @@ const DATA: Record<Lang, { products: Product[]; groups: Group[] }> = {
         rows: [
           { feature: "Runs fully on-premise", cells: [true, true, true, true] },
           { feature: "OpenAI-compatible API", cells: [true, true, true, true] },
-          { feature: "Inference engine", cells: ["llama.cpp", "vLLM", "multiple", "Ollama + vLLM"] },
+          { feature: "Inference engine", cells: ["llama.cpp", "vLLM", "multiple", "model runner + vLLM"] },
           { feature: "Full HuggingFace catalogue", cells: ["partial", true, "partial", true] },
           { feature: "Automated model lifecycle", cells: [false, false, "partial", "Download → warmup → ready"] },
         ],

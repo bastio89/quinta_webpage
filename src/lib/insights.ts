@@ -47,9 +47,9 @@ export const INSIGHTS: InsightMeta[] = [
   {
     href: "/vergleich",
     category: "Vergleich",
-    title: "Quinta im Vergleich zu Ollama, vLLM und LocalAI",
+    title: "Quinta im Vergleich zu vLLM, LocalAI und anderen Inferenz-Motoren",
     excerpt:
-      "Ollama, vLLM und LocalAI führen ein Modell aus. Quinta ist die Betriebsschicht darum herum — Zugriffskontrolle, Orchestrierung, Governance und Audit. Der ehrliche Vergleich.",
+      "vLLM, LocalAI und andere Inferenz-Motoren führen ein Modell aus. Quinta ist die Betriebsschicht darum herum — Zugriffskontrolle, Orchestrierung, Governance und Audit. Der ehrliche Vergleich.",
     date: "2026-07-01",
     readingMinutes: 5,
   },
@@ -104,9 +104,9 @@ export const INSIGHTS_EN: InsightMeta[] = [
   {
     href: "/en/vergleich",
     category: "Comparison",
-    title: "Quinta compared to Ollama, vLLM and LocalAI",
+    title: "Quinta compared to vLLM, LocalAI and other inference engines",
     excerpt:
-      "Ollama, vLLM and LocalAI run a model. Quinta is the operating layer around it — access control, orchestration, governance and audit. The honest comparison.",
+      "vLLM, LocalAI and other inference engines run a model. Quinta is the operating layer around it — access control, orchestration, governance and audit. The honest comparison.",
     date: "2026-07-01",
     readingMinutes: 5,
   },

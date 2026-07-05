@@ -11,7 +11,7 @@ export const LANDING_FAQ: FaqItem[] = [
   },
   {
     q: "Welche Modelle können wir betreiben?",
-    a: "Über vLLM den gesamten HuggingFace-Katalog — Llama, Mistral, Qwen, Gemma, DeepSeek und mehr. Ollama steht für den einfachen Einstieg bereit. Der Lebenszyklus (Download, Start, Health-Check, Warmup) läuft automatisch.",
+    a: "Über vLLM den gesamten HuggingFace-Katalog — Llama, Mistral, Qwen, Gemma, DeepSeek und mehr. Ein leichtgewichtiger Modell-Runner steht für den einfachen Einstieg bereit. Der Lebenszyklus (Download, Start, Health-Check, Warmup) läuft automatisch.",
   },
   {
     q: "Was kostet der Betrieb?",
@@ -46,7 +46,7 @@ export const LANDING_FAQ_EN: FaqItem[] = [
   },
   {
     q: "Which models can we run?",
-    a: "Through vLLM the entire HuggingFace catalogue — Llama, Mistral, Qwen, Gemma, DeepSeek and more. Ollama is available for a simple start. The lifecycle (download, start, health check, warmup) runs automatically.",
+    a: "Through vLLM the entire HuggingFace catalogue — Llama, Mistral, Qwen, Gemma, DeepSeek and more. A lightweight model runner is available for a simple start. The lifecycle (download, start, health check, warmup) runs automatically.",
   },
   {
     q: "What does operation cost?",

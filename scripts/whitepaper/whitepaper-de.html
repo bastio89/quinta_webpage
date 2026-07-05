@@ -102,7 +102,7 @@
   <ul>
     <li>OpenAI-kompatible API: bestehende Anwendungen migrieren, indem sie <span class="mono">base_url</span> und API-Key ändern — sonst nichts.</li>
     <li>Läuft on-premise, von der Workstation bis zur KI-Appliance; skaliert horizontal über selbstregistrierende GPU-Knoten.</li>
-    <li>Zwei Inferenz-Motoren eingebaut: Ollama für den Einstieg, vLLM für Hochleistung und den gesamten HuggingFace-Katalog.</li>
+    <li>Zwei Inferenz-Motoren eingebaut: ein leichtgewichtiger Modell-Runner für den Einstieg, vLLM für Hochleistung und den gesamten HuggingFace-Katalog.</li>
     <li>Enterprise-Verwaltung: Dashboard, RBAC, vier Login-Methoden, Multi-Organisation, Audit-Trail, Fine-Tuning und MCP.</li>
     <li>Kein Datentransfer, kein externer Auftragsverarbeiter für die Inferenz — die Grundlage für DSGVO, EU AI Act und NIS2.</li>
   </ul>
@@ -130,14 +130,14 @@
     <div class="arrow">→</div>
     <div class="node"><div class="n">Daemon</div><div class="s">je GPU-Rechner, selbstregistrierend</div></div>
     <div class="arrow">→</div>
-    <div class="node"><div class="n">Modell</div><div class="s">vLLM oder Ollama</div></div>
+    <div class="node"><div class="n">Modell</div><div class="s">vLLM oder Modell-Runner</div></div>
   </div>
 
   <div class="two" style="margin-top:6pt;">
     <div>
       <h3 style="font-size:11pt;font-weight:700;margin-bottom:4pt;">Zwei Inferenz-Motoren</h3>
       <p class="muted" style="font-size:9.5pt;"><strong style="color:var(--ink-900)">vLLM</strong> — Hochleistung für Produktion, ganzer HuggingFace-Katalog (Llama, Mistral, Qwen, Gemma, DeepSeek). Vollautomatischer Lebenszyklus: Download → Warmup → ready.</p>
-      <p class="muted" style="font-size:9.5pt;"><strong style="color:var(--ink-900)">Ollama</strong> — einfacher Einstieg, von der Workstation bis zur DGX-Spark-Klasse. GPU-Erkennung für NVIDIA, AMD und Intel, automatisches Routing.</p>
+      <p class="muted" style="font-size:9.5pt;"><strong style="color:var(--ink-900)">Leichter Modell-Runner</strong> — einfacher Einstieg, von der Workstation bis zur DGX-Spark-Klasse. GPU-Erkennung für NVIDIA, AMD und Intel, automatisches Routing.</p>
     </div>
     <div>
       <h3 style="font-size:11pt;font-weight:700;margin-bottom:4pt;">Migration in zwei Zeilen</h3>

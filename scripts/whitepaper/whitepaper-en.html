@@ -102,7 +102,7 @@
   <ul>
     <li>OpenAI-compatible API: existing applications migrate by changing <span class="mono">base_url</span> and the API key — nothing else.</li>
     <li>Runs on-premise, from a workstation to an AI appliance; scales horizontally across self-registering GPU nodes.</li>
-    <li>Two inference engines built in: Ollama for a simple start, vLLM for high performance and the entire HuggingFace catalogue.</li>
+    <li>Two inference engines built in: a lightweight model runner for a simple start, vLLM for high performance and the entire HuggingFace catalogue.</li>
     <li>Enterprise management: dashboard, RBAC, four login methods, multi-organization, audit trail, fine-tuning and MCP.</li>
     <li>No data transfer, no external processor for inference — the basis for GDPR, the EU AI Act and NIS2.</li>
   </ul>
@@ -130,14 +130,14 @@
     <div class="arrow">→</div>
     <div class="node"><div class="n">Daemon</div><div class="s">per GPU machine, self-registering</div></div>
     <div class="arrow">→</div>
-    <div class="node"><div class="n">Model</div><div class="s">vLLM or Ollama</div></div>
+    <div class="node"><div class="n">Model</div><div class="s">vLLM or model runner</div></div>
   </div>
 
   <div class="two" style="margin-top:6pt;">
     <div>
       <h3 style="font-size:11pt;font-weight:700;margin-bottom:4pt;">Two inference engines</h3>
       <p class="muted" style="font-size:9.5pt;"><strong style="color:var(--ink-900)">vLLM</strong> — high performance for production, the entire HuggingFace catalogue (Llama, Mistral, Qwen, Gemma, DeepSeek). Fully automated lifecycle: download → warmup → ready.</p>
-      <p class="muted" style="font-size:9.5pt;"><strong style="color:var(--ink-900)">Ollama</strong> — a simple start, from a workstation to the DGX Spark class. GPU detection for NVIDIA, AMD and Intel, automatic routing.</p>
+      <p class="muted" style="font-size:9.5pt;"><strong style="color:var(--ink-900)">Lightweight model runner</strong> — a simple start, from a workstation to the DGX Spark class. GPU detection for NVIDIA, AMD and Intel, automatic routing.</p>
     </div>
     <div>
       <h3 style="font-size:11pt;font-weight:700;margin-bottom:4pt;">Migration in two lines</h3>

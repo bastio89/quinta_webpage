@@ -9,9 +9,9 @@ import { JsonLd } from "@/components/JsonLd";
 import { faqPageLd } from "@/lib/jsonLd";
 
 export const metadata: Metadata = {
-  title: "Quinta compared to Ollama, vLLM and LocalAI",
+  title: "Quinta compared to vLLM, LocalAI and other inference engines",
   description:
-    "Ollama, vLLM and LocalAI run a model. Quinta is the operating layer around it — access control, multi-GPU orchestration, governance and a complete audit trail. The honest comparison.",
+    "vLLM, LocalAI and other inference engines run a model. Quinta is the operating layer around it — access control, multi-GPU orchestration, governance and a complete audit trail. The honest comparison.",
   alternates: { canonical: "/en/vergleich", languages: { de: "/vergleich", en: "/en/vergleich" } },
 };
 
@@ -40,8 +40,8 @@ const OPS_QUESTIONS = [
 
 const FAQ = [
   {
-    q: "Is Quinta a replacement for Ollama or vLLM?",
-    a: "No. Quinta uses inference engines like Ollama and vLLM in the background and adds the operating layer around them — access control, orchestration, governance and audit — that an enterprise needs in production.",
+    q: "Is Quinta a replacement for vLLM or a model runner?",
+    a: "No. Quinta uses inference engines like vLLM and lightweight model runners in the background and adds the operating layer around them — access control, orchestration, governance and audit — that an enterprise needs in production.",
   },
   {
     q: "What is the difference between an inference engine and an operating layer?",
@@ -76,7 +76,7 @@ export default function VergleichEnPage() {
           <div className="max-w-3xl">
             <div className="kicker mb-3.5">Comparison</div>
             <h1 className="text-display-md font-semibold text-ink-900 sm:text-display-lg">
-              Quinta compared to Ollama, vLLM and LocalAI
+              Quinta compared to vLLM, LocalAI and other inference engines
             </h1>
             <p className="mt-4 font-mono text-xs uppercase tracking-[0.08em] text-ink-400">
               twenty5ai · Sovereign AI · July 2026
@@ -91,7 +91,7 @@ export default function VergleichEnPage() {
               Short answer
             </p>
             <p className="mt-4 text-lg leading-relaxed text-ink-800">
-              Tools like Ollama, vLLM and LocalAI are excellent inference engines. They run a model.{" "}
+              Tools like vLLM, LocalAI and other model runners are excellent inference engines. They run a model.{" "}
               <strong className="font-semibold text-ink-950">Quinta is the operating layer</strong>{" "}
               around the model — what a regulated enterprise needs to run AI in production: access
               control, multi-model and multi-GPU orchestration, governance and a complete audit trail.
@@ -110,8 +110,8 @@ export default function VergleichEnPage() {
             <h2 className="text-display-sm font-semibold text-ink-900">Running a model is the easy part.</h2>
             <div className="mt-5 flex flex-col gap-4 text-md leading-relaxed text-ink-700">
               <p>
-                Anyone who has loaded a model with Ollama or started vLLM knows how far open tools have
-                come. In minutes you have an OpenAI-compatible endpoint serving a capable open model on
+                Anyone who has loaded a model with a model runner or started vLLM knows how far open
+                tools have come. In minutes you have an OpenAI-compatible endpoint serving a capable open model on
                 your own hardware. For a developer’s prototype, that is often all it takes.
               </p>
               <p>
@@ -137,9 +137,9 @@ export default function VergleichEnPage() {
             </h2>
             <div className="mt-5 flex flex-col gap-4 text-md leading-relaxed text-ink-700">
               <p>
-                An inference engine takes a model and serves it efficiently. Ollama, vLLM and LocalAI
-                are inference engines: they optimize throughput, manage GPU memory and expose an API.
-                They do that well.
+                An inference engine takes a model and serves it efficiently. vLLM, LocalAI and
+                comparable model runners are inference engines: they optimize throughput, manage GPU
+                memory and expose an API. They do that well.
               </p>
               <p>
                 An operating layer sits above and makes AI usable in an organization. It handles access
@@ -167,7 +167,7 @@ export default function VergleichEnPage() {
           <div className="mx-auto mb-10 max-w-5xl">
             <div className="kicker mb-3.5">Feature comparison</div>
             <h2 className="max-w-2xl text-display-sm font-semibold text-ink-900">
-              Quinta vs. Ollama, vLLM and LocalAI
+              Quinta vs. vLLM, LocalAI and other inference engines
             </h2>
             <p className="mt-4 max-w-2xl text-md leading-relaxed text-ink-700">
               This is not about the inference engines being inadequate — they are excellent at what
@@ -178,15 +178,16 @@ export default function VergleichEnPage() {
           <ComparisonTable lang="en" />
           <div className="mx-auto mt-6 max-w-5xl">
             <p className="max-w-3xl text-md leading-relaxed text-ink-700">
-              Both Ollama and vLLM are very strong tools; vLLM in particular delivers excellent
-              multi-GPU throughput. What none of them ship by default is the access control, governance
+              These tools are all very strong; vLLM in particular delivers excellent multi-GPU
+              throughput. What none of them ship by default is the access control, governance
               and multi-tenant operation a regulated enterprise needs before AI comes anywhere near
               production data.
             </p>
             <p className="mt-5 text-xs leading-relaxed text-ink-500">
               ✓ integrated · — not a built-in part. The comparison concerns the built-in platform
-              functions, not the inference quality of the engines. Details on Ollama, vLLM and LocalAI
-              describe the standard scope of the respective projects and do not replace your own review.
+              functions, not the inference quality of the engines. Details on vLLM, LocalAI and
+              comparable model runners describe the standard scope of the respective projects and do
+              not replace your own review.
             </p>
           </div>
         </section>
