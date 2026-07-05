@@ -99,6 +99,19 @@ export default function Page() {
         predictable load. From there on, renting costs extra.
       </PullQuote>
 
+      <div className="rounded-lg border border-stone-200 bg-stone-100 p-6">
+        <p className="text-md leading-relaxed text-ink-800">
+          Where that point sits in your case, you can try for yourself — with the volume, hardware
+          and rate of your choice.
+        </p>
+        <a
+          href="/en/rechner"
+          className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-azul-600 hover:text-azul-700"
+        >
+          To the interactive cost calculator →
+        </a>
+      </div>
+
       <Section heading="When the cloud remains the right choice">
         <p>Sovereignty is not a dogma but a trade-off. There are cases where renting stays the better model:</p>
         <Bullets

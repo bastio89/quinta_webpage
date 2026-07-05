@@ -71,6 +71,7 @@ export function Navbar({ lang = "de" }: { lang?: Lang }) {
   const EN_TRANSLATED = new Set([
     "/",
     "/vergleich",
+    "/rechner",
     "/insights",
     "/insights/eu-ai-act-frist-2026",
     "/insights/bounded-admission-last",

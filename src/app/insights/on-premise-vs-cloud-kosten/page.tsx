@@ -100,6 +100,19 @@ export default function Page() {
         stetige, planbare Last wird. Ab da zahlt Miete drauf.
       </PullQuote>
 
+      <div className="rounded-lg border border-stone-200 bg-stone-100 p-6">
+        <p className="text-md leading-relaxed text-ink-800">
+          Wo dieser Punkt in Ihrem Fall liegt, können Sie selbst durchspielen — mit Volumen,
+          Hardware und Tarif Ihrer Wahl.
+        </p>
+        <a
+          href="/rechner"
+          className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-azul-600 hover:text-azul-700"
+        >
+          Zum interaktiven Kosten-Rechner →
+        </a>
+      </div>
+
       <Section heading="Wann Cloud die richtige Wahl bleibt">
         <p>
           Souveränität ist kein Dogma, sondern eine Abwägung. Es gibt Fälle, in denen Miete das
