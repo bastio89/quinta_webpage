@@ -7,19 +7,45 @@ import { JsonLd } from "@/components/JsonLd";
 import { articleLd } from "@/lib/jsonLd";
 import { formatInsightDate } from "@/lib/insights";
 
+type Lang = "de" | "en";
+
+const CHROME = {
+  de: {
+    insights: "Insights",
+    insightsHref: "/insights",
+    meta: (min: number) => `${min} Min. Lesezeit`,
+    more: "Weitere Insights",
+    demo: "Demo buchen (30 Min.)",
+    defaultCta: {
+      title: "Sehen Sie es auf Ihrer eigenen Hardware.",
+      text: "In 30 Minuten zeigen wir, wie Gateway, Daemon und Dashboard auf Ihrer Infrastruktur zusammenspielen.",
+    },
+  },
+  en: {
+    insights: "Insights",
+    insightsHref: "/en/insights",
+    meta: (min: number) => `${min} min read`,
+    more: "More insights",
+    demo: "Book a demo (30 min.)",
+    defaultCta: {
+      title: "See it on your own hardware.",
+      text: "In 30 minutes we show how gateway, daemon and dashboard work together on your infrastructure.",
+    },
+  },
+} as const;
+
 export function ArticleLayout({
+  lang = "de",
   category,
   title,
   date,
   readingMinutes,
   path,
   description,
-  cta = {
-    title: "Sehen Sie es auf Ihrer eigenen Hardware.",
-    text: "In 30 Minuten zeigen wir, wie Gateway, Daemon und Dashboard auf Ihrer Infrastruktur zusammenspielen.",
-  },
+  cta,
   children,
 }: {
+  lang?: Lang;
   category: string;
   title: string;
   date: string;
@@ -29,26 +55,29 @@ export function ArticleLayout({
   cta?: { title: string; text: string };
   children: ReactNode;
 }) {
+  const c = CHROME[lang];
+  const resolvedCta = cta ?? c.defaultCta;
+
   return (
     <>
       <JsonLd data={articleLd({ title, description, path, datePublished: date })} />
-      <Navbar />
+      <Navbar lang={lang} />
       <main>
         <section className="container-quinta pt-16 pb-12 sm:pt-20">
           <div className="max-w-2xl">
             <Link
-              href="/insights"
+              href={c.insightsHref}
               className="flex w-fit items-center gap-1.5 text-sm font-medium text-ink-500 transition-colors hover:text-ink-900"
             >
               <ArrowLeft className="h-4 w-4" />
-              Insights
+              {c.insights}
             </Link>
             <div className="kicker mt-6">{category}</div>
             <h1 className="mt-3.5 text-display-md font-semibold text-ink-900 sm:text-display-lg">
               {title}
             </h1>
             <p className="mt-4 font-mono text-xs uppercase tracking-[0.08em] text-ink-400">
-              twenty5ai · {formatInsightDate(date)} · {readingMinutes} Min. Lesezeit
+              twenty5ai · {formatInsightDate(date, lang)} · {c.meta(readingMinutes)}
             </p>
           </div>
         </section>
@@ -60,22 +89,22 @@ export function ArticleLayout({
         <section className="bg-ink-900 py-24 text-center sm:py-28">
           <div className="container-quinta">
             <h2 className="mx-auto max-w-[720px] text-display-sm font-semibold text-on-dark sm:text-display-md">
-              {cta.title}
+              {resolvedCta.title}
             </h2>
-            <p className="mx-auto mt-5 max-w-xl leading-relaxed text-on-dark-muted">{cta.text}</p>
+            <p className="mx-auto mt-5 max-w-xl leading-relaxed text-on-dark-muted">{resolvedCta.text}</p>
             <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
               <a href="mailto:hello@twenty5ai.com" className="btn btn-primary">
-                Demo buchen (30 Min.)
+                {c.demo}
                 <ArrowRight className="h-4 w-4" />
               </a>
-              <Link href="/insights" className="btn btn-inverse">
-                Weitere Insights
+              <Link href={c.insightsHref} className="btn btn-inverse">
+                {c.more}
               </Link>
             </div>
           </div>
         </section>
       </main>
-      <Footer />
+      <Footer lang={lang} />
     </>
   );
 }

@@ -46,7 +46,12 @@ export function Navbar({ lang = "de" }: { lang?: Lang }) {
 
   // Sprachumschalter. Nur Seiten mit vorhandener EN-Fassung mappen 1:1;
   // für alle anderen fällt der Wechsel auf die Sprach-Startseite zurück (kein 404).
-  const EN_TRANSLATED = new Set(["/", "/vergleich"]); // DE-Pfade mit /en-Pendant
+  const EN_TRANSLATED = new Set([
+    "/",
+    "/vergleich",
+    "/insights",
+    "/insights/eu-ai-act-frist-2026",
+  ]); // DE-Pfade mit /en-Pendant
   const isEn = pathname === "/en" || pathname.startsWith("/en/");
   const dePath = isEn ? pathname.replace(/^\/en/, "") || "/" : pathname;
   const altHref = isEn

@@ -45,6 +45,7 @@ const CONTENT = {
           { label: "Platform", href: "/en#plattform" },
           { label: "Performance", href: "/en#leistung" },
           { label: "Comparison", href: "/en/vergleich" },
+          { label: "Insights", href: "/en/insights" },
           { label: "FAQ", href: "/en#faq" },
         ],
       },

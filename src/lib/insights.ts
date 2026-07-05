@@ -64,8 +64,29 @@ export const INSIGHTS: InsightMeta[] = [
   },
 ];
 
-export function formatInsightDate(iso: string): string {
-  return new Date(iso).toLocaleDateString("de-DE", {
+export const INSIGHTS_EN: InsightMeta[] = [
+  {
+    href: "/en/insights/eu-ai-act-frist-2026",
+    category: "Compliance",
+    title: "The EU AI Act and the 2 August 2026 deadline",
+    excerpt:
+      "From 2 August 2026 a central tranche of the EU AI Act applies. What that means for high-risk AI — and why sovereignty delivers the documentation an audit demands.",
+    date: "2026-07-05",
+    readingMinutes: 6,
+  },
+  {
+    href: "/en/vergleich",
+    category: "Comparison",
+    title: "Quinta compared to Ollama, vLLM and LocalAI",
+    excerpt:
+      "Ollama, vLLM and LocalAI run a model. Quinta is the operating layer around it — access control, orchestration, governance and audit. The honest comparison.",
+    date: "2026-07-01",
+    readingMinutes: 5,
+  },
+];
+
+export function formatInsightDate(iso: string, lang: "de" | "en" = "de"): string {
+  return new Date(iso).toLocaleDateString(lang === "en" ? "en-GB" : "de-DE", {
     day: "numeric",
     month: "long",
     year: "numeric",

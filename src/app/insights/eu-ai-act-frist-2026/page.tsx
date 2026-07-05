@@ -14,7 +14,10 @@ const meta = INSIGHTS.find((i) => i.href === PATH)!;
 export const metadata: Metadata = {
   title: meta.title,
   description: meta.excerpt,
-  alternates: { canonical: PATH },
+  alternates: {
+    canonical: PATH,
+    languages: { de: PATH, en: "/en/insights/eu-ai-act-frist-2026" },
+  },
 };
 
 const CHECKLIST = [

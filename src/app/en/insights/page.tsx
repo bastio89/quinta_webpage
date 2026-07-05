@@ -3,31 +3,31 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
-import { INSIGHTS, formatInsightDate } from "@/lib/insights";
+import { INSIGHTS_EN, formatInsightDate } from "@/lib/insights";
 
 export const metadata: Metadata = {
   title: "Insights",
   description:
-    "Fachbeiträge zu souveräner KI, EU AI Act, DSGVO und On-Premise-Betrieb — von twenty5ai, den Machern von Quinta.",
-  alternates: { canonical: "/insights", languages: { de: "/insights", en: "/en/insights" } },
+    "Expert articles on sovereign AI, the EU AI Act, GDPR and on-premise operation — from twenty5ai, the makers of Quinta.",
+  alternates: { canonical: "/en/insights", languages: { de: "/insights", en: "/en/insights" } },
 };
 
-export default function InsightsPage() {
-  const articles = [...INSIGHTS].sort((a, b) => b.date.localeCompare(a.date));
+export default function InsightsEnPage() {
+  const articles = [...INSIGHTS_EN].sort((a, b) => b.date.localeCompare(a.date));
 
   return (
     <>
-      <Navbar />
+      <Navbar lang="en" />
       <main>
         <section className="container-quinta pt-16 pb-14 sm:pt-20">
           <div className="max-w-2xl">
             <div className="kicker mb-3.5">Insights</div>
             <h1 className="text-display-md font-semibold text-ink-900 sm:text-display-lg">
-              Souveräne KI, klar erklärt.
+              Sovereign AI, clearly explained.
             </h1>
             <p className="mt-5 text-lg leading-relaxed text-ink-700">
-              Fachbeiträge zu Regulatorik, Architektur und Betrieb — sachlich, faktenstark und ohne
-              Marketing-Rauschen.
+              Expert articles on regulation, architecture and operation — factual, substantiated and
+              free of marketing noise.
             </p>
           </div>
         </section>
@@ -43,7 +43,7 @@ export default function InsightsPage() {
                 <div className="flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.08em] text-azul-600">
                   {a.category}
                   <span className="font-mono font-normal text-ink-400">
-                    {formatInsightDate(a.date)} · {a.readingMinutes} Min.
+                    {formatInsightDate(a.date, "en")} · {a.readingMinutes} min
                   </span>
                 </div>
                 <h2 className="mt-4 text-xl font-semibold tracking-[-0.025em] text-ink-900">
@@ -51,7 +51,7 @@ export default function InsightsPage() {
                 </h2>
                 <p className="mt-2 flex-1 text-sm leading-relaxed text-ink-500">{a.excerpt}</p>
                 <span className="mt-5 inline-flex items-center gap-1.5 text-sm font-medium text-azul-600">
-                  Lesen
+                  Read
                   <ArrowRight className="h-4 w-4 transition-transform duration-200 ease-out group-hover:translate-x-0.5" />
                 </span>
               </Link>
@@ -59,7 +59,7 @@ export default function InsightsPage() {
           </div>
         </section>
       </main>
-      <Footer />
+      <Footer lang="en" />
     </>
   );
 }
