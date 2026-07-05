@@ -8,6 +8,7 @@ const COLUMNS = [
       { label: "Plattform", href: "/#plattform" },
       { label: "Leistung", href: "/#leistung" },
       { label: "Vergleich", href: "/vergleich" },
+      { label: "Insights", href: "/insights" },
       { label: "FAQ", href: "/#faq" },
     ],
   },

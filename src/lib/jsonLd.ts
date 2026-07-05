@@ -17,6 +17,28 @@ export const organizationLd = {
   },
 };
 
+export function articleLd(opts: {
+  title: string;
+  description: string;
+  path: string;
+  datePublished: string;
+}) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: opts.title,
+    description: opts.description,
+    datePublished: opts.datePublished,
+    mainEntityOfPage: `${SITE_URL}${opts.path}`,
+    author: { "@type": "Organization", name: "twenty5ai" },
+    publisher: {
+      "@type": "Organization",
+      name: "twenty5ai",
+      logo: { "@type": "ImageObject", url: `${SITE_URL}/icon.svg` },
+    },
+  };
+}
+
 export function faqPageLd(items: FaqItem[]) {
   return {
     "@context": "https://schema.org",
