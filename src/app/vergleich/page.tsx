@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   title: "Quinta im Vergleich zu Ollama, vLLM und LocalAI",
   description:
     "Ollama, vLLM und LocalAI führen ein Modell aus. Quinta ist die Betriebsschicht darum herum — Zugriffskontrolle, Multi-GPU-Orchestrierung, Governance und lückenloser Audit-Trail. Der ehrliche Vergleich.",
-  alternates: { canonical: "/vergleich" },
+  alternates: { canonical: "/vergleich", languages: { de: "/vergleich", en: "/en/vergleich" } },
 };
 
 const OPS_QUESTIONS = [

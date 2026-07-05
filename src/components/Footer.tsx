@@ -44,7 +44,7 @@ const CONTENT = {
         links: [
           { label: "Platform", href: "/en#plattform" },
           { label: "Performance", href: "/en#leistung" },
-          { label: "Security", href: "/en#sicherheit" },
+          { label: "Comparison", href: "/en/vergleich" },
           { label: "FAQ", href: "/en#faq" },
         ],
       },
