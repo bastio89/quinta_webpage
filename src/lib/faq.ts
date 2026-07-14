@@ -31,7 +31,7 @@ export const LANDING_FAQ: FaqItem[] = [
   },
   {
     q: "Wer steht hinter Quinta?",
-    a: "Quinta ist eine Eigenentwicklung von twenty5ai. Die Inferenz-Engine basiert auf bewährter Open-Source-Technologie (Apache 2.0); die Verwaltungsebene — Gateway, Dashboard, Registry — ist eigene Entwicklung.",
+    a: "Hinter Quinta steht twenty5ai — und Quinta ist unsere Eigenentwicklung. Die gesamte souveräne Plattform stammt aus eigener Hand: Gateway, Daemon, Registry, Dashboard, Zugriffskontrolle, Orchestrierung und der lückenlose Audit-Trail. Für die reine Modell-Ausführung setzen wir bewusst auf eine bewährte Open-Source-Engine (Apache 2.0), damit der gesamte offene Modell-Katalog nutzbar bleibt — alles, was Quinta ausmacht, ist Eigenentwicklung von twenty5ai.",
   },
 ];
 
@@ -66,6 +66,6 @@ export const LANDING_FAQ_EN: FaqItem[] = [
   },
   {
     q: "Who is behind Quinta?",
-    a: "Quinta is developed in-house by twenty5ai. The inference engine builds on proven open-source technology (Apache 2.0); the management layer — gateway, dashboard, registry — is our own development.",
+    a: "Behind Quinta stands twenty5ai — and Quinta is our own development. The entire sovereign platform is built in-house: gateway, daemon, registry, dashboard, access control, orchestration and the complete audit trail. For pure model execution we deliberately build on a proven open-source engine (Apache 2.0) so the whole open model catalogue stays available — everything that makes Quinta Quinta is twenty5ai's own development.",
   },
 ];
