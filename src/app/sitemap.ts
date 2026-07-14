@@ -2,6 +2,7 @@ import type { MetadataRoute } from "next";
 import { SITE_URL } from "@/lib/jsonLd";
 import { INSIGHTS } from "@/lib/insights";
 import { GLOSSARY } from "@/lib/glossary";
+import { JOBS } from "@/lib/jobs";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();
@@ -39,6 +40,22 @@ export default function sitemap(): MetadataRoute.Sitemap {
         lastModified: now,
         changeFrequency: "yearly" as const,
         priority: 0.35,
+      },
+    ]),
+    { url: `${SITE_URL}/karriere`, lastModified: now, changeFrequency: "weekly", priority: 0.6 },
+    { url: `${SITE_URL}/en/karriere`, lastModified: now, changeFrequency: "weekly", priority: 0.5 },
+    ...JOBS.flatMap((j) => [
+      {
+        url: `${SITE_URL}/karriere/${j.slug}`,
+        lastModified: new Date(j.datePosted),
+        changeFrequency: "weekly" as const,
+        priority: 0.6,
+      },
+      {
+        url: `${SITE_URL}/en/karriere/${j.slug}`,
+        lastModified: new Date(j.datePosted),
+        changeFrequency: "weekly" as const,
+        priority: 0.5,
       },
     ]),
     { url: `${SITE_URL}/insights`, lastModified: now, changeFrequency: "monthly", priority: 0.7 },

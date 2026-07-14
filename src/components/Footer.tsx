@@ -23,6 +23,7 @@ const CONTENT = {
         title: "Kontakt",
         links: [
           { label: "Demo buchen", href: "/#kontakt" },
+          { label: "Karriere", href: "/karriere" },
           { label: "hello@twenty5ai.com", href: "mailto:hello@twenty5ai.com" },
         ],
       },
@@ -59,6 +60,7 @@ const CONTENT = {
         title: "Contact",
         links: [
           { label: "Book a demo", href: "/en#kontakt" },
+          { label: "Careers", href: "/en/karriere" },
           { label: "hello@twenty5ai.com", href: "mailto:hello@twenty5ai.com" },
         ],
       },

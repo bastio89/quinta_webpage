@@ -102,6 +102,7 @@ export function Navbar({ lang = "de" }: { lang?: Lang }) {
     "/rechner",
     "/check",
     "/glossar",
+    "/karriere",
     "/insights",
     "/insights/eu-ai-act-frist-2026",
     "/insights/bounded-admission-last",
@@ -110,7 +111,7 @@ export function Navbar({ lang = "de" }: { lang?: Lang }) {
     "/insights/nis2-ki-betrieb",
   ]); // DE-Pfade mit /en-Pendant
   // Dynamische Bereiche mit vollständiger EN-Parität (z. B. Glossar-Detailseiten)
-  const EN_PREFIXES = ["/glossar/"];
+  const EN_PREFIXES = ["/glossar/", "/karriere/"];
   const isEn = pathname === "/en" || pathname.startsWith("/en/");
   const dePath = isEn ? pathname.replace(/^\/en/, "") || "/" : pathname;
   const hasEnPendant =

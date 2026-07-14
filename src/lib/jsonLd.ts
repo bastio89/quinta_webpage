@@ -67,6 +67,43 @@ export function breadcrumbLd(items: { name: string; path: string }[]) {
   };
 }
 
+export function jobPostingLd(opts: {
+  title: string;
+  description: string;
+  datePosted: string;
+  employmentType: string;
+  path: string;
+  remote?: boolean;
+  location: string;
+}) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "JobPosting",
+    title: opts.title,
+    description: opts.description,
+    datePosted: opts.datePosted,
+    employmentType: opts.employmentType,
+    directApply: true,
+    url: `${SITE_URL}${opts.path}`,
+    hiringOrganization: {
+      "@type": "Organization",
+      name: "twenty5ai",
+      sameAs: SITE_URL,
+      logo: `${SITE_URL}/icon.svg`,
+    },
+    jobLocation: {
+      "@type": "Place",
+      address: { "@type": "PostalAddress", addressCountry: "DE" },
+    },
+    ...(opts.remote
+      ? {
+          jobLocationType: "TELECOMMUTE",
+          applicantLocationRequirements: { "@type": "Country", name: "EU" },
+        }
+      : {}),
+  };
+}
+
 export function definedTermSetLd(opts: {
   name: string;
   description: string;
