@@ -39,7 +39,7 @@ export default function HomeEn() {
     <>
       <JsonLd data={faqPageLd(LANDING_FAQ_EN)} />
       <Navbar lang="en" />
-      <main>
+      <main id="inhalt" tabIndex={-1}>
         <HeroEn />
         <Reveal><RiskEn /></Reveal>
         <Reveal><PlatformEn /></Reveal>

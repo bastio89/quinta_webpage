@@ -70,7 +70,7 @@ export default function VergleichPage() {
     <>
       <JsonLd data={faqPageLd(FAQ)} />
       <Navbar />
-      <main>
+      <main id="inhalt" tabIndex={-1}>
         {/* Header */}
         <section className="container-quinta pt-16 pb-14 sm:pt-20">
           <div className="max-w-3xl">

@@ -53,3 +53,36 @@ export function faqPageLd(items: FaqItem[]) {
     })),
   };
 }
+
+export function breadcrumbLd(items: { name: string; path: string }[]) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: items.map((it, i) => ({
+      "@type": "ListItem",
+      position: i + 1,
+      name: it.name,
+      item: `${SITE_URL}${it.path}`,
+    })),
+  };
+}
+
+export function definedTermSetLd(opts: {
+  name: string;
+  description: string;
+  path: string;
+  terms: { name: string; path: string }[];
+}) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "DefinedTermSet",
+    name: opts.name,
+    description: opts.description,
+    url: `${SITE_URL}${opts.path}`,
+    hasDefinedTerm: opts.terms.map((t) => ({
+      "@type": "DefinedTerm",
+      name: t.name,
+      url: `${SITE_URL}${t.path}`,
+    })),
+  };
+}

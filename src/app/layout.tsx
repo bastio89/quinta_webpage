@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Archivo, Newsreader, IBM_Plex_Mono } from "next/font/google";
 import "./globals.css";
 import { CookieConsent } from "@/components/CookieConsent";
@@ -64,10 +64,23 @@ export const metadata: Metadata = {
   },
 };
 
+export const viewport: Viewport = {
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#f8f6f1" },
+    { media: "(prefers-color-scheme: dark)", color: "#0c1120" },
+  ],
+};
+
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="de" className={`${archivo.variable} ${newsreader.variable} ${plexMono.variable}`}>
       <body className="min-h-dvh bg-stone-50 font-sans text-ink-700 antialiased">
+        <a
+          href="#inhalt"
+          className="sr-only rounded-md focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:bg-azul-600 focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-white focus:shadow-pop"
+        >
+          Zum Inhalt springen
+        </a>
         {children}
         <CookieConsent />
         <JsonLd data={organizationLd} />

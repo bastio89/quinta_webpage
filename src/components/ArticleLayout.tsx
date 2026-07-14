@@ -5,7 +5,7 @@ import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { JsonLd } from "@/components/JsonLd";
 import { ReadingProgress } from "@/components/motion/ReadingProgress";
-import { articleLd } from "@/lib/jsonLd";
+import { articleLd, breadcrumbLd } from "@/lib/jsonLd";
 import { formatInsightDate } from "@/lib/insights";
 
 type Lang = "de" | "en";
@@ -58,13 +58,19 @@ export function ArticleLayout({
 }) {
   const c = CHROME[lang];
   const resolvedCta = cta ?? c.defaultCta;
+  const breadcrumb = breadcrumbLd([
+    { name: lang === "en" ? "Home" : "Startseite", path: lang === "en" ? "/en" : "/" },
+    { name: c.insights, path: c.insightsHref },
+    { name: title, path },
+  ]);
 
   return (
     <>
       <JsonLd data={articleLd({ title, description, path, datePublished: date })} />
+      <JsonLd data={breadcrumb} />
       <ReadingProgress />
       <Navbar lang={lang} />
-      <main>
+      <main id="inhalt" tabIndex={-1}>
         <section className="container-quinta pt-16 pb-12 sm:pt-20">
           <div className="max-w-2xl">
             <Link

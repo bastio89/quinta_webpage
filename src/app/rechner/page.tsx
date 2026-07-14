@@ -16,7 +16,7 @@ export default function RechnerPage() {
   return (
     <>
       <Navbar />
-      <main>
+      <main id="inhalt" tabIndex={-1}>
         <section className="container-quinta pt-16 pb-10 sm:pt-20">
           <div className="max-w-2xl">
             <div className="kicker mb-3.5">Rechner</div>

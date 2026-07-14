@@ -3,6 +3,8 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
+import { JsonLd } from "@/components/JsonLd";
+import { definedTermSetLd } from "@/lib/jsonLd";
 import { glossaryList } from "@/lib/glossary";
 
 export const metadata: Metadata = {
@@ -17,8 +19,17 @@ export default function GlossarPage() {
 
   return (
     <>
+      <JsonLd
+        data={definedTermSetLd({
+          name: "Quinta Glossar",
+          description:
+            "Zentrale Begriffe rund um souveräne KI, On-Premise-Betrieb, Regulatorik und Datensouveränität.",
+          path: "/glossar",
+          terms: terms.map((t) => ({ name: t.term, path: `/glossar/${t.slug}` })),
+        })}
+      />
       <Navbar />
-      <main>
+      <main id="inhalt" tabIndex={-1}>
         <section className="container-quinta pt-16 pb-14 sm:pt-20">
           <div className="max-w-2xl">
             <div className="kicker mb-3.5">Glossar</div>

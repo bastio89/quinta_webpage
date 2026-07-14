@@ -29,7 +29,7 @@ export default function Home() {
     <>
       <JsonLd data={faqPageLd(LANDING_FAQ)} />
       <Navbar />
-      <main>
+      <main id="inhalt" tabIndex={-1}>
         <Hero />
         <Reveal><Risk /></Reveal>
         <Reveal><Platform /></Reveal>

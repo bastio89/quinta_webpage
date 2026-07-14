@@ -9,7 +9,7 @@ export default function ImpressumPage() {
   return (
     <>
       <Navbar />
-      <main className="bg-stone-50 pb-24 pt-20">
+      <main id="inhalt" tabIndex={-1} className="bg-stone-50 pb-24 pt-20">
         <div className="container-quinta max-w-2xl">
           <h1 className="text-display-sm font-semibold text-ink-900 sm:text-display-md">Impressum</h1>
           <p className="mt-2 text-sm text-ink-500">

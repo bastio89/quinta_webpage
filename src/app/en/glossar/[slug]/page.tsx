@@ -5,7 +5,8 @@ import { ArrowLeft, ArrowRight } from "lucide-react";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { GLOSSARY, getGlossaryEntry, CATEGORY_LABELS } from "@/lib/glossary";
-import { SITE_URL } from "@/lib/jsonLd";
+import { JsonLd } from "@/components/JsonLd";
+import { SITE_URL, breadcrumbLd } from "@/lib/jsonLd";
 
 export function generateStaticParams() {
   return GLOSSARY.map((e) => ({ slug: e.slug }));
@@ -49,10 +50,16 @@ export default async function GlossaryTermPageEn({
     url: `${SITE_URL}/en/glossar/${slug}`,
   };
 
+  const breadcrumb = breadcrumbLd([
+    { name: "Home", path: "/en" },
+    { name: "Glossary", path: "/en/glossar" },
+    { name: c.term, path: `/en/glossar/${slug}` },
+  ]);
+
   return (
     <>
       <Navbar lang="en" />
-      <main>
+      <main id="inhalt" tabIndex={-1}>
         <article className="container-quinta max-w-3xl pt-16 pb-10 sm:pt-20">
           <Link
             href="/en/glossar"
@@ -124,6 +131,7 @@ export default async function GlossaryTermPageEn({
       </main>
       <Footer lang="en" />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(ld) }} />
+      <JsonLd data={breadcrumb} />
     </>
   );
 }

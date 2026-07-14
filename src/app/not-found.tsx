@@ -7,7 +7,7 @@ export default function NotFound() {
   return (
     <>
       <Navbar />
-      <main className="container-quinta flex min-h-[60vh] flex-col items-center justify-center py-24 text-center">
+      <main id="inhalt" tabIndex={-1} className="container-quinta flex min-h-[60vh] flex-col items-center justify-center py-24 text-center">
         <div className="font-mono text-sm uppercase tracking-[0.08em] text-azul-600">Fehler 404</div>
         <h1 className="mt-4 text-display-md font-semibold text-ink-900 sm:text-display-lg">
           Diese Seite ist nicht zu Hause.
