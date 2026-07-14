@@ -52,7 +52,7 @@ export default function Page() {
           Der Grund ist einfache Warteschlangen-Logik: Solange Anfragen schneller ankommen, als sie
           abgearbeitet werden, wächst die Schlange. Und je länger die Schlange, desto länger wartet
           jede einzelne Anfrage. Kurz vor der Kapazitätsgrenze steigen die Latenzen nicht sanft,
-          sondern steil an — der Server ist rechnerisch noch nicht „voll", fühlt sich für den Nutzer
+          sondern steil an — der Server ist rechnerisch noch nicht „voll“, fühlt sich für den Nutzer
           aber bereits an wie eingefroren.
         </p>
       </Section>
@@ -78,8 +78,8 @@ export default function Page() {
         <p>
           Ein ungeschützter Server hat gegen diese Rückkopplung kein Mittel. Er akzeptiert weiter jede
           Anfrage, bis der Speicher erschöpft ist oder die Warteschlange so lang wird, dass praktisch
-          alle Anfragen in Timeouts laufen. Für den Nutzer ist der Unterschied zwischen „langsam" und
-          „ausgefallen" dann verschwunden — beides fühlt sich gleich an. In verteilten Systemen kann
+          alle Anfragen in Timeouts laufen. Für den Nutzer ist der Unterschied zwischen „langsam“ und
+          „ausgefallen“ dann verschwunden — beides fühlt sich gleich an. In verteilten Systemen kann
           ein überlasteter Knoten zudem weitere Knoten mitreißen, wenn Anfragen auf ihn umgeleitet
           werden.
         </p>
@@ -130,7 +130,7 @@ export default function Page() {
       <Section heading="Was die Zahlen bedeuten">
         <p>
           Unter Extremlast erreicht das Gateway eine 18× höhere Erfolgsquote als der blanke Server.
-          „Erfolgsquote" meint dabei den Anteil der Anfragen, die eine gültige Antwort erhalten,
+          „Erfolgsquote“ meint dabei den Anteil der Anfragen, die eine gültige Antwort erhalten,
           statt in Timeout oder Fehler zu laufen. Wichtig: Es geht nicht darum, dass das Gateway
           schneller rechnet — die eigentliche Inferenz ist identisch. Es geht darum, dass es die Last
           so dosiert, dass die Anfragen, die durchgehen, auch tatsächlich beantwortet werden.
@@ -155,7 +155,7 @@ export default function Page() {
       <Section heading="Admission Control ist nicht Rate Limiting">
         <p>
           Beide begrenzen Anfragen — aber grundverschieden. Rate Limiting vergibt feste Kontingente
-          pro Client (etwa „100 Anfragen pro Minute"), unabhängig davon, wie ausgelastet das System
+          pro Client (etwa „100 Anfragen pro Minute“), unabhängig davon, wie ausgelastet das System
           gerade ist. Admission Control richtet sich dynamisch nach der tatsächlichen Kapazität: Bei
           Reserve wird durchgelassen, bei Überlast dosiert. Ein reines Rate Limit schützt vor
           einzelnen Vielrednern, aber nicht vor dem Kollaps, wenn viele legitime Nutzer gleichzeitig
@@ -172,8 +172,8 @@ export default function Page() {
         <p>
           Kapazitätsspitzen sind der Normalfall, nicht die Ausnahme: der Montagmorgen, die
           Quartalsauswertung, der Anwendungsfall, der intern plötzlich populär wird. Ein System, das
-          genau dann zuverlässig bleibt, ist der Unterschied zwischen „KI im Pilotbetrieb" und „KI,
-          auf die sich das Unternehmen verlässt". Und weil das Verhalten unter Last eine Eigenschaft
+          genau dann zuverlässig bleibt, ist der Unterschied zwischen „KI im Pilotbetrieb“ und „KI,
+          auf die sich das Unternehmen verlässt“. Und weil das Verhalten unter Last eine Eigenschaft
           der Betriebsschicht ist, nicht des Modells, bekommen Sie es unabhängig davon, welches
           Modell Sie morgen einsetzen.
         </p>

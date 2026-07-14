@@ -1,3 +1,4 @@
+import { Fragment } from "react";
 import { Check, Minus } from "lucide-react";
 import { cn } from "@/lib/cn";
 
@@ -145,8 +146,8 @@ export function ComparisonTable({ lang = "de" }: { lang?: Lang }) {
         </thead>
         <tbody>
           {groups.map((group) => (
-            <>
-              <tr key={group.label} className="bg-stone-100">
+            <Fragment key={group.label}>
+              <tr className="bg-stone-100">
                 <td
                   colSpan={5}
                   className="px-5 py-2.5 font-mono text-[11px] font-semibold uppercase tracking-[0.08em] text-azul-700"
@@ -167,7 +168,7 @@ export function ComparisonTable({ lang = "de" }: { lang?: Lang }) {
                   ))}
                 </tr>
               ))}
-            </>
+            </Fragment>
           ))}
         </tbody>
       </table>

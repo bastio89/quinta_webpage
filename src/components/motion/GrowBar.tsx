@@ -9,10 +9,15 @@ const REDUCE =
 /** Balken, der beim Eintritt ins Sichtfeld von 0 auf `width` wächst. */
 export function GrowBar({ width, className = "" }: { width: string; className?: string }) {
   const ref = useRef<HTMLDivElement>(null);
-  const [w, setW] = useState(REDUCE ? width : "0%");
+  // Startet bei 0 % wie das Server-HTML — sonst Hydration-Mismatch bei reduced motion.
+  const [w, setW] = useState("0%");
 
   useEffect(() => {
-    if (REDUCE) return;
+    if (REDUCE) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
+      setW(width);
+      return;
+    }
     const el = ref.current;
     if (!el) return;
     const io = new IntersectionObserver(

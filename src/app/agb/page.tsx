@@ -23,7 +23,7 @@ export default function AgbPage() {
               <h2 className="text-base font-semibold text-ink-950">1. Geltungsbereich</h2>
               <p className="mt-2">
                 Diese Allgemeinen Geschäftsbedingungen (AGB) gelten für alle Verträge zwischen
-                twenty5ai, Sebastian Oczachowski (nachfolgend „twenty5ai") und seinen Kunden über
+                twenty5ai, Sebastian Oczachowski (nachfolgend „twenty5ai“) und seinen Kunden über
                 die Lieferung, Installation, Konfiguration und Wartung von Software — insbesondere
                 der KI-Infrastrukturplattform Quinta — sowie über damit verbundene Beratungs-,
                 Schulungs- und Supportleistungen. Abweichende Bedingungen des Kunden werden nur

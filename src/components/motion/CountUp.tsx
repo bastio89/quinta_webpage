@@ -21,10 +21,15 @@ export function CountUp({
   className?: string;
 }) {
   const ref = useRef<HTMLSpanElement>(null);
-  const [n, setN] = useState(REDUCE ? value : 0);
+  // Startet bei 0 wie das Server-HTML — sonst Hydration-Mismatch bei reduced motion.
+  const [n, setN] = useState(0);
 
   useEffect(() => {
-    if (REDUCE) return;
+    if (REDUCE) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
+      setN(value);
+      return;
+    }
     const el = ref.current;
     if (!el) return;
     let raf = 0;

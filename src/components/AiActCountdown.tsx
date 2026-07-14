@@ -20,6 +20,9 @@ export function AiActCountdown({ lang = "de" }: { lang?: "de" | "en" }) {
   const [remaining, setRemaining] = useState<ReturnType<typeof getRemaining> | null>(null);
 
   useEffect(() => {
+    // Bewusst erst nach dem Mount: Die Serverzeit weicht von der Clientzeit ab —
+    // ein Initialwert beim Rendern würde zu einem Hydration-Mismatch führen.
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setRemaining(getRemaining());
     const timer = setInterval(() => setRemaining(getRemaining()), 1000);
     return () => clearInterval(timer);

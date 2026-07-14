@@ -29,7 +29,7 @@ export default function Page() {
       }}
     >
       <Lead>
-        Viele Teams glauben, das Problem sei gelöst, sobald ein Cloud-Anbieter eine „EU-Region"
+        Viele Teams glauben, das Problem sei gelöst, sobald ein Cloud-Anbieter eine „EU-Region“
         anbietet. Das ist ein Missverständnis — und ein teures, wenn eine Aufsichtsbehörde genauer
         hinschaut. Der Speicherort ist nur eine Hälfte der Frage. Die andere ist die Rechtsordnung,
         der der Anbieter unterliegt. Und die reist nicht mit dem Rechenzentrum nach Europa.
@@ -48,17 +48,17 @@ export default function Page() {
         />
         <p>
           Ein US-Unternehmen bleibt US-Recht unterworfen, auch wenn seine Server in Frankfurt stehen.
-          „Die Daten liegen in Europa" beantwortet also nur die erste Frage — die zweite bleibt offen.
+          „Die Daten liegen in Europa“ beantwortet also nur die erste Frage — die zweite bleibt offen.
         </p>
       </Section>
 
       <Section heading="Schrems II: was das Urteil wirklich sagt">
         <p>
-          Mit dem Schrems-II-Urteil (2020) hat der Europäische Gerichtshof den „Privacy Shield" für
+          Mit dem Schrems-II-Urteil (2020) hat der Europäische Gerichtshof den „Privacy Shield“ für
           Datenübermittlungen in die USA für ungültig erklärt. Der Kern der Begründung: Das
           US-Überwachungsrecht ermöglicht Zugriffe, gegen die Betroffene aus der EU keinen
           gleichwertigen Rechtsschutz haben. Das Schutzniveau war damit nicht „im Wesentlichen
-          gleichwertig", wie es die DSGVO verlangt.
+          gleichwertig“, wie es die DSGVO verlangt.
         </p>
         <p>
           Standardvertragsklauseln blieben als Instrument zwar möglich — aber nicht als Formalie. Das
@@ -98,7 +98,7 @@ export default function Page() {
 
       <Section heading="Warum Verschlüsselung das Problem nur teilweise löst">
         <p>
-          „Wir verschlüsseln alles" ist ein häufiges Gegenargument — und richtig, aber unvollständig.
+          „Wir verschlüsseln alles“ ist ein häufiges Gegenargument — und richtig, aber unvollständig.
           Verschlüsselung im Ruhezustand und beim Transport schützt gespeicherte Daten. Für KI-Inferenz
           reicht das nicht: Das Modell muss den Klartext Ihrer Anfrage verarbeiten, um zu antworten.
           In diesem Moment liegt der sensibelste Teil — der Inhalt Ihres Prompts — unverschlüsselt im

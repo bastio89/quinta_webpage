@@ -23,6 +23,9 @@ export function Reveal({
 
   useEffect(() => {
     if (REDUCE) {
+      // prefers-reduced-motion ist nur im Browser bekannt; SSR rendert verborgen,
+      // der Client zeigt Inhalte dann sofort ohne Animation.
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setShown(true);
       return;
     }

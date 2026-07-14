@@ -95,7 +95,7 @@ export default function Page() {
 
       <Section heading="Bin ich betroffen? Die vier Risikoklassen">
         <p>
-          Der EU AI Act reguliert nicht „KI" pauschal, sondern nach Risiko. Bevor Sie über Pflichten
+          Der EU AI Act reguliert nicht „KI“ pauschal, sondern nach Risiko. Bevor Sie über Pflichten
           nachdenken, lohnt die Einordnung Ihrer Anwendungen in eine der vier Klassen:
         </p>
         <SubHeading>Unannehmbares Risiko</SubHeading>
@@ -143,7 +143,7 @@ export default function Page() {
           ]}
         />
         <p>
-          Diese Anforderungen lassen sich nicht nachträglich „aufkleben". Sie setzen voraus, dass Sie
+          Diese Anforderungen lassen sich nicht nachträglich „aufkleben“. Sie setzen voraus, dass Sie
           Einblick in Ihr System haben — genau das, was bei einem geschlossenen Dienst Dritter oft
           fehlt.
         </p>

@@ -8,11 +8,16 @@ const REDUCE =
 
 /** Tippt eine rotierende Liste kurzer Phrasen Zeichen für Zeichen (mit Cursor). */
 export function TerminalStream({ phrases }: { phrases: string[] }) {
-  const [text, setText] = useState(REDUCE ? phrases[0] : "");
+  // Startet leer wie das Server-HTML — sonst Hydration-Mismatch bei reduced motion.
+  const [text, setText] = useState("");
   const timer = useRef<ReturnType<typeof setTimeout>>(undefined);
 
   useEffect(() => {
-    if (REDUCE) return;
+    if (REDUCE) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
+      setText(phrases[0]);
+      return;
+    }
     let p = 0;
     let i = 0;
     let deleting = false;

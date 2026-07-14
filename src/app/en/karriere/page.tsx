@@ -50,7 +50,7 @@ export default function CareersPageEn() {
             </h1>
             <p className="mt-5 text-lg leading-relaxed text-ink-700">
               twenty5ai builds Quinta — the on-premise AI platform that lets organizations run AI on
-              their own hardware. We're looking for people who love technology and take control
+              their own hardware. We’re looking for people who love technology and take control
               seriously. Not a single byte leaves the building — ours included.
             </p>
           </div>

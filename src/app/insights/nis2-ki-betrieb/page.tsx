@@ -58,7 +58,7 @@ export default function Page() {
 
       <Section heading="Die Mindestmaßnahmen im Risikomanagement">
         <p>
-          NIS2 verlangt keine vagen „Bemühungen", sondern einen konkreten Katalog technischer und
+          NIS2 verlangt keine vagen „Bemühungen“, sondern einen konkreten Katalog technischer und
           organisatorischer Maßnahmen. Für den KI-Betrieb besonders relevant sind darunter:
         </p>
         <Bullets

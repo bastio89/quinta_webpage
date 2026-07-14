@@ -38,6 +38,9 @@ export function CookieConsent() {
   const t = pathname === "/en" || pathname.startsWith("/en/") ? TEXT.en : TEXT.de;
 
   useEffect(() => {
+    // Cookie ist erst im Browser lesbar; auf dem Server muss das Banner verborgen
+    // bleiben, sonst blitzt es bei Besuchern mit bestehender Zustimmung auf.
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     if (!hasConsent()) setVisible(true);
   }, []);
 

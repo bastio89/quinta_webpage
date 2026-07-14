@@ -96,7 +96,7 @@ export default function VergleichPage() {
               Betriebsschicht</strong> um das Modell herum — das, was ein reguliertes Unternehmen
               braucht, um KI in Produktion zu betreiben: Zugriffskontrolle, Multi-Modell- und
               Multi-GPU-Orchestrierung, Governance und ein lückenloser Prüfpfad. Quinta nutzt solche
-              Inferenz-Engines im Hintergrund. Sie beantworten die Frage „Läuft das Modell?". Quinta
+              Inferenz-Engines im Hintergrund. Sie beantworten die Frage „Läuft das Modell?“. Quinta
               beantwortet die Frage: <em className="not-italic font-medium text-ink-950">Wer darf es
               nutzen — unter welcher Richtlinie, mit welchem Prüfpfad und auf wie vielen GPUs?</em>
             </p>

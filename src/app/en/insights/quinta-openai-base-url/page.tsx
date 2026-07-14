@@ -103,15 +103,15 @@ export default function Page() {
       }}
     >
       <Lead>
-        Quinta speaks the same language as the OpenAI API. That means you don't have to rewrite your
-        applications to move from a cloud service to your own sovereign AI. It's enough to change one
+        Quinta speaks the same language as the OpenAI API. That means you don’t have to rewrite your
+        applications to move from a cloud service to your own sovereign AI. It’s enough to change one
         setting — the <strong>base_url</strong>.
       </Lead>
 
       <Section heading="The principle: only the address changes">
         <p>
           Every OpenAI-compatible client sends its requests to a base_url. By default that points to
-          OpenAI's servers. Point the base_url at your Quinta instance instead, and the same requests
+          OpenAI’s servers. Point the base_url at your Quinta instance instead, and the same requests
           go to your own infrastructure — answered there by the models you run on your hardware.
         </p>
         <p>In concrete terms you change just two values:</p>
@@ -143,7 +143,7 @@ export default function Page() {
 
       <Section heading="Switched in a few lines">
         <p>
-          Pick your language or framework. It's the same change every time — point the base_url and
+          Pick your language or framework. It’s the same change every time — point the base_url and
           key at Quinta:
         </p>
         <CodeTabs tabs={SETUP_TABS} lang="en" />
@@ -151,7 +151,7 @@ export default function Page() {
 
       <Section heading="No code change: via environment variables">
         <p>
-          If you'd rather not touch the code at all: the official OpenAI libraries (Python and Node)
+          If you’d rather not touch the code at all: the official OpenAI libraries (Python and Node)
           read the base_url and key automatically from environment variables. Set them, and your
           existing application talks to Quinta — without changing a line of code.
         </p>

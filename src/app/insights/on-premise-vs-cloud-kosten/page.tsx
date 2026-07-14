@@ -78,8 +78,8 @@ export default function Page() {
         <p>
           Genau am letzten Punkt setzt die Betriebsschicht an: Automatische Knoten-Registrierung, ein
           vollautomatischer Modell-Lebenszyklus und ein Dashboard senken den Betriebsaufwand, der bei
-          nacktem Eigenbetrieb sonst am teuersten ist. Der Unterschied zwischen „eigene GPU im Keller"
-          und „betriebsfähige Plattform" ist genau dieser Aufwand.
+          nacktem Eigenbetrieb sonst am teuersten ist. Der Unterschied zwischen „eigene GPU im Keller“
+          und „betriebsfähige Plattform“ ist genau dieser Aufwand.
         </p>
       </Section>
 
@@ -126,7 +126,7 @@ export default function Page() {
           ]}
         />
         <p>
-          Der Punkt ist nicht „Cloud ist schlecht", sondern: Miete und Besitz haben verschiedene
+          Der Punkt ist nicht „Cloud ist schlecht“, sondern: Miete und Besitz haben verschiedene
           Stärken. Souverän ist, die Wahl bewusst zu treffen — nicht, sie einem Anbieter zu überlassen.
         </p>
       </Section>
