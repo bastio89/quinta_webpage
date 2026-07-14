@@ -164,7 +164,7 @@ export const GLOSSARY: GlossaryEntry[] = [
     de: {
       term: "vLLM",
       short:
-        "Eine quelloffene Hochleistungs-Engine, die große Sprachmodelle effizient ausführt — der Motor, nicht die Betriebsschicht.",
+        "Eine quelloffene Hochleistungs-Engine, die große Sprachmodelle effizient ausführt — die Engine, nicht die Betriebsschicht.",
       body: [
         "vLLM ist eine weit verbreitete Open-Source-Inferenz-Engine für große Sprachmodelle. Ihr Kern ist effizientes Speicher- und Batch-Management, das viele Anfragen zugleich verarbeiten kann. Sie beantwortet die Frage „Wie führe ich ein Modell schnell aus?“.",
         "Was vLLM allein nicht beantwortet: Wer darf zugreifen? Was passiert bei Überlast? Wie werden mehrere Knoten orchestriert und Zugriffe protokolliert? Das sind Betriebsfragen — und genau dort setzt eine Schicht wie das Quinta-Gateway an.",

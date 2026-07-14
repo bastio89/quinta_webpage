@@ -9,9 +9,9 @@ import { JsonLd } from "@/components/JsonLd";
 import { faqPageLd } from "@/lib/jsonLd";
 
 export const metadata: Metadata = {
-  title: "Quinta im Vergleich zu vLLM, LocalAI und anderen Inferenz-Motoren",
+  title: "Quinta im Vergleich zu vLLM, LocalAI und anderen Inferenz-Engines",
   description:
-    "vLLM, LocalAI und andere Inferenz-Motoren führen ein Modell aus. Quinta ist die Betriebsschicht darum herum — Zugriffskontrolle, Multi-GPU-Orchestrierung, Governance und lückenloser Audit-Trail. Der ehrliche Vergleich.",
+    "vLLM, LocalAI und andere Inferenz-Engines führen ein Modell aus. Quinta ist die Betriebsschicht darum herum — Zugriffskontrolle, Multi-GPU-Orchestrierung, Governance und lückenloser Audit-Trail. Der ehrliche Vergleich.",
   alternates: { canonical: "/vergleich", languages: { de: "/vergleich", en: "/en/vergleich" } },
 };
 
@@ -41,11 +41,11 @@ const OPS_QUESTIONS = [
 const FAQ = [
   {
     q: "Ist Quinta ein Ersatz für vLLM oder einen Modell-Runner?",
-    a: "Nein. Quinta nutzt Inferenz-Motoren wie vLLM und leichtgewichtige Modell-Runner im Hintergrund und legt die Betriebsschicht darum herum — Zugriffskontrolle, Orchestrierung, Governance und Audit —, die ein Unternehmen in Produktion braucht.",
+    a: "Nein. Quinta nutzt Inferenz-Engines wie vLLM und leichtgewichtige Modell-Runner im Hintergrund und legt die Betriebsschicht darum herum — Zugriffskontrolle, Orchestrierung, Governance und Audit —, die ein Unternehmen in Produktion braucht.",
   },
   {
-    q: "Was ist der Unterschied zwischen einem Inferenz-Motor und einer Betriebsschicht?",
-    a: "Ein Inferenz-Motor führt ein Modell effizient aus. Eine Betriebsschicht macht dieses Modell in einer Organisation nutzbar — durch Identität, Zugriffskontrolle, Observability, Mandantenfähigkeit, Governance und Orchestrierung. Quinta ist eine Betriebsschicht.",
+    q: "Was ist der Unterschied zwischen einer Inferenz-Engine und einer Betriebsschicht?",
+    a: "Eine Inferenz-Engine führt ein Modell effizient aus. Eine Betriebsschicht macht dieses Modell in einer Organisation nutzbar — durch Identität, Zugriffskontrolle, Observability, Mandantenfähigkeit, Governance und Orchestrierung. Quinta ist eine Betriebsschicht.",
   },
   {
     q: "Läuft Quinta On-Premise?",
@@ -53,14 +53,14 @@ const FAQ = [
   },
   {
     q: "Ist Quinta quelloffen?",
-    a: "Der Inferenz-Motor basiert auf bewährter, quelloffener Technologie (Apache 2.0). Die Verwaltungsebene — Gateway, Daemon, Dashboard und Registry — ist eine Eigenentwicklung von twenty5ai.",
+    a: "Die Inferenz-Engine basiert auf bewährter, quelloffener Technologie (Apache 2.0). Die Verwaltungsebene — Gateway, Daemon, Dashboard und Registry — ist eine Eigenentwicklung von twenty5ai.",
   },
   {
     q: "Für wen ist Quinta gedacht?",
     a: "Regulierte europäische Unternehmen in Finanzen, Gesundheitswesen, Recht, öffentlicher Hand, Industrie und ähnlichen Sektoren — überall dort, wo der Betrieb von KI auf kontrollierter, überprüfbarer On-Premise-Infrastruktur eine zwingende Anforderung ist, keine bloße Präferenz.",
   },
   {
-    q: "Warum kann ich nicht einfach einen Inferenz-Motor in Produktion nutzen?",
+    q: "Warum kann ich nicht einfach eine Inferenz-Engine in Produktion nutzen?",
     a: "Sie können ein Modell damit betreiben — aber es fehlen Zugriffskontrolle, Mandantentrennung, Nutzungsverfolgung, Governance und ein Prüfpfad. Für ein reguliertes Unternehmen sind das genau die Funktionen, nach denen eine Aufsichtsbehörde fragt.",
   },
 ];
@@ -76,7 +76,7 @@ export default function VergleichPage() {
           <div className="max-w-3xl">
             <div className="kicker mb-3.5">Vergleich</div>
             <h1 className="text-display-md font-semibold text-ink-900 sm:text-display-lg">
-              Quinta im Vergleich zu vLLM, LocalAI und anderen Inferenz-Motoren
+              Quinta im Vergleich zu vLLM, LocalAI und anderen Inferenz-Engines
             </h1>
             <p className="mt-4 font-mono text-xs uppercase tracking-[0.08em] text-ink-400">
               twenty5ai · Sovereign-AI · Juli 2026
@@ -92,11 +92,11 @@ export default function VergleichPage() {
             </p>
             <p className="mt-4 text-lg leading-relaxed text-ink-800">
               Werkzeuge wie vLLM, LocalAI und andere Modell-Runner sind hervorragende
-              Inferenz-Motoren. Sie führen ein Modell aus. <strong className="font-semibold text-ink-950">Quinta ist die
+              Inferenz-Engines. Sie führen ein Modell aus. <strong className="font-semibold text-ink-950">Quinta ist die
               Betriebsschicht</strong> um das Modell herum — das, was ein reguliertes Unternehmen
               braucht, um KI in Produktion zu betreiben: Zugriffskontrolle, Multi-Modell- und
               Multi-GPU-Orchestrierung, Governance und ein lückenloser Prüfpfad. Quinta nutzt solche
-              Inferenz-Motoren im Hintergrund. Sie beantworten die Frage „Läuft das Modell?". Quinta
+              Inferenz-Engines im Hintergrund. Sie beantworten die Frage „Läuft das Modell?". Quinta
               beantwortet die Frage: <em className="not-italic font-medium text-ink-950">Wer darf es
               nutzen — unter welcher Richtlinie, mit welchem Prüfpfad und auf wie vielen GPUs?</em>
             </p>
@@ -122,7 +122,7 @@ export default function VergleichPage() {
                 der einfache Teil. Der schwierige Teil ist das Drumherum: Wer darf es aufrufen? Wie
                 wird der Zugriff über Teams hinweg kontrolliert? Wie wird jede Anfrage revisionssicher
                 für die Compliance protokolliert? Wie wird die Last auf die GPUs verteilt — und das
-                ganze System unter EU-Regulierung verwaltet? Inferenz-Motoren wurden nicht gebaut, um
+                ganze System unter EU-Regulierung verwaltet? Inferenz-Engines wurden nicht gebaut, um
                 diese Fragen zu beantworten. Das war nie ihre Aufgabe.
               </p>
               <p>
@@ -133,30 +133,30 @@ export default function VergleichPage() {
           </div>
         </section>
 
-        {/* Inferenz-Motor vs. Betriebsschicht */}
+        {/* Inferenz-Engine vs. Betriebsschicht */}
         <section className="container-quinta pb-16">
           <div className="max-w-2xl">
             <h2 className="text-display-sm font-semibold text-ink-900">
-              Inferenz-Motor vs. Betriebsschicht: Was ist der Unterschied?
+              Inferenz-Engine vs. Betriebsschicht: Was ist der Unterschied?
             </h2>
             <div className="mt-5 flex flex-col gap-4 text-md leading-relaxed text-ink-700">
               <p>
-                Ein Inferenz-Motor nimmt ein Modell und stellt es effizient bereit. vLLM, LocalAI und
-                vergleichbare Modell-Runner sind Inferenz-Motoren: Sie optimieren den Durchsatz,
+                Eine Inferenz-Engine nimmt ein Modell und stellt es effizient bereit. vLLM, LocalAI und
+                vergleichbare Modell-Runner sind Inferenz-Engines: Sie optimieren den Durchsatz,
                 verwalten den GPU-Speicher und stellen eine API bereit. Das machen sie gut.
               </p>
               <p>
                 Eine Betriebsschicht sitzt darüber und macht KI in einer Organisation nutzbar. Sie
                 kümmert sich um Zugriffskontrolle, Identität, Observability, Mandantenfähigkeit,
                 Governance und die Orchestrierung über mehrere Modelle und Maschinen hinweg. Quinta
-                ist eine solche Betriebsschicht — sie läuft auf den Inferenz-Motoren, statt sie zu
+                ist eine solche Betriebsschicht — sie läuft auf den Inferenz-Engines, statt sie zu
                 ersetzen.
               </p>
             </div>
           </div>
           <div className="mt-8 max-w-2xl border-l-2 border-copper-400 pl-6">
             <p className="text-xl font-medium leading-relaxed text-ink-800">
-              Ein Inferenz-Motor ist wie eine Datenbank-Engine. Eine Betriebsschicht ist alles, was
+              Eine Inferenz-Engine ist wie eine Datenbank-Engine. Eine Betriebsschicht ist alles, was
               aus einer Datenbank ein System macht, auf dem eine Bank laufen kann — die
               Zugriffskontrollen, die Audit-Logs, die Benutzerverwaltung, die Compliance-Berichte.
             </p>
@@ -172,10 +172,10 @@ export default function VergleichPage() {
           <div className="mx-auto mb-10 max-w-5xl">
             <div className="kicker mb-3.5">Funktionsvergleich</div>
             <h2 className="max-w-2xl text-display-sm font-semibold text-ink-900">
-              Quinta vs. vLLM, LocalAI und andere Inferenz-Motoren
+              Quinta vs. vLLM, LocalAI und andere Inferenz-Engines
             </h2>
             <p className="mt-4 max-w-2xl text-md leading-relaxed text-ink-700">
-              Es geht nicht darum, dass die Inferenz-Motoren unzureichend wären — sie sind exzellent
+              Es geht nicht darum, dass die Inferenz-Engines unzureichend wären — sie sind exzellent
               in dem, was sie tun. Der Punkt ist: Der Betrieb von KI in regulierter Produktion
               verlangt Funktionen oberhalb der Inferenz-Ebene.
             </p>
@@ -206,7 +206,7 @@ export default function VergleichPage() {
               Was eine Betriebsschicht beantwortet — oft gegenüber einer Aufsichtsbehörde.
             </h2>
             <p className="mt-4 text-md leading-relaxed text-ink-700">
-              Ein Inferenz-Motor beantwortet eine Frage: Läuft das Modell? Eine Betriebsschicht
+              Eine Inferenz-Engine beantwortet eine Frage: Läuft das Modell? Eine Betriebsschicht
               beantwortet die Fragen, die ein reguliertes Unternehmen tatsächlich beantworten muss.
             </p>
           </div>

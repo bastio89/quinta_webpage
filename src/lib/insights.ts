@@ -47,9 +47,9 @@ export const INSIGHTS: InsightMeta[] = [
   {
     href: "/vergleich",
     category: "Vergleich",
-    title: "Quinta im Vergleich zu vLLM, LocalAI und anderen Inferenz-Motoren",
+    title: "Quinta im Vergleich zu vLLM, LocalAI und anderen Inferenz-Engines",
     excerpt:
-      "vLLM, LocalAI und andere Inferenz-Motoren führen ein Modell aus. Quinta ist die Betriebsschicht darum herum — Zugriffskontrolle, Orchestrierung, Governance und Audit. Der ehrliche Vergleich.",
+      "vLLM, LocalAI und andere Inferenz-Engines führen ein Modell aus. Quinta ist die Betriebsschicht darum herum — Zugriffskontrolle, Orchestrierung, Governance und Audit. Der ehrliche Vergleich.",
     date: "2026-07-01",
     readingMinutes: 5,
   },

@@ -5,5 +5,5 @@ export const alt = ogAlt;
 export const contentType = ogContentType;
 
 export default function Image() {
-  return renderOgImage({ eyebrow: "Vergleich", title: "Quinta vs. vLLM, LocalAI und andere Inferenz-Motoren", lang: "de" });
+  return renderOgImage({ eyebrow: "Vergleich", title: "Quinta vs. vLLM, LocalAI und andere Inferenz-Engines", lang: "de" });
 }

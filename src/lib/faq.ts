@@ -31,7 +31,7 @@ export const LANDING_FAQ: FaqItem[] = [
   },
   {
     q: "Wer steht hinter Quinta?",
-    a: "Quinta ist eine Eigenentwicklung von twenty5ai. Der Inferenz-Motor basiert auf bewährter Open-Source-Technologie (Apache 2.0); die Verwaltungsebene — Gateway, Dashboard, Registry — ist eigene Entwicklung.",
+    a: "Quinta ist eine Eigenentwicklung von twenty5ai. Die Inferenz-Engine basiert auf bewährter Open-Source-Technologie (Apache 2.0); die Verwaltungsebene — Gateway, Dashboard, Registry — ist eigene Entwicklung.",
   },
 ];
 

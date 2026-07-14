@@ -37,7 +37,7 @@ const CONTENT = {
     ],
     tagline: "Die souveräne On-Premise-KI-Plattform. Entwickelt in Europa.",
     rights: "Alle Rechte vorbehalten.",
-    engine: "Motor: Open Source (Apache 2.0) · Verwaltungsebene: Eigenentwicklung",
+    engine: "Engine: Open Source (Apache 2.0) · Verwaltungsebene: Eigenentwicklung",
     home: "Quinta Startseite",
   },
   en: {
