@@ -9,6 +9,15 @@ export type InsightMeta = {
 
 export const INSIGHTS: InsightMeta[] = [
   {
+    href: "/insights/quinta-openai-base-url",
+    category: "Anleitung",
+    title: "Quinta einbinden: die OpenAI-base_url umstellen",
+    excerpt:
+      "Quinta ist OpenAI-kompatibel — Sie müssen Ihre Anwendungen nicht neu schreiben. Es genügt, eine Einstellung zu ändern: die base_url. Schritt für Schritt, mit Codebeispielen.",
+    date: "2026-07-14",
+    readingMinutes: 6,
+  },
+  {
     href: "/insights/eu-ai-act-frist-2026",
     category: "Compliance",
     title: "Der EU AI Act und die Frist am 2. August 2026",
@@ -65,6 +74,15 @@ export const INSIGHTS: InsightMeta[] = [
 ];
 
 export const INSIGHTS_EN: InsightMeta[] = [
+  {
+    href: "/en/insights/quinta-openai-base-url",
+    category: "Guide",
+    title: "Integrating Quinta: switching the OpenAI base_url",
+    excerpt:
+      "Quinta is OpenAI-compatible — you don't have to rewrite your applications. It's enough to change one setting: the base_url. Step by step, with code examples.",
+    date: "2026-07-14",
+    readingMinutes: 6,
+  },
   {
     href: "/en/insights/eu-ai-act-frist-2026",
     category: "Compliance",

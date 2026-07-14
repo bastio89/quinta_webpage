@@ -104,6 +104,7 @@ export function Navbar({ lang = "de" }: { lang?: Lang }) {
     "/glossar",
     "/karriere",
     "/insights",
+    "/insights/quinta-openai-base-url",
     "/insights/eu-ai-act-frist-2026",
     "/insights/bounded-admission-last",
     "/insights/datensouveraenitaet-cloud-act",
