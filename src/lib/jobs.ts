@@ -117,6 +117,98 @@ export const JOBS: JobEntry[] = [
         "You don't need to tick every box. If the core of the role excites you and you bring most of it, we'd love to hear from you.",
     },
   },
+  {
+    slug: "freelance-software-engineer",
+    datePosted: "2026-07-14",
+    employmentType: "CONTRACTOR",
+    remote: true,
+    de: {
+      title: "Freelance Software Engineer (m/w/d)",
+      tagline:
+        "Du entwickelst Quinta weiter — an der Plattform, die aus eigener Hardware einen souveränen KI-Dienst macht.",
+      summary:
+        "Als Freelance Engineer baust du an der Quinta-Plattform mit — Gateway, Orchestrierung, Dashboard und API. Remote, projektbasiert, mit direktem Draht zum Kernteam.",
+      location: "Remote (Europa)",
+      type: "Freelance / Projektbasis",
+      team: "Produktentwicklung",
+      intro: [
+        "twenty5ai baut mit Quinta die souveräne On-Premise-KI-Plattform für regulierte Branchen. Die gesamte Betriebsschicht — Gateway, Daemon, Registry und Dashboard — ist Eigenentwicklung. Um schneller zu liefern, suchen wir erfahrene Freelancer, die uns projektbasiert bei der Weiterentwicklung unterstützen.",
+        "Du arbeitest direkt am Kern des Produkts: an den Diensten, die Zugriff, Orchestrierung und Governance über KI-Modelle steuern. Als Freelancer bringst du Tempo und Erfahrung ein, arbeitest eng mit dem Kernteam und lieferst eigenständig Features von der Idee bis in die Produktion.",
+      ],
+      responsibilities: [
+        "Du entwickelst Features und Verbesserungen an der Quinta-Plattform — von Backend-Diensten (Gateway, Orchestrierung, API) bis zum Verwaltungs-Dashboard.",
+        "Du integrierst und optimierst die Anbindung an Inferenz-Engines wie vLLM und den automatischen Modell-Lebenszyklus.",
+        "Du arbeitest an Zugriffskontrolle, Mandantenfähigkeit, Observability und Audit — den Funktionen, die Quinta für regulierte Branchen ausmachen.",
+        "Du schreibst wartbaren, gut getesteten Code und dokumentierst deine Arbeit so, dass das Team darauf aufbauen kann.",
+        "Du stimmst dich eng mit dem Kernteam ab und lieferst eigenständig von der Anforderung bis zum Release.",
+      ],
+      requirements: [
+        "Mehrjährige Erfahrung in der Softwareentwicklung, idealerweise an verteilten Systemen, APIs oder infrastrukturnaher Software.",
+        "Sicherer Umgang mit einem modernen Backend-Stack (z. B. Go, Python, Rust oder TypeScript/Node) sowie mit Linux, Containern und Git.",
+        "Erfahrung, eigenständig und remote zu liefern — du strukturierst dich selbst und kommunizierst proaktiv.",
+        "Qualitätsbewusstsein: Tests, saubere Schnittstellen, nachvollziehbare Commits.",
+        "Gutes Deutsch oder Englisch in der Zusammenarbeit.",
+      ],
+      niceToHave: [
+        "Erfahrung mit KI-/LLM-Infrastruktur, GPU-Servern oder Inferenz-Engines wie vLLM.",
+        "Kenntnisse in der Frontend-Entwicklung (React/TypeScript) für das Dashboard.",
+        "Erfahrung mit RBAC, SSO/SAML, Multi-Tenancy oder Observability (Prometheus).",
+        "Hintergrund in regulierten oder sicherheitskritischen Umgebungen.",
+      ],
+      offer: [
+        "Projektbasierte Zusammenarbeit mit klaren Zielen und viel Eigenverantwortung.",
+        "Arbeit an einem technisch anspruchsvollen Produkt mit echter Substanz statt Wegwerf-Features.",
+        "Direkter Draht zum Kernteam — kurze Wege, schnelle Entscheidungen.",
+        "Voll remote und flexibel in der Zeiteinteilung.",
+        "Faire, transparente Vergütung auf Tages- oder Stundenbasis.",
+      ],
+      closing:
+        "Interessiert an einer projektbasierten Zusammenarbeit? Schick uns kurz dein Profil, deine Schwerpunkte und deine Verfügbarkeit — wir melden uns schnell.",
+    },
+    en: {
+      title: "Freelance Software Engineer (m/f/d)",
+      tagline:
+        "You help develop Quinta — the platform that turns your own hardware into a sovereign AI service.",
+      summary:
+        "As a freelance engineer you build on the Quinta platform — gateway, orchestration, dashboard and API. Remote, project-based, with a direct line to the core team.",
+      location: "Remote (Europe)",
+      type: "Freelance / contract",
+      team: "Product engineering",
+      intro: [
+        "With Quinta, twenty5ai builds the sovereign on-premise AI platform for regulated industries. The entire operating layer — gateway, daemon, registry and dashboard — is developed in-house. To ship faster, we're looking for experienced freelancers to support our development on a project basis.",
+        "You work directly at the core of the product: on the services that control access, orchestration and governance over AI models. As a freelancer you bring speed and experience, work closely with the core team and deliver features independently from idea to production.",
+      ],
+      responsibilities: [
+        "Develop features and improvements across the Quinta platform — from backend services (gateway, orchestration, API) to the management dashboard.",
+        "Integrate and optimize the connection to inference engines like vLLM and the automated model lifecycle.",
+        "Work on access control, multi-tenancy, observability and audit — the functions that make Quinta fit for regulated industries.",
+        "Write maintainable, well-tested code and document your work so the team can build on it.",
+        "Coordinate closely with the core team and deliver independently from requirement to release.",
+      ],
+      requirements: [
+        "Several years of software engineering experience, ideally on distributed systems, APIs or infrastructure-adjacent software.",
+        "Confidence with a modern backend stack (e.g. Go, Python, Rust or TypeScript/Node) as well as Linux, containers and Git.",
+        "Experience delivering independently and remotely — you structure yourself and communicate proactively.",
+        "A focus on quality: tests, clean interfaces, traceable commits.",
+        "Good German or English for collaboration.",
+      ],
+      niceToHave: [
+        "Experience with AI/LLM infrastructure, GPU servers or inference engines like vLLM.",
+        "Frontend development skills (React/TypeScript) for the dashboard.",
+        "Experience with RBAC, SSO/SAML, multi-tenancy or observability (Prometheus).",
+        "A background in regulated or security-critical environments.",
+      ],
+      offer: [
+        "Project-based collaboration with clear goals and a lot of ownership.",
+        "Work on a technically demanding product with real substance, not throwaway features.",
+        "A direct line to the core team — short paths, fast decisions.",
+        "Fully remote and flexible in how you schedule your time.",
+        "Fair, transparent compensation on a daily or hourly basis.",
+      ],
+      closing:
+        "Interested in a project-based collaboration? Send us a short profile, your focus areas and your availability — we'll get back to you quickly.",
+    },
+  },
 ];
 
 export function jobsList(lang: "de" | "en") {
