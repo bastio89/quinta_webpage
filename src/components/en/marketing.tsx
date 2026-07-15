@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import {
   ArrowRight,
   Check,
@@ -421,6 +422,13 @@ export function BenchmarksEn() {
             requests, up to 512 concurrent requests, Quinta gateway against vLLM alone. Identical
             per-user token rate.
           </p>
+          <Link
+            href="/en/benchmark"
+            className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-azul-400 hover:text-azul-300"
+          >
+            Full benchmark — setup, numbers, framing
+            <ArrowRight className="h-4 w-4" />
+          </Link>
         </div>
       </div>
     </section>

@@ -32,6 +32,7 @@ test.describe("Top-Navigation (Desktop)", () => {
 test.describe("Sprachumschalter", () => {
   const CASES: Array<[string, string]> = [
     ["/", "/en"],
+    ["/benchmark", "/en/benchmark"],
     ["/rechner", "/en/rechner"],
     ["/vergleich", "/en/vergleich"],
     ["/glossar/bounded-admission", "/en/glossar/bounded-admission"],

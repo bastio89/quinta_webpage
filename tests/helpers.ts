@@ -4,6 +4,8 @@ import type { Page } from "@playwright/test";
 export const PAGE_ROUTES = [
   "/",
   "/en",
+  "/benchmark",
+  "/en/benchmark",
   "/vergleich",
   "/en/vergleich",
   "/rechner",

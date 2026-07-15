@@ -10,7 +10,7 @@ const CONTENT = {
         title: "Produkt",
         links: [
           { label: "Plattform", href: "/#plattform" },
-          { label: "Leistung", href: "/#leistung" },
+          { label: "Benchmark", href: "/benchmark" },
           { label: "Vergleich", href: "/vergleich" },
           { label: "Kosten-Rechner", href: "/rechner" },
           { label: "Self-Check", href: "/check" },
@@ -47,7 +47,7 @@ const CONTENT = {
         title: "Product",
         links: [
           { label: "Platform", href: "/en#plattform" },
-          { label: "Performance", href: "/en#leistung" },
+          { label: "Benchmark", href: "/en/benchmark" },
           { label: "Comparison", href: "/en/vergleich" },
           { label: "Cost calculator", href: "/en/rechner" },
           { label: "Self-check", href: "/en/check" },

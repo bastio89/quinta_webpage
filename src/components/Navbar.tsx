@@ -21,6 +21,7 @@ const LABELS = {
     resources: {
       label: "Ressourcen",
       items: [
+        { label: "Benchmark", href: "/benchmark" },
         { label: "Vergleich", href: "/vergleich" },
         { label: "Kosten-Rechner", href: "/rechner" },
         { label: "Self-Check", href: "/check" },
@@ -43,6 +44,7 @@ const LABELS = {
     resources: {
       label: "Resources",
       items: [
+        { label: "Benchmark", href: "/benchmark" },
         { label: "Comparison", href: "/vergleich" },
         { label: "Cost calculator", href: "/rechner" },
         { label: "Self-check", href: "/check" },
@@ -98,6 +100,7 @@ export function Navbar({ lang = "de" }: { lang?: Lang }) {
   // für alle anderen fällt der Wechsel auf die Sprach-Startseite zurück (kein 404).
   const EN_TRANSLATED = new Set([
     "/",
+    "/benchmark",
     "/vergleich",
     "/rechner",
     "/check",

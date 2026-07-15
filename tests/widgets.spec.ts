@@ -85,6 +85,33 @@ test.describe("Karriere", () => {
   });
 });
 
+test.describe("Benchmark-Seite", () => {
+  test("zeigt Messzahlen, Aufbau und ehrliche Einordnung", async ({ page }) => {
+    await page.goto("/benchmark");
+    await dismissCookies(page);
+    await expect(page.locator("h1")).toContainText("18× mehr Erfolg");
+    // Messaufbau-Fakten
+    await expect(page.getByText("NVIDIA DGX Spark, 128 GB")).toBeVisible();
+    await expect(page.getByText("31.200 Requests, bis 512 gleichzeitige Anfragen")).toBeVisible();
+    // Transparenz-Box
+    await expect(page.getByText("Ehrliche Einordnung", { exact: true })).toBeVisible();
+    await expect(page.getByText(/keine unabhängige\s+Zertifizierung/)).toBeVisible();
+    // Verweise auf Artikel und Glossar
+    await expect(
+      page.getByRole("link", { name: /Bounded Admission: warum ein Inferenz-Server/ }),
+    ).toBeVisible();
+  });
+
+  test("Startseite verlinkt auf den Benchmark", async ({ page }) => {
+    await page.goto("/");
+    await dismissCookies(page);
+    const link = page.getByRole("link", { name: /Zum ausführlichen Benchmark/ });
+    await link.scrollIntoViewIfNeeded();
+    await link.click();
+    await expect(page).toHaveURL("/benchmark");
+  });
+});
+
 test.describe("Glossar", () => {
   test("Begriffskarte öffnet Detailseite mit Weiterlesen-Links", async ({ page }) => {
     await page.goto("/glossar");

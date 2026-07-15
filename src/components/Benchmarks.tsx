@@ -1,3 +1,5 @@
+import Link from "next/link";
+import { ArrowRight } from "lucide-react";
 import { CountUp } from "@/components/motion/CountUp";
 import { GrowBar } from "@/components/motion/GrowBar";
 
@@ -85,6 +87,13 @@ export function Benchmarks() {
             Requests, bis 512 gleichzeitige Anfragen, Quinta-Gateway gegen vLLM pur. Identische
             Token-Rate pro Nutzer.
           </p>
+          <Link
+            href="/benchmark"
+            className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-azul-400 hover:text-azul-300"
+          >
+            Zum ausführlichen Benchmark — Aufbau, Zahlen, Einordnung
+            <ArrowRight className="h-4 w-4" />
+          </Link>
         </div>
       </div>
     </section>
