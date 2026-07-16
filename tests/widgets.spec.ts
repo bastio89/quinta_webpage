@@ -39,6 +39,53 @@ test.describe("CodeTabs im Integrations-Ratgeber", () => {
   });
 });
 
+test.describe("Demo-Formular (#kontakt)", () => {
+  test("rendert alle Felder und ist ausfüllbar", async ({ page }) => {
+    await page.goto("/#kontakt");
+    await dismissCookies(page);
+    const form = page.locator("#kontakt form");
+    await form.scrollIntoViewIfNeeded();
+    await form.getByLabel("Name").fill("Erika Muster");
+    await form.getByLabel("Firma").fill("Musterbank AG");
+    await form.getByLabel("E-Mail").fill("erika@musterbank.example");
+    await form.getByLabel("Branche").selectOption("Finanzen");
+    await form.getByLabel("Ihr Anliegen").fill("Interne Wissenssuche on-premise.");
+    await expect(page.getByRole("button", { name: /Anfrage per E-Mail senden/ })).toBeVisible();
+  });
+
+  test("Pflichtfelder verhindern leeres Absenden", async ({ page }) => {
+    await page.goto("/#kontakt");
+    await dismissCookies(page);
+    await page.getByRole("button", { name: /Anfrage per E-Mail senden/ }).click();
+    // HTML5-Validierung: das Formular bleibt, Name ist ungültig
+    await expect(page.locator("#kontakt input:invalid").first()).toBeAttached();
+  });
+
+  test("baut korrekten mailto-Link beim Absenden", async ({ page }) => {
+    await page.goto("/#kontakt");
+    await dismissCookies(page);
+    // Der versteckte Anker soll nicht wirklich navigieren — Klick abfangen.
+    await page.evaluate(() => {
+      const a = document.querySelector("#kontakt [data-mailto-target]") as HTMLAnchorElement;
+      a.addEventListener("click", (e) => e.preventDefault(), { capture: true });
+    });
+    const form = page.locator("#kontakt form");
+    await form.getByLabel("Firma").fill("Musterbank AG");
+    await form.getByLabel("Name").fill("Erika Muster");
+    await form.getByLabel("E-Mail").fill("erika@musterbank.example");
+    await form.getByLabel("Branche").selectOption("Finanzen");
+    await form.getByLabel("Ihr Anliegen").fill("Interne Wissenssuche.");
+    await page.getByRole("button", { name: /Anfrage per E-Mail senden/ }).click();
+
+    const href = await page.locator("#kontakt [data-mailto-target]").getAttribute("href");
+    expect(href).toContain("mailto:hello@twenty5ai.com");
+    const decoded = decodeURIComponent(href ?? "");
+    expect(decoded).toContain("Musterbank AG");
+    expect(decoded).toContain("Finanzen");
+    expect(decoded).toContain("Interne Wissenssuche.");
+  });
+});
+
 test.describe("Cookie-Banner", () => {
   test("erscheint beim ersten Besuch, verschwindet dauerhaft nach Zustimmung", async ({ page }) => {
     await page.goto("/");

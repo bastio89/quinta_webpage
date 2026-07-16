@@ -16,6 +16,7 @@ import {
 import { CountUp } from "@/components/motion/CountUp";
 import { GrowBar } from "@/components/motion/GrowBar";
 import { TerminalStream } from "@/components/motion/TerminalStream";
+import { DemoForm } from "@/components/DemoForm";
 
 /* ---------------- Hero ---------------- */
 
@@ -491,27 +492,30 @@ export function RolloutEn() {
 
 export function CtaEn() {
   return (
-    <section id="kontakt" className="bg-ink-900 pt-24 text-center sm:pt-28">
+    <section id="kontakt" className="bg-ink-900 py-24 sm:py-28">
       <div className="container-quinta">
-        <p className="mb-4 font-serif text-2xl italic text-copper-400">
-          Quinta — Portuguese for a country estate: the place where your data is at home.
-        </p>
-        <h2 className="mx-auto max-w-[760px] text-display-md font-semibold text-on-dark sm:text-display-lg">
-          Bring your AI home.
-        </h2>
-        <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
-          <a href="mailto:hello@twenty5ai.com" className="btn btn-primary">
-            Book a demo (30 min.)
-            <ArrowRight className="h-4 w-4" />
-          </a>
-          <a
-            href="/quinta-whitepaper-en.pdf"
-            target="_blank"
-            rel="noopener"
-            className="btn btn-inverse"
-          >
-            Technical whitepaper
-          </a>
+        <div className="grid items-center gap-12 lg:grid-cols-[1fr_1fr] lg:gap-16">
+          <div>
+            <p className="mb-4 font-serif text-2xl italic text-copper-400">
+              Quinta — Portuguese for a country estate: the place where your data is at home.
+            </p>
+            <h2 className="text-display-md font-semibold text-on-dark sm:text-display-lg">
+              Bring your AI home.
+            </h2>
+            <p className="mt-5 max-w-md leading-relaxed text-on-dark-muted">
+              In 30 minutes we show Quinta on your case — on your hardware, with your data, with
+              solid numbers instead of marketing.
+            </p>
+            <a
+              href="/quinta-whitepaper-en.pdf"
+              target="_blank"
+              rel="noopener"
+              className="mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-azul-400 hover:text-azul-300"
+            >
+              Read the technical whitepaper first →
+            </a>
+          </div>
+          <DemoForm lang="en" />
         </div>
       </div>
     </section>
